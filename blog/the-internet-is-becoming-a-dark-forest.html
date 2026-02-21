@@ -359,7 +359,8 @@
             <!-- 2b. The Internet Used to Be a City -->
             <div class="blog-section">
               <div class="blog-kicker">🏙️ The Internet Used to Be an Open City</div>
-              <figure style="margin: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-subtle);">
+              <p>In the early days, the Internet was like an open city:</p>
+              <figure style="margin: 0 0 var(--spacing-md); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-subtle);">
                 <img src="../assets/images/internet-city.jpg" alt="The Internet used to be an open city — IP addresses as street addresses, open ports as unlocked doors" style="width: 100%; height: auto; display: block;">
               </figure>
             </div>
@@ -373,7 +374,12 @@
                 <li>You will detect them.</li>
                 <li>You will respond fast enough.</li>
               </ol>
-              <p>That worked when attackers were human. But AI doesn't stand at the entrance. It scans the entire building from above, mapping structural flaws long before anyone notices. Vulnerability exploitation allows it to bypass authentication logic without ever presenting credentials. Neither assumption holds when the attacker is an autonomous AI agent running 24/7 at near-zero cost. </p>
+              <p>That worked when attackers were human. In the AI era, attackers have air superiority.</p>
+              <ol>
+                <li>They are no longer constrained by time, cost, or human fatigue.</li>
+                <li>They operate at machine speed.</li>
+              </ol>
+              <p>AI doesn't stand at the entrance. It scans the entire building from above, mapping structural flaws long before anyone notices. Vulnerability exploitation allows it to bypass authentication logic without ever presenting credentials. Neither assumption holds when the attacker is an autonomous AI agent running 24/7 at near-zero cost. </p>
               <div class="highlight-quote">In a world of autonomous reconnaissance, stronger locks and thicker walls are not enough.</div>
               <figure style="margin: var(--spacing-md) 0 var(--spacing-lg); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-subtle);">
                 <img src="../assets/images/ai-drone-attack.jpg" alt="AI-powered drone reconnaissance — a metaphor for how AI scans infrastructure from above, bypassing traditional perimeter defenses" style="width: 100%; height: auto; display: block;">
@@ -408,23 +414,16 @@
               <div class="highlight-quote">In the AI era: <strong>Visibility equals vulnerability.</strong></div>
             </div>
 
-            <!-- 6. Zero Trust Was Step One -->
+            <!-- 6+7. Beyond Zero Trust: Zero Visibility -->
             <div class="blog-section">
-              <div class="blog-kicker">🔒 Zero Trust Was Step One</div>
-              <p>Zero Trust says: <strong>Never trust. Always verify.</strong></p>
-              <p>But most Zero Trust systems are still reachable, scannable, and enumerable. They authenticate <em>after</em> contact — which means attackers can probe, fingerprint, and enumerate before a single credential is checked.</p>
-              <p>In an AI-driven world, that order matters enormously.</p>
-            </div>
-
-            <!-- 7. Zero Visibility -->
-            <div class="blog-section">
-              <div class="blog-kicker">🆕 The Next Evolution: Zero Visibility</div>
-              <p>Imagine infrastructure that offers:</p>
+              <div class="blog-kicker">🆕 Beyond Zero Trust: Zero Visibility</div>
+              <p>Zero Trust says: <strong>Never trust. Always verify.</strong> It was the right answer for the human-speed threat era.</p>
+              <p>But most Zero Trust systems are still reachable, scannable, and enumerable. They authenticate <em>after</em> contact — which means attackers can probe, fingerprint, and enumerate before a single credential is checked. In an AI-driven world, that order matters enormously.</p>
+              <p>Zero Trust reduces implicit trust. But it doesn't remove visibility. Zero Visibility goes further. Imagine infrastructure that offers:</p>
               <ul>
-                <li>❌ No port exposure</li>
-                <li>❌ No service enumeration</li>
-                <li>❌ No metadata leakage</li>
-                <li>❌ No response without proof</li>
+                <li>❌ No exposed IPs</li>
+                <li>❌ No open ports</li>
+                <li>❌ No DNS discoverability before authentication</li>
               </ul>
               <p>Only this:</p>
               <div class="mono-block">✔ Cryptographic proof of identity → Then connectivity</div>
@@ -436,7 +435,9 @@
                 </figcaption>
               </figure>
 
-              <p><strong>Zero Trust</strong> verifies identity. <strong>Zero Visibility</strong> eliminates exposure. The attack surface is not hardened — it is removed.</p>
+              <div class="highlight-quote">
+                <strong>Zero Trust</strong> verifies identity. <strong>Zero Visibility</strong> eliminates exposure. The attack surface is not hardened — it is removed.
+              </div>
             </div>
 
             <!-- 8. Strategic Shift -->
@@ -444,7 +445,7 @@
               <div class="blog-kicker">🔁 Strategic Shift</div>
               <p>Instead of asking <em>"How do we detect attacks faster?"</em> security leaders are beginning to ask:</p>
               <div class="highlight-quote">How do we make attacks computationally irrelevant?</div>
-              <p>This shift includes infrastructure hiding, session-layer cryptographic negotiation, default-deny networking, and attack surface elimination.</p>
+              <p>Network hiding is not a feature. It is an architectural shift. This shift includes infrastructure hiding, session-layer cryptographic negotiation, default-deny networking, and attack surface elimination.</p>
               <p><strong><a href="https://github.com/OpenNHP/opennhp" target="_blank" rel="noopener">OpenNHP</a></strong> is the open-source implementation of this approach — backed by the <a href="https://cloudsecurityalliance.org/artifacts/stealth-mode-sdp-for-zero-trust-network-infrastructure" target="_blank" rel="noopener">Cloud Security Alliance</a> and being standardised at the <a href="https://datatracker.ietf.org/doc/html/draft-opennhp-saag-nhp" target="_blank" rel="noopener">IETF</a>.</p>
             </div>
 
@@ -465,9 +466,12 @@
             <div class="blog-section">
               <div class="blog-kicker">❓ Final Question</div>
               <p>How many times was your infrastructure scanned today?</p>
-              <p>If AI can see everything… what would happen if it saw <strong>nothing</strong>?</p>
-              <p style="font-size: 1.05rem; color: var(--text-primary); font-weight: 600;">AI is the hunter. The Internet is becoming a Dark Forest.</p>
-              <p>Will your infrastructure still be visible?</p>
+              <p>Not by humans.<br>By machines.</p>
+              <p>If AI can see everything,<br>it will study everything.</p>
+              <p>What would happen<br>if it saw <strong>nothing</strong>?</p>
+              <p style="font-size: 1.05rem; color: var(--text-primary); font-weight: 600;">AI is the hunter.<br>And the Internet is becoming a Dark Forest.</p>
+              <p>The future of security is not better locks.</p>
+              <p style="font-size: 1.05rem; color: var(--text-primary); font-weight: 600;">It is disappearing doors.</p>
             </div>
 
             <!-- CTA -->

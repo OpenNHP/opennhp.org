@@ -13,7 +13,77 @@
   
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
-  
+
+  <style>
+    /* NHP Architecture Diagram animations
+     * Cycle (12s): 0-1s step1, 1-2s step2, 2-3s step3, 3-4s step4,
+     * 4-8s hold, 8-9s fade, 9-12s pause.
+     */
+    @keyframes step1Cycle {
+      0% { opacity: 0; transform: translateY(10px); }
+      8% { opacity: 1; transform: translateY(0); }
+      67% { opacity: 1; transform: translateY(0); }
+      75% { opacity: 0; transform: translateY(-5px); }
+      100% { opacity: 0; transform: translateY(10px); }
+    }
+    @keyframes step2Cycle {
+      0%, 8% { opacity: 0; transform: translateY(10px); }
+      17% { opacity: 1; transform: translateY(0); }
+      67% { opacity: 1; transform: translateY(0); }
+      75% { opacity: 0; transform: translateY(-5px); }
+      100% { opacity: 0; transform: translateY(10px); }
+    }
+    @keyframes step3Cycle {
+      0%, 17% { opacity: 0; transform: translateY(10px); }
+      25% { opacity: 1; transform: translateY(0); }
+      67% { opacity: 1; transform: translateY(0); }
+      75% { opacity: 0; transform: translateY(-5px); }
+      100% { opacity: 0; transform: translateY(10px); }
+    }
+    @keyframes step4Cycle {
+      0%, 25% { opacity: 0; transform: translateY(10px); }
+      33% { opacity: 1; transform: translateY(0); }
+      67% { opacity: 1; transform: translateY(0); }
+      75% { opacity: 0; transform: translateY(-5px); }
+      100% { opacity: 0; transform: translateY(10px); }
+    }
+    @keyframes agentGlow {
+      0% { box-shadow: 0 0 0 rgba(59, 130, 246, 0); border-color: #3b82f6; }
+      4% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); transform: scale(1.03); }
+      8% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.4); transform: scale(1); }
+      75%, 100% { box-shadow: 0 0 0 rgba(59, 130, 246, 0); border-color: #3b82f6; }
+    }
+    @keyframes acGlow {
+      0%, 8% { box-shadow: 0 0 0 rgba(234, 179, 8, 0); border-color: #ef4444; }
+      12% { box-shadow: 0 0 20px rgba(234, 179, 8, 0.8); border-color: #eab308; transform: scale(1.05); }
+      17% { box-shadow: 0 0 10px rgba(234, 179, 8, 0.4); border-color: #eab308; transform: scale(1); }
+      67% { box-shadow: 0 0 0 rgba(234, 179, 8, 0); border-color: #eab308; }
+      75% { box-shadow: 0 0 0 rgba(234, 179, 8, 0); border-color: #ef4444; }
+      100% { box-shadow: 0 0 0 rgba(234, 179, 8, 0); border-color: #ef4444; }
+    }
+    @keyframes serverGlow {
+      0%, 17% { box-shadow: 0 0 0 rgba(168, 85, 247, 0); border-color: #a855f7; }
+      21% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.8); transform: scale(1.03); }
+      25% { box-shadow: 0 0 10px rgba(168, 85, 247, 0.4); transform: scale(1); }
+      75%, 100% { box-shadow: 0 0 0 rgba(168, 85, 247, 0); border-color: #a855f7; }
+    }
+    @keyframes resourceGlow {
+      0%, 25% { box-shadow: 0 0 0 rgba(0, 255, 157, 0); }
+      29% { box-shadow: 0 0 25px rgba(0, 255, 157, 0.9); transform: scale(1.05); }
+      33% { box-shadow: 0 0 15px rgba(0, 255, 157, 0.5); transform: scale(1); }
+      67% { box-shadow: 0 0 10px rgba(0, 255, 157, 0.3); }
+      75%, 100% { box-shadow: 0 0 0 rgba(0, 255, 157, 0); }
+    }
+    .nhp-arrow-1, .nhp-box-1 { animation: step1Cycle    12s ease-in-out infinite; }
+    .nhp-arrow-2, .nhp-box-2 { animation: step2Cycle    12s ease-in-out infinite; }
+    .nhp-arrow-3, .nhp-box-3 { animation: step3Cycle    12s ease-in-out infinite; }
+    .nhp-arrow-4, .nhp-box-4 { animation: step4Cycle    12s ease-in-out infinite; }
+    .nhp-comp-agent            { animation: agentGlow    12s ease-in-out infinite; }
+    .nhp-comp-ac               { animation: acGlow       12s ease-in-out infinite; }
+    .nhp-comp-server           { animation: serverGlow   12s ease-in-out infinite; }
+    .nhp-comp-resource         { animation: resourceGlow 12s ease-in-out infinite; }
+  </style>
+
   <!-- Favicon -->
   <link rel="icon" href="/assets/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
@@ -248,6 +318,23 @@
           </p>
           
           <div style="display: flex; flex-direction: column; gap: var(--spacing-md); margin-top: var(--spacing-lg);">
+            <!-- Feb 2026 - Claude Code Security -->
+            <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: flex-start; padding: var(--spacing-lg);">
+              <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 12px; overflow: hidden; background: white; display: flex; align-items: center; justify-content: center;">
+                <img src="https://claude.ai/apple-touch-icon.png" alt="Claude" style="width: 100%; height: 100%; object-fit: contain;">
+              </div>
+              <div style="flex: 1;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <h3 class="card__title" style="margin: 0;">Claude Code Security: AI Finds Decades-Old Vulnerabilities</h3>
+                  <span style="color: var(--text-muted); font-size: 0.8rem;">Feb 2026</span>
+                </div>
+                <p class="card__desc" style="margin-bottom: 0.75rem;">
+                  Anthropic's Claude Code Security, powered by Opus 4.6, reads and reasons about codebases like a senior security researcher—tracing data flows, understanding component interactions, surfacing complex logic vulnerabilities that pattern-matching tools miss entirely. In internal testing on open-source software running across enterprise systems and critical infrastructure, it found vulnerabilities that had gone undetected for decades. Markets reacted immediately: CrowdStrike −8%, Cloudflare −8.1%, Zscaler −5.5%, Okta −9.2%.
+                </p>
+                <a href="https://www.anthropic.com/news/claude-code-security" target="_blank" style="color: var(--accent-primary); font-size: 0.85rem;">Anthropic Announcement →</a>
+              </div>
+            </div>
+
             <!-- Dec 2025 - Stanford ARTEMIS: AI Outperforms Human Hackers -->
             <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: flex-start; padding: var(--spacing-lg);">
               <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 12px; overflow: hidden; background: transparent;">
@@ -315,6 +402,11 @@
               </div>
             </div>
             
+          </div>
+
+          <button type="button" id="exploits-toggle" onclick="var el=document.getElementById('exploits-more');var shown=el.style.display==='flex';el.style.display=shown?'none':'flex';this.textContent=shown?'Show 3 older findings ▾':'Hide older findings ▴';" style="margin-top: var(--spacing-md); background: none; border: 1px solid rgba(0,255,157,0.25); color: var(--accent-primary); padding: 0.5rem 1.25rem; border-radius: 6px; cursor: pointer; font-size: 0.875rem; font-weight: 500; width: 100%; transition: background 0.2s;">Show 3 older findings ▾</button>
+
+          <div id="exploits-more" style="display: none; flex-direction: column; gap: var(--spacing-md); margin-top: var(--spacing-md);">
             <!-- Apr 2025 - Imperva Bad Bot Report: AI Supercharging Bot Attacks -->
             <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: flex-start; padding: var(--spacing-lg);">
               <div style="flex-shrink: 0; width: 56px; height: 56px; background: linear-gradient(135deg, #1e40af, #3b82f6); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
@@ -326,9 +418,9 @@
                   <span style="color: var(--text-muted); font-size: 0.8rem;">Apr 2025</span>
                 </div>
                 <p class="card__desc" style="margin-bottom: 0.75rem;">
-                  For the first time in a decade, automated traffic surpassed human activity (51% vs 49%). Bad bots now account for 
-                  <strong style="color: #ef4444;">37% of all internet traffic</strong>, up from 32% the year before. AI is lowering the barrier to entry—simple bot attacks 
-                  grew from 40% to 45%, while <strong>44% of advanced bot traffic targets APIs</strong>. Account takeover attacks increased by 40%, 
+                  For the first time in a decade, automated traffic surpassed human activity (51% vs 49%). Bad bots now account for
+                  <strong style="color: #ef4444;">37% of all internet traffic</strong>, up from 32% the year before. AI is lowering the barrier to entry—simple bot attacks
+                  grew from 40% to 45%, while <strong>44% of advanced bot traffic targets APIs</strong>. Account takeover attacks increased by 40%,
                   with AI-powered bots becoming more evasive and intelligent than ever.
                 </p>
                 <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
@@ -336,7 +428,7 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Nov 2024 - Google Big Sleep -->
             <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: flex-start; padding: var(--spacing-lg);">
               <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 12px; overflow: hidden; background: white;">
@@ -348,13 +440,13 @@
                   <span style="color: var(--text-muted); font-size: 0.8rem;">Nov 2024</span>
                 </div>
                 <p class="card__desc" style="margin-bottom: 0.75rem;">
-                  Google's Project Zero and DeepMind collaboration discovered the first real-world exploitable vulnerability 
+                  Google's Project Zero and DeepMind collaboration discovered the first real-world exploitable vulnerability
                   (stack buffer underflow in SQLite) using an AI agent—before it appeared in an official release.
                 </p>
                 <a href="https://projectzero.google/2024/10/from-naptime-to-big-sleep.html" target="_blank" style="color: var(--accent-primary); font-size: 0.85rem;">Google Project Zero →</a>
               </div>
             </div>
-            
+
             <!-- Apr 2024 - LLM Agents Exploit One-day Vulnerabilities -->
             <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: flex-start; padding: var(--spacing-lg);">
               <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; overflow: hidden; background: #13294B; display: flex; align-items: center; justify-content: center;">
@@ -366,7 +458,7 @@
                   <span style="color: var(--text-muted); font-size: 0.8rem;">Apr 2024</span>
                 </div>
                 <p class="card__desc" style="margin-bottom: 0.75rem;">
-                  UIUC research shows GPT-4 can autonomously exploit 87% of real-world one-day vulnerabilities when given CVE descriptions, 
+                  UIUC research shows GPT-4 can autonomously exploit 87% of real-world one-day vulnerabilities when given CVE descriptions,
                   compared to 0% for other models and open-source scanners like ZAP and Metasploit.
                 </p>
                 <a href="https://arxiv.org/abs/2404.08144" target="_blank" style="color: var(--accent-primary); font-size: 0.85rem;">UIUC Paper →</a>
@@ -515,94 +607,6 @@
           
           <!-- NHP Architecture Diagram (based on CSA Specification) -->
           <div class="card mt-xl" style="padding: var(--spacing-xl); background: linear-gradient(135deg, rgba(0, 255, 157, 0.03), rgba(124, 58, 237, 0.03)); overflow: hidden;">
-            <style>
-              /* 
-               * Animation cycle (12 seconds total):
-               * - 0-1s: Step 1 appears (Knock - Agent glows blue)
-               * - 1-2s: Step 2 appears (Allow - AC glows yellow)
-               * - 2-3s: Step 3 appears (Grant - Server glows purple)
-               * - 3-4s: Step 4 appears (Connect - Resource glows green)
-               * - 4-8s: All visible (hold)
-               * - 8-9s: All fade out together
-               * - 9-12s: All invisible (pause before next cycle)
-               */
-              
-              /* Step animations */
-              @keyframes step1Cycle {
-                0% { opacity: 0; transform: translateY(10px); }
-                8% { opacity: 1; transform: translateY(0); }
-                67% { opacity: 1; transform: translateY(0); }
-                75% { opacity: 0; transform: translateY(-5px); }
-                100% { opacity: 0; transform: translateY(10px); }
-              }
-              @keyframes step2Cycle {
-                0%, 8% { opacity: 0; transform: translateY(10px); }
-                17% { opacity: 1; transform: translateY(0); }
-                67% { opacity: 1; transform: translateY(0); }
-                75% { opacity: 0; transform: translateY(-5px); }
-                100% { opacity: 0; transform: translateY(10px); }
-              }
-              @keyframes step3Cycle {
-                0%, 17% { opacity: 0; transform: translateY(10px); }
-                25% { opacity: 1; transform: translateY(0); }
-                67% { opacity: 1; transform: translateY(0); }
-                75% { opacity: 0; transform: translateY(-5px); }
-                100% { opacity: 0; transform: translateY(10px); }
-              }
-              @keyframes step4Cycle {
-                0%, 25% { opacity: 0; transform: translateY(10px); }
-                33% { opacity: 1; transform: translateY(0); }
-                67% { opacity: 1; transform: translateY(0); }
-                75% { opacity: 0; transform: translateY(-5px); }
-                100% { opacity: 0; transform: translateY(10px); }
-              }
-              
-              /* Agent glows blue during Knock (step 1) */
-              @keyframes agentGlow {
-                0% { box-shadow: 0 0 0 rgba(59, 130, 246, 0); border-color: #3b82f6; }
-                4% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); transform: scale(1.03); }
-                8% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.4); transform: scale(1); }
-                75%, 100% { box-shadow: 0 0 0 rgba(59, 130, 246, 0); border-color: #3b82f6; }
-              }
-              
-              /* AC: default red border, turns yellow after Allow (step 2), stays yellow until reset */
-              @keyframes acGlow {
-                0%, 8% { box-shadow: 0 0 0 rgba(234, 179, 8, 0); border-color: #ef4444; }
-                12% { box-shadow: 0 0 20px rgba(234, 179, 8, 0.8); border-color: #eab308; transform: scale(1.05); }
-                17% { box-shadow: 0 0 10px rgba(234, 179, 8, 0.4); border-color: #eab308; transform: scale(1); }
-                67% { box-shadow: 0 0 0 rgba(234, 179, 8, 0); border-color: #eab308; } /* Stay yellow until fade */
-                75% { box-shadow: 0 0 0 rgba(234, 179, 8, 0); border-color: #ef4444; } /* Reset to red */
-                100% { box-shadow: 0 0 0 rgba(234, 179, 8, 0); border-color: #ef4444; }
-              }
-              
-              /* Server: purple border, glows purple during Grant (step 3) */
-              @keyframes serverGlow {
-                0%, 17% { box-shadow: 0 0 0 rgba(168, 85, 247, 0); border-color: #a855f7; }
-                21% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.8); transform: scale(1.03); }
-                25% { box-shadow: 0 0 10px rgba(168, 85, 247, 0.4); transform: scale(1); }
-                75%, 100% { box-shadow: 0 0 0 rgba(168, 85, 247, 0); border-color: #a855f7; }
-              }
-              
-              /* Resource glows green during Connect (step 4) */
-              @keyframes resourceGlow {
-                0%, 25% { box-shadow: 0 0 0 rgba(0, 255, 157, 0); }
-                29% { box-shadow: 0 0 25px rgba(0, 255, 157, 0.9); transform: scale(1.05); }
-                33% { box-shadow: 0 0 15px rgba(0, 255, 157, 0.5); transform: scale(1); }
-                67% { box-shadow: 0 0 10px rgba(0, 255, 157, 0.3); }
-                75%, 100% { box-shadow: 0 0 0 rgba(0, 255, 157, 0); }
-              }
-              
-              /* Apply animations */
-              .nhp-arrow-1, .nhp-box-1 { animation: step1Cycle 12s ease-in-out infinite; }
-              .nhp-arrow-2, .nhp-box-2 { animation: step2Cycle 12s ease-in-out infinite; }
-              .nhp-arrow-3, .nhp-box-3 { animation: step3Cycle 12s ease-in-out infinite; }
-              .nhp-arrow-4, .nhp-box-4 { animation: step4Cycle 12s ease-in-out infinite; }
-              .nhp-comp-agent { animation: agentGlow 12s ease-in-out infinite; }
-              .nhp-comp-ac { animation: acGlow 12s ease-in-out infinite; }
-              .nhp-comp-server { animation: serverGlow 12s ease-in-out infinite; }
-              .nhp-comp-resource { animation: resourceGlow 12s ease-in-out infinite; }
-            </style>
-            
             <h4 style="text-align: center; color: var(--text-secondary); margin-bottom: var(--spacing-md);">NHP Architecture and Workflow</h4>
             
             <!-- Core Components Description - Before Diagram -->
@@ -623,8 +627,8 @@
                 </div>
                 <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0; line-height: 1.4;">
                   Cryptographically verifies identity of agents, coordinates with Auth Provider, and grants time-limited access tokens.
-              </p>
-            </div>
+                </p>
+              </div>
               <div style="text-align: center;">
                 <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem;">
                   <span style="font-size: 1.25rem;">🚧</span>
@@ -905,15 +909,15 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
-        <div class="footer__brand">
+        <div class="footer__col footer__col--brand">
           <a href="index.html" class="footer__logo">
             <img src="assets/images/logo.png" alt="OpenNHP Logo" style="height: 36px; width: auto;">
           </a>
-          <p class="footer__desc">
+          <p class="footer__tagline">
             The Zero Trust Network-Infrastructure Hiding Protocol for the AI era.
           </p>
           <div class="footer__social">
-            <a href="https://github.com/OpenNHP" class="footer__social-link" target="_blank" aria-label="GitHub">
+            <a href="https://github.com/OpenNHP/opennhp" class="footer__social-link" target="_blank" aria-label="GitHub">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
             </a>
             <a href="https://discord.gg/CpyVmspx5x" class="footer__social-link" target="_blank" aria-label="Discord">
@@ -932,6 +936,7 @@
             <li><a href="https://github.com/OpenNHP/opennhp" class="footer__link" target="_blank">GitHub</a></li>
             <li><a href="specification.html" class="footer__link">Specification</a></li>
             <li><a href="research.html" class="footer__link">Research Papers</a></li>
+            <li><a href="blog/index.html" class="footer__link">Blog</a></li>
           </ul>
         </div>
         
@@ -963,5 +968,4 @@
   <script src="js/main.js"></script>
 </body>
 </html>
-
 

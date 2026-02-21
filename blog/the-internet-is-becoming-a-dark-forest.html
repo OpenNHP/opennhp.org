@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Internet Is Becoming a Dark Forest: Why AI Changes Network Security - OpenNHP Blog">
+  <title>The Internet Is Becoming a Dark Forest: Why AI Changes Network Security - OpenNHP Blog</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+
+  <style>
+    /* Blog post specific styles */
+    .blog-article {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: var(--spacing-xl);
+      flex-wrap: wrap;
+    }
+
+    .blog-meta__author {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .blog-meta__author-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-primary), #00b8ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #0a0e17;
+      flex-shrink: 0;
+    }
+
+    .blog-meta__date {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .blog-meta__tag {
+      background: rgba(0, 255, 157, 0.1);
+      border: 1px solid rgba(0, 255, 157, 0.25);
+      color: var(--accent-primary);
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .blog-divider {
+      border: none;
+      border-top: 1px solid var(--border-subtle);
+      margin: var(--spacing-xl) 0;
+    }
+
+    .blog-body h2 {
+      font-size: 1.5rem;
+      margin-top: var(--spacing-xl);
+      margin-bottom: var(--spacing-md);
+      color: var(--text-primary);
+    }
+
+    .blog-body h3 {
+      font-size: 1.15rem;
+      margin-top: var(--spacing-lg);
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-primary);
+    }
+
+    .blog-body p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .blog-body a {
+      color: var(--accent-primary);
+      text-decoration: none;
+    }
+
+    .blog-body a:hover {
+      text-decoration: underline;
+    }
+
+    .blog-body blockquote {
+      border-left: 4px solid var(--accent-primary);
+      padding-left: var(--spacing-lg);
+      margin: var(--spacing-lg) 0;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    .blog-body ul, .blog-body ol {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--spacing-md);
+      padding-left: 1.5rem;
+    }
+
+    .blog-body li {
+      margin-bottom: 0.4rem;
+    }
+
+    .placeholder-notice {
+      background: rgba(0, 255, 157, 0.05);
+      border: 1px dashed rgba(0, 255, 157, 0.3);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-xl);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .placeholder-notice strong {
+      color: var(--accent-primary);
+    }
+
+    .blog-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: var(--spacing-xl);
+      margin-top: var(--spacing-xl);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--spacing-md);
+    }
+
+    .blog-footer__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--accent-primary);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .blog-footer__back:hover {
+      text-decoration: underline;
+    }
+
+    .blog-footer__share {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .share-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color var(--transition-base);
+    }
+
+    .share-link:hover {
+      color: var(--accent-primary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Effects -->
+  <div class="bg-gradient-overlay"></div>
+  <div class="bg-grid"></div>
+  <div class="particles" id="particles"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="../index.html" class="nav__logo">
+          <img src="../assets/images/logo.png" alt="OpenNHP Logo" style="height: 40px; width: auto;">
+        </a>
+
+        <ul class="nav__menu" id="navMenu">
+          <li><a href="../vision.html" class="nav__link">Vision</a></li>
+          <li><a href="../specification.html" class="nav__link">Specification</a></li>
+          <li><a href="../demo.html" class="nav__link">Demo</a></li>
+          <li><a href="../opensource.html" class="nav__link">Open Source</a></li>
+          <li><a href="https://docs.opennhp.org" class="nav__link" target="_blank">Docs</a></li>
+          <li><a href="../research.html" class="nav__link">Research</a></li>
+          <li><a href="../community.html" class="nav__link">Community</a></li>
+        </ul>
+
+        <div class="nav__cta">
+          <a href="https://github.com/OpenNHP/opennhp" class="btn btn--primary btn--sm" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            <span>GitHub</span>
+            <span id="github-stars" style="background: rgba(255,255,255,0.2); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.75rem;">⭐</span>
+          </a>
+        </div>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <span class="page-header__label">Blog</span>
+      <h1 class="page-header__title" style="font-size: clamp(1.75rem, 4vw, 2.75rem); max-width: 800px; margin-left: auto; margin-right: auto;">
+        The Internet Is Becoming a <span class="text-gradient">Dark Forest</span>:<br>
+        Why AI Changes Network Security
+      </h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="section">
+      <div class="container">
+        <article class="blog-article">
+
+          <!-- Meta -->
+          <div class="blog-meta">
+            <div class="blog-meta__author">
+              <div class="blog-meta__author-avatar">NHP</div>
+              <span>The OpenNHP Team</span>
+            </div>
+            <span class="blog-meta__date">February 21, 2026</span>
+            <span class="blog-meta__tag">Security</span>
+            <span class="blog-meta__tag">AI</span>
+          </div>
+
+          <hr class="blog-divider">
+
+          <!-- Body -->
+          <div class="blog-body">
+
+            <p>
+              In Liu Cixin's science fiction trilogy <em>The Three-Body Problem</em>, the universe operates by a single,
+              terrifying rule: any civilization that reveals its location will be destroyed. The safest strategy is silence.
+              Invisibility. The universe is a dark forest—and so, increasingly, is the Internet.
+            </p>
+
+            <p>
+              This week, two product launches crystallised something security professionals have been watching build for years.
+              On February 19, an open-source project called <a href="https://pentagi.com/" target="_blank">PentAGI</a> quietly
+              went public on GitHub. On February 20, Anthropic announced
+              <a href="https://www.anthropic.com/news/claude-code-security" target="_blank">Claude Code Security</a>—and
+              cybersecurity stocks fell off a cliff. These two events, taken together with a growing body of academic research,
+              signal that we have crossed a threshold. AI has made attack capabilities cheap, fast, and accessible to anyone.
+              The equation is now simple: <strong>if you are visible, you are vulnerable.</strong>
+            </p>
+
+            <!-- Product launch callout cards -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: var(--spacing-lg) 0;">
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.65rem;">
+                  <div style="width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">🕵️</div>
+                  <div>
+                    <div style="font-weight: 600; color: var(--text-primary); font-size: 0.95rem;">PentAGI</div>
+                    <div style="font-size: 0.72rem; color: var(--accent-primary);">Feb 19, 2026 · Open Source</div>
+                  </div>
+                </div>
+                <p style="margin: 0; color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6;">Fully autonomous pentest AI. 20+ security tools. Any LLM. One <code>git clone</code>.</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem;">
+                <div style="display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.65rem;">
+                  <img src="https://claude.ai/apple-touch-icon.png" alt="Claude" style="width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0; object-fit: cover;">
+                  <div>
+                    <div style="font-weight: 600; color: var(--text-primary); font-size: 0.95rem;">Claude Code Security</div>
+                    <div style="font-size: 0.72rem; color: var(--accent-primary);">Feb 20, 2026 · Anthropic</div>
+                  </div>
+                </div>
+                <p style="margin: 0; color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6;">Finds decades-old vulns in production codebases. Cybersecurity stocks fell 5–9%.</p>
+              </div>
+            </div>
+
+            <h2>The Tools Are Here</h2>
+
+            <p>
+              PentAGI is not a proof-of-concept paper. It is a fully autonomous, open-source penetration testing system that
+              anyone can clone from GitHub and run today. Built by <a href="https://github.com/vxcontrol/pentagi" target="_blank">VXControl</a>,
+              it coordinates a team of specialised AI agents—one for reconnaissance, one for coding, one for infrastructure—that
+              work together to independently discover, analyse, and exploit vulnerabilities. It ships with over 20 integrated
+              security tools (nmap, metasploit, sqlmap, and more), runs in an isolated Docker environment for safety, and can
+              use any major LLM—OpenAI, Claude, Gemini, or a locally-hosted Ollama model. The barrier to running a
+              sophisticated penetration test has collapsed to a <code>git clone</code>.
+            </p>
+
+            <p>
+              Claude Code Security is different in kind but identical in implication. Anthropic's new Opus 4.6 model,
+              embedded directly into the Claude Code development environment, reads and reasons about codebases the way
+              a senior security researcher would—tracing data flows, understanding component interactions, surfacing
+              complex logic vulnerabilities that pattern-matching tools miss entirely. In internal testing on open-source
+              software running across enterprise systems and critical infrastructure,
+              <strong>Opus 4.6 found vulnerabilities that had gone undetected for decades.</strong> When the announcement
+              dropped on February 20, markets reacted immediately: CrowdStrike fell 8%, Cloudflare dropped 8.1%,
+              Zscaler shed 5.5%, and Okta declined 9.2%. The market was pricing in a world where AI finds vulnerabilities
+              faster than companies can sell you tools to detect the resulting breaches.
+            </p>
+
+            <!-- Market reaction stats -->
+            <div style="background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.15); border-radius: 10px; padding: 1.25rem; margin: var(--spacing-md) 0;">
+              <div style="font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.75rem;">Cybersecurity sector — Feb 20, 2026 market close</div>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center;">
+                <div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); border-radius: 8px; padding: 0.5rem 0.9rem; text-align: center; min-width: 88px;">
+                  <div style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.15rem;">CrowdStrike</div>
+                  <div style="font-size: 1.2rem; font-weight: 700; color: #ef4444; line-height: 1;">−8.0%</div>
+                </div>
+                <div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); border-radius: 8px; padding: 0.5rem 0.9rem; text-align: center; min-width: 88px;">
+                  <div style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.15rem;">Cloudflare</div>
+                  <div style="font-size: 1.2rem; font-weight: 700; color: #ef4444; line-height: 1;">−8.1%</div>
+                </div>
+                <div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); border-radius: 8px; padding: 0.5rem 0.9rem; text-align: center; min-width: 88px;">
+                  <div style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.15rem;">Zscaler</div>
+                  <div style="font-size: 1.2rem; font-weight: 700; color: #ef4444; line-height: 1;">−5.5%</div>
+                </div>
+                <div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); border-radius: 8px; padding: 0.5rem 0.9rem; text-align: center; min-width: 88px;">
+                  <div style="font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.15rem;">Okta</div>
+                  <div style="font-size: 1.2rem; font-weight: 700; color: #ef4444; line-height: 1;">−9.2%</div>
+                </div>
+              </div>
+            </div>
+
+            <h2>The Research That Got Us Here</h2>
+
+            <p>
+              Neither of these products appeared from nowhere. The research trajectory has been clear for two years.
+            </p>
+
+            <!-- Research timeline -->
+            <div style="display: flex; flex-direction: column; gap: 1rem; margin: var(--spacing-lg) 0; border-left: 2px solid var(--border-subtle); padding-left: var(--spacing-lg);">
+
+              <div>
+                <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.3rem;">
+                  <span style="color: var(--accent-primary); font-weight: 700; font-size: 0.8rem; white-space: nowrap;">Apr 2024</span>
+                  <strong>UIUC: LLM agents exploit 87% of one-day CVEs autonomously.</strong>
+                </div>
+                <p style="margin: 0; font-size: 0.9rem;">
+                  University of Illinois researchers showed that GPT-4 could autonomously exploit 87% of real-world
+                  one-day vulnerabilities when given only a CVE description—compared to 0% for open-source scanners
+                  like Metasploit. <a href="https://arxiv.org/abs/2404.08144" target="_blank">Paper →</a>
+                </p>
+              </div>
+
+              <div>
+                <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.3rem;">
+                  <span style="color: var(--accent-primary); font-weight: 700; font-size: 0.8rem; white-space: nowrap;">Nov 2024</span>
+                  <strong>Google Big Sleep: first real-world vulnerability found by an AI agent.</strong>
+                </div>
+                <p style="margin: 0; font-size: 0.9rem;">
+                  Google's Project Zero and DeepMind collaboration discovered a stack buffer underflow in SQLite—a
+                  real, exploitable vulnerability—before it appeared in any official release.
+                  <a href="https://projectzero.google/2024/10/from-naptime-to-big-sleep.html" target="_blank">Google Project Zero →</a>
+                </p>
+              </div>
+
+              <div>
+                <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.3rem;">
+                  <span style="color: var(--accent-primary); font-weight: 700; font-size: 0.8rem; white-space: nowrap;">Apr 2025</span>
+                  <strong>Imperva: automated traffic exceeds human traffic for the first time.</strong>
+                </div>
+                <p style="margin: 0; font-size: 0.9rem;">
+                  Bad bots now account for 37% of all internet traffic—up from 32% the prior year. For the first
+                  time in a decade, automated traffic (51%) surpassed human traffic (49%). AI is lowering the floor
+                  for bot sophistication while raising the ceiling.
+                  <a href="https://www.imperva.com/blog/2025-imperva-bad-bot-report-how-ai-is-supercharging-the-bot-threat/" target="_blank">Imperva Report →</a>
+                </p>
+              </div>
+
+              <div>
+                <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.3rem;">
+                  <span style="color: var(--accent-primary); font-weight: 700; font-size: 0.8rem; white-space: nowrap;">May 2025</span>
+                  <strong>OpenAI o3 discovers a Linux kernel zero-day with no scaffolding.</strong>
+                </div>
+                <p style="margin: 0; font-size: 0.9rem;">
+                  Security researcher Sean Heelan used o3 directly via API—no agentic framework, no tooling—to
+                  discover CVE-2025-37899, a remote zero-day use-after-free in the Linux kernel's SMB implementation.
+                  <a href="https://sean.heelan.io/2025/05/22/how-i-used-o3-to-find-cve-2025-37899-a-remote-zeroday-vulnerability-in-the-linux-kernels-smb-implementation/" target="_blank">Sean Heelan's blog →</a>
+                </p>
+              </div>
+
+              <div>
+                <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.3rem;">
+                  <span style="color: var(--accent-primary); font-weight: 700; font-size: 0.8rem; white-space: nowrap;">Aug 2025</span>
+                  <strong>AI generates working CVE exploits in 10–15 minutes, at $1 per exploit.</strong>
+                </div>
+                <p style="margin: 0; font-size: 0.9rem;">
+                  The traditional patch window—measured in weeks—has collapsed to minutes. Exploits for newly
+                  published CVEs are being generated automatically and made publicly available.
+                  <a href="https://cybersecuritynews.com/ai-generate-cve-exploits/" target="_blank">Cyber Security News →</a>
+                </p>
+              </div>
+
+              <div>
+                <div style="display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.3rem;">
+                  <span style="color: var(--accent-primary); font-weight: 700; font-size: 0.8rem; white-space: nowrap;">Dec 2025</span>
+                  <strong>Stanford ARTEMIS outperforms 9 of 10 professional penetration testers.</strong>
+                </div>
+                <p style="margin: 0; font-size: 0.9rem;">
+                  Stanford's ARTEMIS AI agent achieved 82% accuracy in a live enterprise environment—at $18/hour
+                  versus $60/hour for human pentesters. The researchers concluded that AI hackers are
+                  "dangerously close" to exceeding human capabilities.
+                  <a href="https://arxiv.org/html/2512.09882v1" target="_blank">Stanford paper →</a>
+                </p>
+              </div>
+
+            </div>
+
+            <p>
+              And now, in February 2026: an open-source autonomous attack agent freely available to anyone, and an
+              AI from Anthropic that finds vulnerabilities humans have missed for decades.
+              The research phase is over. This is production.
+            </p>
+
+            <h2>Visibility = Vulnerability</h2>
+
+            <p>
+              The CrowdStrike Global Threat Report tells the same story from the defender's perspective. Mean time to
+              full compromise fell from 7 minutes in 2022, to 2 minutes 7 seconds in 2023, to
+              <strong>51 seconds in 2024</strong>—an 88% reduction in three years. Over the same period, new
+              vulnerabilities tracked by NVD grew from 25,000 to 40,000 per year. The math is unforgiving:
+              faster exploits, more attack surface, less time to respond.
+            </p>
+
+            <!-- Mean time to compromise chart -->
+            <div style="background: rgba(239,68,68,0.03); border: 1px solid rgba(239,68,68,0.15); border-radius: 12px; padding: 1.5rem; margin: var(--spacing-lg) 0;">
+              <div style="font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 1.1rem;">Mean Time to Full Compromise — CrowdStrike Global Threat Report</div>
+              <div style="display: flex; flex-direction: column; gap: 0.7rem;">
+                <div style="display: flex; align-items: center; gap: 0.9rem;">
+                  <span style="color: var(--text-muted); font-size: 0.8rem; width: 2.5rem; text-align: right; flex-shrink: 0;">2022</span>
+                  <div style="flex: 1; height: 34px; background: rgba(255,255,255,0.04); border-radius: 6px; overflow: hidden; position: relative;">
+                    <div style="position: absolute; inset: 0; background: rgba(239,68,68,0.22); border-radius: 6px; display: flex; align-items: center; padding-left: 0.8rem;">
+                      <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">7 minutes</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.9rem;">
+                  <span style="color: var(--text-muted); font-size: 0.8rem; width: 2.5rem; text-align: right; flex-shrink: 0;">2023</span>
+                  <div style="flex: 1; height: 34px; background: rgba(255,255,255,0.04); border-radius: 6px; overflow: hidden; position: relative;">
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 30%; background: rgba(239,68,68,0.48); border-radius: 6px; min-width: 80px; display: flex; align-items: center; padding-left: 0.8rem;">
+                      <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">2m 7s</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.9rem;">
+                  <span style="color: var(--text-muted); font-size: 0.8rem; width: 2.5rem; text-align: right; flex-shrink: 0;">2024</span>
+                  <div style="flex: 1; height: 34px; background: rgba(255,255,255,0.04); border-radius: 6px; overflow: hidden; position: relative;">
+                    <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 12%; background: #ef4444; border-radius: 6px; min-width: 60px; display: flex; align-items: center; padding-left: 0.8rem;">
+                      <span style="font-size: 0.9rem; font-weight: 700; color: white;">51s</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p style="margin: 0.8rem 0 0; font-size: 0.78rem; color: var(--text-muted);">88% reduction in three years. The detection-and-response window has effectively closed.</p>
+            </div>
+
+            <p>
+              The conventional response—detect, alert, patch—was already struggling. It assumed human-speed attacks
+              against a manageable number of vulnerabilities. Neither assumption holds today. When a working exploit
+              can be generated in 15 minutes for $1, and when autonomous agents are already running
+              24/7 scanning the Internet, the detection window has effectively closed.
+            </p>
+
+            <blockquote>
+              "In the age of GenAI, preemptive capabilities—not detection and response—are the future of cybersecurity."
+              <cite>— Gartner, September 2025</cite>
+            </blockquote>
+
+            <p>
+              There is a precise word for what Gartner is describing: <strong>invisibility</strong>. If the service
+              cannot be found, it cannot be scanned. If it cannot be scanned, no CVE exploit—however cheap and
+              fast to generate—can be applied to it. The attack surface is not hardened; it is removed.
+            </p>
+
+            <h2>The Solution: Invisibility by Default</h2>
+
+            <p>
+              This is the founding premise of <strong>OpenNHP</strong>—the Network-resource Hiding Protocol. Rather
+              than trying to detect and block attacks faster than AI can launch them, NHP makes your services
+              invisible to anyone who has not first been cryptographically verified.
+            </p>
+
+            <p>
+              The model is simple but radical. By default, every port, every service, every IP address is dark.
+              Nothing responds. Nothing is listed in any scan. An attacker—whether human, bot, or autonomous AI
+              agent—sees nothing to attack. Only after an NHP-Agent presents a valid, cryptographic identity does
+              the NHP-Server grant a time-limited token and instruct the Access Controller to open a connection.
+              The window is narrow, targeted, and logged. The rest of the Internet never sees it.
+            </p>
+
+            <!-- NHP before/after diagram -->
+            <div style="margin: var(--spacing-xl) 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+              <!-- Without NHP -->
+              <div style="background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.2); border-radius: 14px; padding: 1.5rem; text-align: center;">
+                <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #ef4444; margin-bottom: 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(239,68,68,0.15);">Without NHP</div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; padding: 0.35rem 0.75rem; font-size: 0.82rem; color: #ef4444;">🤖 AI Scanner</div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 0.1rem; color: rgba(239,68,68,0.6); font-size: 0.78rem;">
+                    <span>↓ finds open port</span>
+                    <span>↓ identifies service</span>
+                    <span>↓ generates exploit</span>
+                  </div>
+                  <div style="background: rgba(239,68,68,0.12); border: 2px solid #ef4444; border-radius: 8px; padding: 0.55rem 0.9rem; font-size: 0.82rem; font-family: monospace; color: #ef4444; line-height: 1.5;">
+                    SERVER :443<br>
+                    <span style="font-size: 0.72rem; color: rgba(239,68,68,0.6);">publicly visible</span>
+                  </div>
+                  <div style="font-size: 0.9rem; color: #ef4444; font-weight: 700; margin-top: 0.25rem;">💥 compromised</div>
+                </div>
+              </div>
+              <!-- With NHP -->
+              <div style="background: rgba(0,255,157,0.03); border: 1px solid rgba(0,255,157,0.2); border-radius: 14px; padding: 1.5rem; text-align: center;">
+                <div style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-primary); margin-bottom: 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(0,255,157,0.15);">With OpenNHP</div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <div style="display: flex; gap: 0.6rem;">
+                    <div style="background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); border-radius: 8px; padding: 0.35rem 0.6rem; font-size: 0.78rem; color: rgba(239,68,68,0.7);">🤖 Scanner</div>
+                    <div style="background: rgba(0,255,157,0.08); border: 1px solid rgba(0,255,157,0.25); border-radius: 8px; padding: 0.35rem 0.6rem; font-size: 0.78rem; color: rgba(0,255,157,0.8);">👤 Verified user</div>
+                  </div>
+                  <div style="display: flex; gap: 1rem;">
+                    <span style="font-size: 0.78rem; color: rgba(239,68,68,0.6);">✕ no response</span>
+                    <span style="font-size: 0.78rem; color: rgba(0,255,157,0.7);">↓ NHP auth ✓</span>
+                  </div>
+                  <div style="background: rgba(10,14,23,0.9); border: 2px solid rgba(0,255,157,0.35); border-radius: 8px; padding: 0.55rem 0.9rem; font-size: 0.82rem; font-family: monospace; color: rgba(0,255,157,0.7); line-height: 1.5;">
+                    SERVER ● ● ●<br>
+                    <span style="font-size: 0.72rem; color: rgba(0,255,157,0.35);">invisible to scanner</span>
+                  </div>
+                  <div style="font-size: 0.9rem; color: var(--accent-primary); font-weight: 700; margin-top: 0.25rem;">✓ zero attack surface</div>
+                </div>
+              </div>
+            </div>
+
+            <p>
+              This is not a new idea wrapped in new marketing. NHP is grounded in a formal architecture that has
+              been developed alongside and validated by two of the world's most rigorous standards bodies:
+            </p>
+
+            <ul>
+              <li>
+                <strong>Cloud Security Alliance (CSA)</strong> — NHP is the technical foundation of the CSA's
+                <a href="https://cloudsecurityalliance.org/artifacts/stealth-mode-sdp-for-zero-trust-network-infrastructure" target="_blank" rel="noopener">Stealth Mode SDP for Zero Trust Network Infrastructure</a>
+                specification, which defines how Zero Trust Network Access should be implemented at the protocol level.
+              </li>
+              <li>
+                <strong>IETF</strong> — The NHP protocol is being formally standardised as
+                <a href="https://datatracker.ietf.org/doc/html/draft-opennhp-saag-nhp" target="_blank" rel="noopener">draft-opennhp-saag-nhp</a>
+                on the IETF standards track, the same body that defined TCP/IP, HTTP, TLS, and DNS.
+              </li>
+            </ul>
+
+            <p>
+              OpenNHP is the open-source implementation of this protocol. It is available now, under the Apache 2.0
+              licence, for any organisation to deploy.
+            </p>
+
+            <h2>The Forest Is Getting Darker</h2>
+
+            <p>
+              PentAGI and Claude Code Security are not the end of this story. They are the point where attack
+              capabilities became freely available to everyone, including actors with no security background and
+              no budget. The democratisation of offensive AI was always going to happen. It has happened.
+            </p>
+
+            <p>
+              The question every organisation must now answer is the same one Liu Cixin posed at a cosmic scale:
+              in a forest where any signal draws a hunter, what is the rational strategy?
+            </p>
+
+            <p>
+              The answer is the same whether you are a civilisation in the universe or a server on the Internet.
+              <strong>Don't be visible.</strong>
+            </p>
+
+            <!-- CTA -->
+            <div style="background: linear-gradient(135deg, rgba(0, 255, 157, 0.08), rgba(0, 184, 255, 0.05)); border: 1px solid rgba(0, 255, 157, 0.2); border-radius: var(--radius-lg); padding: var(--spacing-xl); margin-top: var(--spacing-xl); text-align: center;">
+              <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: var(--spacing-md);">
+                OpenNHP makes your infrastructure invisible by default—<br>
+                no surface to scan, no service to exploit.
+              </p>
+              <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                <a href="https://github.com/OpenNHP/opennhp" target="_blank" class="btn btn--primary btn--sm" style="text-decoration: none;">View on GitHub →</a>
+                <a href="../vision.html" style="color: var(--accent-primary); font-size: 0.9rem; display: flex; align-items: center; text-decoration: none;">Read the full vision →</a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Article Footer -->
+          <div class="blog-footer">
+            <a href="../index.html" class="blog-footer__back">
+              ← Back to OpenNHP.org
+            </a>
+            <div class="blog-footer__share">
+              <span>Share:</span>
+              <a href="https://twitter.com/intent/tweet?text=The+Internet+Is+Becoming+a+Dark+Forest%3A+Why+AI+Changes+Network+Security&url=https%3A%2F%2Fopennhp.org%2Fblog%2Fthe-internet-is-becoming-a-dark-forest.html" target="_blank" class="share-link" aria-label="Share on X">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fopennhp.org%2Fblog%2Fthe-internet-is-becoming-a-dark-forest.html" target="_blank" class="share-link" aria-label="Share on LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__col--brand">
+          <a href="../index.html" class="footer__logo">
+            <img src="../assets/images/logo.png" alt="OpenNHP Logo" style="height: 36px; width: auto;">
+          </a>
+          <p class="footer__tagline">A global, non-profit open source initiative</p>
+          <div class="footer__social">
+            <a href="https://github.com/OpenNHP/opennhp" class="footer__social-link" target="_blank" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://discord.gg/CpyVmspx5x" class="footer__social-link" target="_blank" aria-label="Discord">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            </a>
+            <a href="mailto:support@opennhp.org" class="footer__social-link" aria-label="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__col-title">Resources</h4>
+          <ul class="footer__links">
+            <li><a href="https://docs.opennhp.org" class="footer__link" target="_blank">Documentation</a></li>
+            <li><a href="https://github.com/OpenNHP/opennhp" class="footer__link" target="_blank">GitHub</a></li>
+            <li><a href="../specification.html" class="footer__link">Specification</a></li>
+            <li><a href="../research.html" class="footer__link">Research Papers</a></li>
+            <li><a href="index.html" class="footer__link">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__col-title">Community</h4>
+          <ul class="footer__links">
+            <li><a href="https://discord.gg/CpyVmspx5x" class="footer__link" target="_blank">Discord</a></li>
+            <li><a href="https://github.com/OpenNHP/opennhp/discussions" class="footer__link" target="_blank">Discussions</a></li>
+            <li><a href="https://github.com/OpenNHP/opennhp/blob/main/CODE_OF_CONDUCT.md" class="footer__link" target="_blank">Code of Conduct</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4 class="footer__col-title">Sponsors</h4>
+          <ul class="footer__links">
+            <li><a href="https://layerv.ai" class="footer__link" target="_blank"><img src="https://layerv.ai/layerv-wordmark.svg" alt="LayerV.ai" style="height: 20px; width: auto; vertical-align: middle;"></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 OpenNHP Project. <span style="color: #10b981; font-weight: 500;">A global, non-profit open source initiative.</span> Released under Apache 2.0 License.</p>
+        <p>Made with ❤️ by the OpenNHP Community</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

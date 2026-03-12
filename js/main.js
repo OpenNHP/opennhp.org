@@ -3,6 +3,10 @@
  * Dark Forest Theme Interactions
  */
 
+// To God be the glory
+console.log('%c✝ To God be the glory ✝', 'color: #FFD700; font-size: 16px; font-weight: bold;');
+console.log('%c"The name of the LORD is a strong tower; the righteous run to it and are safe." — Proverbs 18:10', 'color: #888; font-style: italic;');
+
 // ============================================
 // Navigation
 // ============================================

@@ -203,10 +203,11 @@ document.querySelectorAll('.hero__stat-value').forEach(stat => {
 // ============================================
 function setupCodeCopy() {
   document.querySelectorAll('pre code').forEach(block => {
+    const pre = block.parentNode;
     const wrapper = document.createElement('div');
     wrapper.style.position = 'relative';
-    block.parentNode.insertBefore(wrapper, block);
-    wrapper.appendChild(block.parentNode.previousSibling === wrapper ? block : block.parentNode.removeChild(block.parentNode).querySelector('code'));
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
     
     const copyBtn = document.createElement('button');
     copyBtn.className = 'btn btn--sm';

@@ -1,0 +1,11 @@
+{{ define "head_extra" }}
+{{ with .Params.extra_css }}
+<style>
+{{ . | safeCSS }}
+</style>
+{{ end }}
+{{ end }}
+
+{{ define "main" }}
+{{ .Content }}
+{{ end }}

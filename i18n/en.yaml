@@ -1,0 +1,21 @@
+# Navigation
+nav_vision: "Vision"
+nav_specification: "Specification"
+nav_demo: "Demo"
+nav_opensource: "Open Source"
+nav_docs: "Docs"
+nav_research: "Research"
+nav_community: "Community"
+
+# Footer
+footer_desc: "The Zero Trust Network-Infrastructure Hiding Protocol for the AI era. Open source, cryptography-powered, built for modern threats."
+footer_resources: "Resources"
+footer_documentation: "Documentation"
+footer_research_papers: "Research Papers"
+footer_blog: "Blog"
+footer_discussions: "Discussions"
+footer_code_of_conduct: "Code of Conduct"
+footer_contributors: "Contributors"
+footer_sponsors: "Sponsors"
+footer_copyright: "© 2026 OpenNHP Project. <span style=\"color: #10b981; font-weight: 500;\">A global, non-profit open source initiative.</span> Released under Apache 2.0 License."
+footer_attribution: "Built with ❤️ — Ad Majorem Dei Gloriam"

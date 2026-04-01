@@ -1,0 +1,38 @@
+baseURL = 'https://www.opennhp.org'
+title = 'OpenNHP - Zero Trust Network Hiding Protocol'
+
+disableKinds = ['taxonomy']
+disableHugoGeneratorInject = true
+
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.en]
+    languageName = 'English'
+    weight = 1
+    contentDir = 'content/en'
+  [languages.zh-cn]
+    languageName = '简体中文'
+    weight = 2
+    contentDir = 'content/zh-cn'
+  [languages.zh-tw]
+    languageName = '繁體中文'
+    weight = 3
+    contentDir = 'content/zh-tw'
+  [languages.ja]
+    languageName = '日本語'
+    weight = 4
+    contentDir = 'content/ja'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[taxonomies]
+
+[outputs]
+  home = ['HTML']
+  section = ['HTML']
+  page = ['HTML']

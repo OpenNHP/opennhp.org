@@ -1,0 +1,21 @@
+# Navigation
+nav_vision: "ビジョン"
+nav_specification: "仕様"
+nav_demo: "デモ"
+nav_opensource: "オープンソース"
+nav_docs: "ドキュメント"
+nav_research: "研究"
+nav_community: "コミュニティ"
+
+# Footer
+footer_desc: "AI時代のゼロトラスト・ネットワーク基盤隠蔽プロトコル。オープンソース、暗号技術駆動、現代の脅威に対応。"
+footer_resources: "リソース"
+footer_documentation: "ドキュメント"
+footer_research_papers: "研究論文"
+footer_blog: "ブログ"
+footer_discussions: "ディスカッション"
+footer_code_of_conduct: "行動規範"
+footer_contributors: "コントリビューター"
+footer_sponsors: "スポンサー"
+footer_copyright: "© 2026 OpenNHP プロジェクト。<span style=\"color: #10b981; font-weight: 500;\">グローバルな非営利オープンソースイニシアチブ。</span>Apache 2.0 ライセンスに基づき公開。"
+footer_attribution: "❤️ を込めて構築 — Ad Majorem Dei Gloriam"

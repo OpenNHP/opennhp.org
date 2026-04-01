@@ -1,0 +1,21 @@
+# Navigation
+nav_vision: "愿景"
+nav_specification: "规范"
+nav_demo: "演示"
+nav_opensource: "开源项目"
+nav_docs: "文档"
+nav_research: "研究"
+nav_community: "社区"
+
+# Footer
+footer_desc: "面向AI时代的零信任网络基础设施隐身协议。开源、密码学驱动、为现代威胁而构建。"
+footer_resources: "资源"
+footer_documentation: "文档"
+footer_research_papers: "研究论文"
+footer_blog: "博客"
+footer_discussions: "讨论"
+footer_code_of_conduct: "行为准则"
+footer_contributors: "贡献者"
+footer_sponsors: "赞助商"
+footer_copyright: "© 2026 OpenNHP 项目。<span style=\"color: #10b981; font-weight: 500;\">全球性非营利开源计划。</span>基于 Apache 2.0 许可证发布。"
+footer_attribution: "以 ❤️ 构建 — 愈显主荣"

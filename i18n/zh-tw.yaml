@@ -1,0 +1,21 @@
+# Navigation
+nav_vision: "願景"
+nav_specification: "規範"
+nav_demo: "演示"
+nav_opensource: "開源專案"
+nav_docs: "文件"
+nav_research: "研究"
+nav_community: "社群"
+
+# Footer
+footer_desc: "面向AI時代的零信任網路基礎設施隱身協議。開源、密碼學驅動、為現代威脅而構建。"
+footer_resources: "資源"
+footer_documentation: "文件"
+footer_research_papers: "研究論文"
+footer_blog: "部落格"
+footer_discussions: "討論"
+footer_code_of_conduct: "行為準則"
+footer_contributors: "貢獻者"
+footer_sponsors: "贊助商"
+footer_copyright: "© 2026 OpenNHP 專案。<span style=\"color: #10b981; font-weight: 500;\">全球性非營利開源計畫。</span>基於 Apache 2.0 授權條款發布。"
+footer_attribution: "以 ❤️ 構建 — 愈顯主榮"

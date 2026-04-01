@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  {{ "<!-- To God be the glory -->" | safeHTML }}
+  {{ partial "head.html" . }}
+  {{ block "head_extra" . }}{{ end }}
+</head>
+<body>
+  {{ partial "background.html" . }}
+  {{ partial "nav.html" . }}
+
+  {{ block "main" . }}{{ end }}
+
+  {{ partial "footer.html" . }}
+
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
+</body>
+</html>

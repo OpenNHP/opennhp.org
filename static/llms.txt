@@ -1,0 +1,30 @@
+# OpenNHP
+
+> OpenNHP is an open-source, cryptography-powered Zero Trust network hiding protocol for the AI era. It makes infrastructure invisible by default — no exposed IPs, no open ports, no DNS discoverability before authentication. Backed by the Cloud Security Alliance and being standardised at the IETF.
+
+## Core Pages
+
+- [Vision](https://opennhp.org/vision.html): Why the Internet is becoming a Dark Forest and how Zero Visibility addresses AI-era threats. Covers the shift from Zero Trust to Zero Visibility.
+- [Specification](https://opennhp.org/specification.html): Technical specification of the NHP protocol — architecture, components, cryptographic design, and packet format.
+- [Open Source](https://opennhp.org/opensource.html): The OpenNHP open-source project, GitHub repository, contributors, and how to get involved.
+- [Research](https://opennhp.org/research.html): Academic papers and standards documents — CSA specification and IETF Internet-Draft.
+- [Demo](https://opennhp.org/demo.html): Live demonstration of OpenNHP's Zero Visibility capabilities.
+- [Community](https://opennhp.org/community.html): Discord, GitHub Discussions, and community resources.
+- [Documentation](https://docs.opennhp.org): Full developer and operator documentation.
+
+## Blog
+
+- [The Internet Is Becoming a Dark Forest — And AI Is the Hunter](https://opennhp.org/blog/the-internet-is-becoming-a-dark-forest.html): How AI is transforming network threats, why visibility equals vulnerability, and how Zero Visibility architecture (OpenNHP) addresses the AI-era attack surface. References PentAGI (autonomous AI pentesting) and Claude Code Security (500+ vulnerabilities found in production codebases).
+
+## Key Concepts
+
+- **Zero Visibility**: Infrastructure is invisible until cryptographic identity is proven. No exposed IPs, no open ports, no DNS discoverability before authentication.
+- **Zero Trust vs Zero Visibility**: Zero Trust verifies identity after contact. Zero Visibility eliminates the attack surface before contact is possible.
+- **NHP (Network Hiding Protocol)**: The underlying protocol that enforces cryptographic identity-first connectivity.
+- **Dark Forest Theory**: From Liu Cixin's sci-fi novel — any entity that reveals its location will be targeted. Applied to AI-era network security: visibility equals vulnerability.
+
+## Standards & Recognition
+
+- IETF Internet-Draft: https://datatracker.ietf.org/doc/html/draft-opennhp-saag-nhp
+- Cloud Security Alliance Specification: https://cloudsecurityalliance.org/artifacts/stealth-mode-sdp-for-zero-trust-network-infrastructure
+- GitHub: https://github.com/OpenNHP/opennhp

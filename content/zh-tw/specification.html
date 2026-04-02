@@ -1,17 +1,17 @@
 ---
-title: "Specification - OpenNHP"
-description: "OpenNHP Specification - IETF Internet-Draft and CSA Zero Trust specification for the Network-Infrastructure Hiding Protocol."
+title: "規範 - OpenNHP"
+description: "OpenNHP 規範 - IETF 網際網路草案與 CSA 零信任規範，適用於網路基礎設施隱藏協定。"
 nav_active: "specification"
 ---
   <header class="page-header">
     <div class="container">
-      <span class="page-header__label">Specification</span>
+      <span class="page-header__label">規範</span>
       <h1 class="page-header__title">
-        Protocol <span class="text-gradient">Standardization</span>
+        協定<span class="text-gradient">標準化</span>
       </h1>
       <p class="page-header__desc">
-        OpenNHP is being standardized through IETF and CSA to ensure interoperability, 
-        security review, and industry-wide adoption.
+        OpenNHP 正透過 IETF 和 CSA 進行標準化，以確保互通性、
+        安全審查及全行業的廣泛採用。
       </p>
     </div>
   </header>
@@ -22,13 +22,13 @@ nav_active: "specification"
     <section class="section" style="background: var(--bg-secondary);">
       <div class="container">
         <div class="section-header">
-          <span class="section-header__label">The Leading Authority for Cloud Security</span>
-          <h2 class="section-header__title"><span style="color: var(--accent-tertiary);">CSA</span> Zero Trust Specification</h2>
+          <span class="section-header__label">雲端安全的領導權威</span>
+          <h2 class="section-header__title"><span style="color: var(--accent-tertiary);">CSA</span> 零信任規範</h2>
           <p class="section-header__desc">
-            The <a href="https://cloudsecurityalliance.org" target="_blank" style="color: var(--accent-tertiary);">Cloud Security Alliance (CSA)</a> — the world's leading organization for cloud security standards with 500+ enterprise members including AWS, Google, Microsoft, and Alibaba — has published comprehensive guidance on "Stealth Mode SDP for Zero Trust Network Infrastructure" introducing NHP.
+            <a href="https://cloudsecurityalliance.org" target="_blank" style="color: var(--accent-tertiary);">雲端安全聯盟（CSA）</a>——全球領先的雲端安全標準組織，擁有超過 500 家企業會員，包括 AWS、Google、Microsoft 和 Alibaba——已發布關於「零信任網路基礎設施隱身模式 SDP」的全面指導文件，介紹了 NHP。
           </p>
         </div>
-        
+
         <div class="grid grid-2 gap-lg" style="align-items: start;">
           <div>
             <div class="spec-table">
@@ -40,104 +40,102 @@ nav_active: "specification"
               </div>
               <div class="spec-table__rows">
                 <div class="spec-row">
-                  <span class="spec-row__label">Document</span>
+                  <span class="spec-row__label">文件</span>
                   <span class="spec-row__value">
                     <a href="https://cloudsecurityalliance.org/artifacts/stealth-mode-sdp-for-zero-trust-network-infrastructure" target="_blank">
-                      View on CSA →
+                      在 CSA 上檢視 →
                     </a>
                   </span>
-                </div>                
-                <div class="spec-row">
-                  <span class="spec-row__label">Organization</span>
-                  <span class="spec-row__value">Cloud Security Alliance (CSA)</span>
                 </div>
                 <div class="spec-row">
-                  <span class="spec-row__label">Working Group</span>
-                  <span class="spec-row__value">ZT5 - Pillar: Networks (Zero Trust Research)</span>
+                  <span class="spec-row__label">組織</span>
+                  <span class="spec-row__value">雲端安全聯盟（CSA）</span>
                 </div>
                 <div class="spec-row">
-                  <span class="spec-row__label">Lead Authors</span>
+                  <span class="spec-row__label">工作小組</span>
+                  <span class="spec-row__value">ZT5 - 支柱：網路（零信任研究）</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-row__label">主要作者</span>
                   <span class="spec-row__value">Benfeng Chen, Justin Posey, Yuanyuan Liu</span>
                 </div>
                 <div class="spec-row">
-                  <span class="spec-row__label">Contributors</span>
+                  <span class="spec-row__label">貢獻者</span>
                   <span class="spec-row__value">Michael Roza, Leon Zeng, Jason Garbis</span>
                 </div>
                 <div class="spec-row">
-                  <span class="spec-row__label">Reviewers</span>
+                  <span class="spec-row__label">審稿人</span>
                   <span class="spec-row__value">Justin Bowen, George Chi, Xinpi Du, Philip Griffiths, Matias Katz, Prashant Khanwale, Vaibhav Malik, Dr. Victor Monga, Surendra Narang, Dharnisha Narasappa, Chinaza Obidike, Srinivasa Ravi Teja Peri, Venkataramana Ragothaman, Shashank Shelat, Jen Trahan, Washima Tuleun</span>
                 </div>
                 <div class="spec-row">
-                  <span class="spec-row__label">CSA Staff</span>
+                  <span class="spec-row__label">CSA 工作人員</span>
                   <span class="spec-row__value">Erik Johnson</span>
                 </div>
               </div>
             </div>
           </div>
-          
+
           <div>
-            <h3 style="margin-bottom: var(--spacing-md);">Document Contents</h3>
-            
+            <h3 style="margin-bottom: var(--spacing-md);">文件內容</h3>
+
             <ul style="list-style: none;">
               <li style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); padding: var(--spacing-md); background: var(--bg-tertiary); border-radius: var(--radius-md);">
                 <span style="color: var(--accent-tertiary); font-size: 1.25rem;">✓</span>
                 <div>
-                  <strong>AI-Powered Threat Landscape</strong>
+                  <strong>AI 驅動的威脅態勢</strong>
                   <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">
-                    Analysis of AI-driven scanning, reconnaissance, and zero-day exploitation threats
+                    分析 AI 驅動的掃描、偵察及零日漏洞利用威脅
                   </p>
                 </div>
               </li>
               <li style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); padding: var(--spacing-md); background: var(--bg-tertiary); border-radius: var(--radius-md);">
                 <span style="color: var(--accent-tertiary); font-size: 1.25rem;">✓</span>
                 <div>
-                  <strong>NHP Architecture & Workflow</strong>
+                  <strong>NHP 架構與工作流程</strong>
                   <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">
-                    Core components (NHP-Agent, NHP-Server, NHP-AC) and complete protocol workflow
+                    核心元件（NHP-Agent、NHP-Server、NHP-AC）及完整協定工作流程
                   </p>
                 </div>
               </li>
               <li style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); padding: var(--spacing-md); background: var(--bg-tertiary); border-radius: var(--radius-md);">
                 <span style="color: var(--accent-tertiary); font-size: 1.25rem;">✓</span>
                 <div>
-                  <strong>Cryptographic Framework</strong>
+                  <strong>密碼學框架</strong>
                   <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">
-                    Noise Protocol, message header format, and 18 message types specification
+                    Noise Protocol、訊息標頭格式及 18 種訊息類型規範
                   </p>
                 </div>
               </li>
               <li style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); padding: var(--spacing-md); background: var(--bg-tertiary); border-radius: var(--radius-md);">
                 <span style="color: var(--accent-tertiary); font-size: 1.25rem;">✓</span>
                 <div>
-                  <strong>Integration Guidance</strong>
+                  <strong>整合指南</strong>
                   <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">
-                    SDP, DNS, and FIDO integration patterns with implementation considerations
+                    SDP、DNS 和 FIDO 整合模式及實作注意事項
                   </p>
                 </div>
               </li>
               <li style="display: flex; gap: var(--spacing-sm); padding: var(--spacing-md); background: var(--bg-tertiary); border-radius: var(--radius-md);">
                 <span style="color: var(--accent-tertiary); font-size: 1.25rem;">✓</span>
                 <div>
-                  <strong>Logging & Compliance</strong>
+                  <strong>日誌記錄與合規</strong>
                   <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">
-                    Log types, format, transmission, and compliance auditing requirements
+                    日誌類型、格式、傳輸及合規稽核要求
                   </p>
                 </div>
               </li>
             </ul>
           </div>
         </div>
-        
+
         <!-- Abstract Quote -->
         <div style="margin-top: var(--spacing-xl); padding: var(--spacing-xl); background: var(--bg-tertiary); border-radius: var(--radius-lg); border-left: 4px solid var(--accent-tertiary);">
           <blockquote style="font-style: italic; color: var(--text-secondary); margin-bottom: var(--spacing-md);">
-            "TCP/IP's default network visibility has enabled much of today's malicious activity. Given our current threat 
-            landscape and the widespread adoption of Zero Trust as a set of principles and best practices, we believe 
-            that we now have an imperative to pivot our core networking technologies to a default-deny stance—one that 
-            aligns with emerging concepts like Gartner's preemptive cybersecurity, which emphasizes denying, deceiving, 
-            and disrupting threats before they can launch or succeed."
+            「TCP/IP 預設的網路可見性助長了當今大量的惡意活動。鑑於目前的威脅態勢以及零信任原則和最佳實踐的廣泛採用，
+            我們認為現在有必要將核心網路技術轉向預設拒絕的姿態——
+            這與 Gartner 提出的先制式網路安全等新興概念一致，強調在威脅發動或得逞之前就予以拒絕、欺騙和瓦解。」
           </blockquote>
-          <cite style="color: var(--text-muted); font-size: 0.9rem;">— CSA Stealth Mode SDP Specification, Abstract</cite>
+          <cite style="color: var(--text-muted); font-size: 0.9rem;">— CSA 隱身模式 SDP 規範，摘要</cite>
         </div>
 
       </div>
@@ -147,12 +145,12 @@ nav_active: "specification"
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-header__label">The Standards Body Behind the Internet</span>
-        <h2 class="section-header__title"><span style="color: var(--accent-primary);">IETF</span> Internet-Draft</h2>
+        <span class="section-header__label">網際網路背後的標準制定機構</span>
+        <h2 class="section-header__title"><span style="color: var(--accent-primary);">IETF</span> 網際網路草案</h2>
         <p class="section-header__desc">
-          The <a href="https://www.ietf.org" target="_blank" rel="noopener" style="color: var(--accent-primary);">Internet Engineering Task Force (IETF)</a> — the organization that defined TCP/IP, HTTP, TLS, DNS,
-          and virtually every core Internet protocol — is now standardizing NHP. With 9,000+ published RFCs,
-          IETF is the premier authority for Internet protocol standards.
+          <a href="https://www.ietf.org" target="_blank" rel="noopener" style="color: var(--accent-primary);">網際網路工程任務組（IETF）</a>——定義了 TCP/IP、HTTP、TLS、DNS
+          及幾乎所有核心網際網路協定的組織——現正對 NHP 進行標準化。IETF 已發布超過 9,000 篇 RFC，
+          是網際網路協定標準的首要權威機構。
         </p>
       </div>
 
@@ -167,89 +165,89 @@ nav_active: "specification"
             </div>
             <div class="spec-table__rows">
               <div class="spec-row">
-                <span class="spec-row__label">Status</span>
-                <span class="spec-row__value"><span class="tag tag--accent">Active Internet-Draft</span></span>
+                <span class="spec-row__label">狀態</span>
+                <span class="spec-row__value"><span class="tag tag--accent">有效網際網路草案</span></span>
               </div>
               <div class="spec-row">
-                <span class="spec-row__label">Working Group</span>
-                <span class="spec-row__value">SAAG (Security Area Advisory Group)</span>
+                <span class="spec-row__label">工作小組</span>
+                <span class="spec-row__value">SAAG（安全領域諮詢小組）</span>
               </div>
               <div class="spec-row">
-                <span class="spec-row__label">Published</span>
-                <span class="spec-row__value">January 1, 2026</span>
+                <span class="spec-row__label">發布日期</span>
+                <span class="spec-row__value">2026 年 1 月 1 日</span>
               </div>
               <div class="spec-row">
-                <span class="spec-row__label">Expires</span>
-                <span class="spec-row__value">July 5, 2026</span>
+                <span class="spec-row__label">到期日期</span>
+                <span class="spec-row__value">2026 年 7 月 5 日</span>
               </div>
               <div class="spec-row">
-                <span class="spec-row__label">Authors</span>
+                <span class="spec-row__label">作者</span>
                 <span class="spec-row__value">Benfeng Chen</span>
               </div>
               <div class="spec-row">
-                <span class="spec-row__label">Document</span>
+                <span class="spec-row__label">文件</span>
                 <span class="spec-row__value">
                   <a href="https://datatracker.ietf.org/doc/html/draft-opennhp-saag-nhp" target="_blank">
-                    View on IETF Datatracker →
+                    在 IETF Datatracker 上檢視 →
                   </a>
                 </span>
               </div>
             </div>
           </div>
-          
+
           <div class="mt-lg">
-            <h4 style="margin-bottom: var(--spacing-sm);">Participate in Standardization</h4>
+            <h4 style="margin-bottom: var(--spacing-sm);">參與標準化</h4>
             <p style="color: var(--text-secondary); font-size: 0.95rem;">
-              Join the IETF NHP standardization effort. Contributions welcome!
+              加入 IETF NHP 標準化工作。歡迎貢獻！
             </p>
             <div class="flex gap-sm mt-md" style="flex-wrap: wrap;">
               <a href="https://github.com/OpenNHP/ietf-rfc-nhp" class="btn btn--secondary btn--sm" target="_blank">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                RFC Development
+                RFC 開發
               </a>
               <a href="mailto:saag@ietf.org" class="btn btn--outline btn--sm">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                SAAG Mailing List
+                SAAG 郵件列表
               </a>
             </div>
           </div>
         </div>
-        
+
         <div>
-          <h3 style="margin-bottom: var(--spacing-md);">Specification Highlights</h3>
-          
+          <h3 style="margin-bottom: var(--spacing-md);">規範重點</h3>
+
           <div class="card mb-md">
             <div class="card__icon">🏗️</div>
-            <h4 class="card__title">Protocol Architecture</h4>
+            <h4 class="card__title">協定架構</h4>
             <p class="card__desc">
-              Defines NHP-Agent, NHP-Server, NHP-AC, and ASP components with clear separation of concerns 
-              for scalability and security.
+              定義 NHP-Agent、NHP-Server、NHP-AC 和 ASP 元件，職責分離清晰，
+              兼具可擴展性與安全性。
             </p>
           </div>
-          
+
           <div class="card mb-md">
             <div class="card__icon">🔐</div>
-            <h4 class="card__title">Cryptographic Framework</h4>
+            <h4 class="card__title">密碼學框架</h4>
             <p class="card__desc">
-              Based on the Noise Protocol Framework with XX, IK, and K handshake patterns. 
-              Uses Curve25519, ChaCha20-Poly1305, and HKDF.
+              基於 Noise Protocol Framework，採用 XX、IK 和 K 握手模式，
+              使用 Curve25519、ChaCha20-Poly1305 和 HKDF。
             </p>
           </div>
-          
+
           <div class="card mb-md">
             <div class="card__icon">📦</div>
-            <h4 class="card__title">Message Formats</h4>
+            <h4 class="card__title">訊息格式</h4>
             <p class="card__desc">
-              Complete specification of NHP-KNK (Knock), NHP-ACK, NHP-AOP, NHP-ACC, and other 
-              message types with binary encoding.
+              完整規範 NHP-KNK（Knock）、NHP-ACK、NHP-AOP、NHP-ACC 及其他
+              訊息類型的二進位編碼。
             </p>
           </div>
-          
+
           <div class="card">
             <div class="card__icon">🔗</div>
-            <h4 class="card__title">Integration Patterns</h4>
+            <h4 class="card__title">整合模式</h4>
             <p class="card__desc">
-              Guidance for integrating with SDP, DNS, FIDO authentication, and Zero Trust policy engines.
+              與 SDP、DNS、FIDO 認證及零信任策略引擎整合的指導方針。
             </p>
           </div>
         </div>
@@ -261,59 +259,59 @@ nav_active: "specification"
     <section class="section">
       <div class="container container--narrow">
         <div class="section-header">
-          <span class="section-header__label">Foundation</span>
-          <h2 class="section-header__title">Built on Industry Standards</h2>
+          <span class="section-header__label">基礎</span>
+          <h2 class="section-header__title">建構於業界標準之上</h2>
           <p class="section-header__desc">
-            NHP builds upon and references established security standards and protocols.
+            NHP 建構並參考了既有的安全標準與協定。
           </p>
         </div>
-        
+
         <div class="features__grid">
           <div class="card">
             <div class="card__icon">📋</div>
             <h3 class="card__title">NIST SP 800-207</h3>
             <p class="card__desc">
-              Zero Trust Architecture guidelines from the National Institute of Standards and Technology.
+              美國國家標準暨技術研究院發布的零信任架構指南。
             </p>
           </div>
-          
+
           <div class="card">
             <div class="card__icon">🔒</div>
             <h3 class="card__title">RFC 8446 (TLS 1.3)</h3>
             <p class="card__desc">
-              NHP complements TLS by providing pre-connection authentication and service hiding.
+              NHP 透過提供連線前認證和服務隱藏來補充 TLS。
             </p>
           </div>
-          
+
           <div class="card">
             <div class="card__icon">⚡</div>
             <h3 class="card__title">RFC 9000 (QUIC)</h3>
             <p class="card__desc">
-              NHP can protect QUIC-based services with the same hiding capabilities as TCP.
+              NHP 能以與 TCP 相同的隱藏能力保護基於 QUIC 的服務。
             </p>
           </div>
-          
+
           <div class="card">
             <div class="card__icon">🔐</div>
             <h3 class="card__title">RFC 9180 (HPKE)</h3>
             <p class="card__desc">
-              Hybrid Public Key Encryption referenced for advanced key encapsulation scenarios.
+              混合公鑰加密，用於進階金鑰封裝場景的參考。
             </p>
           </div>
-          
+
           <div class="card">
             <div class="card__icon">🎵</div>
             <h3 class="card__title">Noise Protocol Framework</h3>
             <p class="card__desc">
-              The cryptographic foundation for NHP's handshake patterns and key exchange.
+              NHP 握手模式與金鑰交換的密碼學基礎。
             </p>
           </div>
-          
+
           <div class="card">
             <div class="card__icon">🏢</div>
             <h3 class="card__title">CSA SDP Spec v2.0</h3>
             <p class="card__desc">
-              Software Defined Perimeter specification by Garbis, Koilpillai, Islam, Flores, Bailey, Chen, et al. (Mar 2022).
+              由 Garbis、Koilpillai、Islam、Flores、Bailey、Chen 等人撰寫的軟體定義邊界規範（2022 年 3 月）。
             </p>
           </div>
         </div>
@@ -324,17 +322,17 @@ nav_active: "specification"
     <section class="section">
       <div class="container container--narrow">
         <div class="cta-section">
-          <h2 class="cta-section__title">Contribute to NHP Standardization</h2>
+          <h2 class="cta-section__title">為 NHP 標準化做出貢獻</h2>
           <p class="cta-section__desc">
-            Help shape the future of Zero Trust networking. Review the specification, 
-            submit feedback, and participate in the IETF process.
+            協助塑造零信任網路的未來。審閱規範、
+            提交回饋，並參與 IETF 流程。
           </p>
           <div class="cta-section__actions">
             <a href="https://datatracker.ietf.org/doc/html/draft-opennhp-saag-nhp" class="btn btn--primary btn--lg" target="_blank">
-              Read the IETF Draft
+              閱讀 IETF 草案
             </a>
             <a href="https://github.com/OpenNHP/ietf-rfc-nhp" class="btn btn--secondary btn--lg" target="_blank">
-              Contribute on GitHub
+              在 GitHub 上貢獻
             </a>
           </div>
         </div>
@@ -342,4 +340,4 @@ nav_active: "specification"
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer -->

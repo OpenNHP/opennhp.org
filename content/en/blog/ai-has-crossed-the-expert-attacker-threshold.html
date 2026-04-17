@@ -4,7 +4,7 @@ description: "In April 2026, an AI model completed a 32-step enterprise network 
 og:
   title: "AI Just Crossed the Expert-Attacker Threshold"
   description: "The AISI Mythos report, NCSC, and multiple 2026 studies converge on one conclusion: AI can now run autonomous enterprise attacks. Here's why network hiding is the only rational defense."
-  image: "/assets/images/ai-drone-attack.jpg"
+  image: "/assets/images/ai-era-threshold.jpg"
   type: "article"
 extra_css: |
     .blog-article {
@@ -280,7 +280,10 @@ extra_css: |
             </div>
 
             <figure style="margin: var(--spacing-lg) 0 var(--spacing-xl); border-radius: 14px; overflow: hidden; border: 1px solid var(--border-subtle);">
-              <img src="/assets/images/ai-drone-attack.jpg" alt="AI-driven reconnaissance has crossed the threshold of autonomous end-to-end attacks" style="width: 100%; height: auto; display: block;">
+              <img src="/assets/images/ai-era-threshold.jpg" alt="The AI Era Threshold: the Visible Internet is discovered, targeted, and exploited by autonomous AI agents, while the Invisible Internet protected by NHP is not discoverable — and therefore not attackable" style="width: 100%; height: auto; display: block;">
+              <figcaption style="padding: 0.6rem 0.9rem; color: var(--text-muted); font-size: 0.82rem; border-top: 1px solid var(--border-subtle); background: rgba(0,0,0,0.15);">
+                The AI Era Threshold: visibility is now the attack surface. Infrastructure that can be discovered can be targeted and exploited; infrastructure that cannot be discovered is not attackable.
+              </figcaption>
             </figure>
 
             <!-- 1. 22 out of 32 -->
@@ -432,6 +435,22 @@ T+24 mo    64×</div>
               <p>Read the protocol details on the <a href="/specification/">Specification</a> page. The draft is being standardized at the <a href="https://datatracker.ietf.org/doc/html/draft-opennhp-saag-nhp" target="_blank" rel="noopener">IETF</a> and referenced in the <a href="https://cloudsecurityalliance.org/blog/2026/02/19/why-zero-trust-needs-to-start-at-the-session-layer" target="_blank" rel="noopener">Cloud Security Alliance's session-layer Zero Trust guidance</a>.</p>
             </div>
 
+            <!-- 8b. Qurl -->
+            <div class="blog-section">
+              <div class="blog-kicker">⚡ From Protocol to Product: Qurl by LayerV</div>
+              <p>OpenNHP is the open-source <em>protocol</em>. Deploying a protocol still means running servers, managing keys, and integrating clients. For teams that need Dark Forest defense without that operational lift, <strong><a href="https://layerv.ai" target="_blank" rel="noopener">Qurl</a></strong> from <a href="https://layerv.ai" target="_blank" rel="noopener">LayerV</a> is the product built directly on top of OpenNHP — usable out of the box.</p>
+              <p>Qurl's tagline captures the thesis exactly:</p>
+              <div class="highlight-quote">"You Can't Breach What You Can't See."</div>
+              <p>With a single API call, Qurl issues <strong>time-limited, self-destructing access links</strong> to your servers, APIs, and admin interfaces. Until one of those links is presented, the underlying infrastructure is <strong>invisible to scanners, crawlers, and AI agents</strong>. The reconnaissance step of the TLO attack chain returns nothing because there is nothing to return.</p>
+              <ul>
+                <li><strong>Out-of-the-box NHP defense</strong> — no protocol integration work required</li>
+                <li><strong>Ephemeral access</strong> — every link has a lifetime and revokes itself automatically</li>
+                <li><strong>API-first</strong> — drop it into an existing CI/CD, support, or admin workflow with one call</li>
+                <li><strong>OpenNHP under the hood</strong> — same standards-track cryptographic foundation, same hiding guarantees</li>
+              </ul>
+              <div class="highlight-quote">OpenNHP is the open-source technology. Qurl is how you ship it to production on Monday.</div>
+            </div>
+
             <!-- 9. Window closing -->
             <div class="blog-section">
               <div class="blog-kicker">🧭 The Window Is Closing</div>
@@ -452,10 +471,11 @@ T+24 mo    64×</div>
                 Autonomous AI attackers cannot exploit what they cannot find.<br>
                 OpenNHP hides your infrastructure by default.
               </p>
-              <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
-                <a href="https://github.com/OpenNHP/opennhp" target="_blank" class="btn btn--primary btn--sm" style="text-decoration: none;">View on GitHub →</a>
-                <a href="/vision/" style="color: var(--accent-primary); font-size: 0.9rem; display: flex; align-items: center; text-decoration: none;">Read the full vision →</a>
+              <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--spacing-md);">
+                <a href="https://github.com/OpenNHP/opennhp" target="_blank" class="btn btn--primary btn--sm" style="text-decoration: none;">View OpenNHP on GitHub →</a>
+                <a href="https://layerv.ai" target="_blank" class="btn btn--secondary btn--sm" style="text-decoration: none;">Try Qurl by LayerV →</a>
               </div>
+              <a href="/vision/" style="color: var(--accent-primary); font-size: 0.9rem; display: inline-flex; align-items: center; text-decoration: none;">Read the full vision →</a>
             </div>
 
           </div>

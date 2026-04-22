@@ -19,3 +19,9 @@ footer_contributors: "Contributors"
 footer_sponsors: "Sponsors"
 footer_copyright: "© 2026 OpenNHP Project. <span style=\"color: #10b981; font-weight: 500;\">A global, non-profit open source initiative.</span> Released under Apache 2.0 License."
 footer_attribution: "Built with ❤️ — Ad Majorem Dei Gloriam"
+
+# Vision page — VISIBILITY = VULNERABILITY timeline toggle
+show_older_findings:
+  other: "Show {{ .Count }} older findings ▾"
+hide_older_findings:
+  other: "Hide older findings ▴"

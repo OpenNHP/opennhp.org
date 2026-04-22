@@ -19,3 +19,9 @@ footer_contributors: "コントリビューター"
 footer_sponsors: "スポンサー"
 footer_copyright: "© 2026 OpenNHP プロジェクト。<span style=\"color: #10b981; font-weight: 500;\">グローバルな非営利オープンソースイニシアチブ。</span>Apache 2.0 ライセンスに基づき公開。"
 footer_attribution: "❤️ を込めて構築 — Ad Majorem Dei Gloriam"
+
+# ビジョンページ — VISIBILITY = VULNERABILITY タイムラインの開閉ボタン
+show_older_findings:
+  other: "過去の調査結果{{ .Count }}件を表示 ▾"
+hide_older_findings:
+  other: "過去の調査結果を非表示 ▴"

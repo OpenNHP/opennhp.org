@@ -19,3 +19,9 @@ footer_contributors: "貢獻者"
 footer_sponsors: "贊助商"
 footer_copyright: "© 2026 OpenNHP 專案。<span style=\"color: #10b981; font-weight: 500;\">全球性非營利開源計畫。</span>基於 Apache 2.0 授權條款發布。"
 footer_attribution: "以 ❤️ 構建 — 愈顯主榮"
+
+# 願景頁 — VISIBILITY = VULNERABILITY 時間軸摺疊按鈕
+show_older_findings:
+  other: "顯示 {{ .Count }} 項較早的發現 ▾"
+hide_older_findings:
+  other: "隱藏較早的發現 ▴"

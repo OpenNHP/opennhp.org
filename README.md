@@ -2,7 +2,7 @@
 
 The official website for [OpenNHP](https://github.com/OpenNHP/opennhp) - The Zero Trust Network-Infrastructure Hiding Protocol for the AI era.
 
-🌐 **Live Site**: [www.opennhp.org](https://www.opennhp.org)
+🌐 **Live Site**: [opennhp.org](https://opennhp.org)
 
 ## Overview
 
@@ -12,13 +12,13 @@ This repository contains the source code for the OpenNHP project website, built 
 
 | Language | URL | Status |
 |----------|-----|--------|
-| English | [opennhp.org](https://www.opennhp.org) | ✅ Complete |
-| 简体中文 | [opennhp.org/zh-cn/](https://www.opennhp.org/zh-cn/) | ✅ Complete |
-| 繁體中文 | [opennhp.org/zh-tw/](https://www.opennhp.org/zh-tw/) | ✅ Complete |
-| 日本語 | [opennhp.org/ja/](https://www.opennhp.org/ja/) | ✅ Complete |
-| Deutsch | [opennhp.org/de/](https://www.opennhp.org/de/) | ✅ Complete |
-| Français | [opennhp.org/fr/](https://www.opennhp.org/fr/) | ✅ Complete |
-| Español | [opennhp.org/es/](https://www.opennhp.org/es/) | ✅ Complete |
+| English | [opennhp.org](https://opennhp.org) | ✅ Complete |
+| 简体中文 | [opennhp.org/zh-cn/](https://opennhp.org/zh-cn/) | ✅ Complete |
+| 繁體中文 | [opennhp.org/zh-tw/](https://opennhp.org/zh-tw/) | ✅ Complete |
+| 日本語 | [opennhp.org/ja/](https://opennhp.org/ja/) | ✅ Complete |
+| Deutsch | [opennhp.org/de/](https://opennhp.org/de/) | ✅ Complete |
+| Français | [opennhp.org/fr/](https://opennhp.org/fr/) | ✅ Complete |
+| Español | [opennhp.org/es/](https://opennhp.org/es/) | ✅ Complete |
 
 First-time visitors are auto-redirected to the best match for their browser language (`navigator.languages`). The logic lives in an inline script at the top of [`layouts/partials/head.html`](layouts/partials/head.html) and is silent on storage failures (private browsing). Once a visitor manually picks a language from the footer switcher, the choice is stored in `localStorage` (`opennhp_lang`) and honored site-wide on subsequent loads — auto-detection never overrides an explicit choice.
 

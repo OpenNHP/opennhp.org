@@ -1,4 +1,4 @@
-baseURL = 'https://www.opennhp.org'
+baseURL = 'https://opennhp.org'
 title = 'OpenNHP - Zero Trust Network Hiding Protocol'
 
 disableKinds = ['taxonomy']

@@ -292,8 +292,8 @@ extra_css: |
 
             <!-- Dec 2025 - Stanford ARTEMIS: AI Outperforms Human Hackers -->
             <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: flex-start; padding: var(--spacing-lg);">
-              <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 12px; overflow: hidden; background: transparent;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Stanford_Cardinal_logo.svg/1200px-Stanford_Cardinal_logo.svg.png" alt="Stanford University" style="width: 100%; height: 100%; object-fit: contain;">
+              <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 12px; background: #8C1515; display: flex; align-items: center; justify-content: center;" aria-label="Stanford University">
+                <span style="font-family: Georgia, 'Times New Roman', serif; font-weight: 700; font-size: 2rem; color: white; line-height: 1;">S</span>
               </div>
               <div style="flex: 1;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
@@ -312,7 +312,30 @@ extra_css: |
                 </div>
               </div>
             </div>
-            
+
+            <!-- Dec 2025 - UK AISI Frontier AI Trends Report -->
+            <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: flex-start; padding: var(--spacing-lg);">
+              <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 12px; background: #1e3a8a; display: flex; align-items: center; justify-content: center;" aria-label="UK AI Security Institute">
+                <span style="font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 800; font-size: 0.95rem; color: white; line-height: 1; letter-spacing: 0.02em;">AISI</span>
+              </div>
+              <div style="flex: 1;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                  <h3 class="card__title" style="margin: 0;">UK AISI: AI Now Completes Expert-Level Cyber Tasks</h3>
+                  <span style="color: var(--text-muted); font-size: 0.8rem;">Dec 2025</span>
+                </div>
+                <p class="card__desc" style="margin-bottom: 0.75rem;">
+                  The UK AI Security Institute's first Frontier AI Trends Report documents a rapid acceleration in AI cyber capability:
+                  the best models now complete apprentice-level cyber tasks <strong>50% of the time</strong>, up from under 9% in late 2023.
+                  In 2025, AISI tested the first-ever model able to complete <strong>expert-level tasks</strong> that typically require 10+ years of human experience.
+                  The duration of cyber tasks AI can complete unassisted is <strong>doubling roughly every eight months</strong> — from under ten minutes in early 2023 to over an hour by mid-2025.
+                </p>
+                <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap;">
+                  <a href="https://www.aisi.gov.uk/frontier-ai-trends-report" target="_blank" style="color: var(--accent-primary); font-size: 0.85rem;">AISI Report →</a>
+                  <a href="https://www.aisi.gov.uk/blog/5-key-findings-from-our-first-frontier-ai-trends-report" target="_blank" style="color: var(--accent-primary); font-size: 0.85rem;">Key Findings →</a>
+                </div>
+              </div>
+            </div>
+
             <!-- Aug 2025 - CVE Exploits -->
             <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: flex-start; padding: var(--spacing-lg);">
               <div style="flex-shrink: 0; width: 56px; height: 56px; background: linear-gradient(135deg, #ef4444, #dc2626); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
@@ -337,9 +360,7 @@ extra_css: |
             
             <!-- May 2025 - Linux Kernel Zero-day via o3 -->
             <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: flex-start; padding: var(--spacing-lg);">
-              <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 12px; overflow: hidden; background: #1a1a2e;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png" alt="Linux" style="width: 100%; height: 100%; object-fit: contain; padding: 4px;">
-              </div>
+              <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 12px; background: #1a1a2e; display: flex; align-items: center; justify-content: center; font-size: 2rem; line-height: 1;" aria-label="Linux">🐧</div>
               <div style="flex: 1;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
                   <h3 class="card__title" style="margin: 0;">Linux Kernel Zero-day Found by OpenAI ChatGPT-o3</h3>
@@ -386,8 +407,13 @@ extra_css: |
 
             <!-- Nov 2024 - Google Big Sleep -->
             <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: flex-start; padding: var(--spacing-lg);">
-              <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 12px; overflow: hidden; background: white;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png" alt="Google" style="width: 100%; height: 100%; object-fit: contain; padding: 8px;">
+              <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 12px; background: white; display: flex; align-items: center; justify-content: center;" aria-label="Google">
+                <svg width="36" height="36" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                  <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                  <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                  <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                </svg>
               </div>
               <div style="flex: 1;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
@@ -404,8 +430,8 @@ extra_css: |
 
             <!-- Apr 2024 - LLM Agents Exploit One-day Vulnerabilities -->
             <div class="card" style="display: flex; gap: var(--spacing-lg); align-items: flex-start; padding: var(--spacing-lg);">
-              <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; overflow: hidden; background: #13294B; display: flex; align-items: center; justify-content: center;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Illinois_Fighting_Illini_logo.svg/1200px-Illinois_Fighting_Illini_logo.svg.png" alt="UIUC" style="width: 70%; height: 70%; object-fit: contain;">
+              <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: #13294B; display: flex; align-items: center; justify-content: center;" aria-label="UIUC">
+                <span style="font-family: Georgia, 'Times New Roman', serif; font-weight: 900; font-size: 1.75rem; color: #E84A27; line-height: 1;">I</span>
               </div>
               <div style="flex: 1;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">

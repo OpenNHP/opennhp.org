@@ -274,7 +274,7 @@ p {
 .nav__menu {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: 0.5rem;
   list-style: none;
 }
 
@@ -282,9 +282,10 @@ p {
   color: var(--text-secondary);
   font-size: 0.95rem;
   font-weight: 500;
-  padding: var(--spacing-xs) var(--spacing-sm);
+  padding: var(--spacing-xs) 0.75rem;
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
 .nav__link:hover,
@@ -1165,6 +1166,7 @@ p {
     left: 0;
     right: 0;
     flex-direction: column;
+    gap: var(--spacing-sm);
     background: var(--bg-secondary);
     padding: var(--spacing-lg);
     border-bottom: 1px solid var(--border-subtle);

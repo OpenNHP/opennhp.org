@@ -24,6 +24,18 @@ defaultContentLanguageInSubdir = false
     languageName = '日本語'
     weight = 4
     contentDir = 'content/ja'
+  [languages.de]
+    languageName = 'Deutsch'
+    weight = 5
+    contentDir = 'content/de'
+  [languages.fr]
+    languageName = 'Français'
+    weight = 6
+    contentDir = 'content/fr'
+  [languages.es]
+    languageName = 'Español'
+    weight = 7
+    contentDir = 'content/es'
 
 [markup]
   [markup.goldmark]

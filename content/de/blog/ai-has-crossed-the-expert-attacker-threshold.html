@@ -1,0 +1,515 @@
+---
+title: "KI hat soeben die Schwelle zum Experten-Angreifer überschritten – was das bedeutet - OpenNHP Blog"
+description: "Im April 2026 führte ein KI-Modell erstmals einen 32-Schritte-Unternehmensnetzwerkangriff vollständig durch. Mehrere unabhängige Berichte bestätigen nun: Die offensive KI-Fähigkeit verdoppelt sich alle 4 Monate. Das ist der Wendepunkt."
+og:
+  title: "KI hat soeben die Schwelle zum Experten-Angreifer überschritten"
+  description: "Der AISI-Mythos-Bericht, das NCSC und mehrere Studien aus 2026 kommen zu einem gemeinsamen Schluss: KI kann jetzt autonome Unternehmensangriffe durchführen. Darum ist Netzwerk-Verbergung die einzig rationale Verteidigung."
+  image: "/assets/images/ai-era-threshold.jpg"
+  type: "article"
+extra_css: |
+    .blog-article {
+        max-width: 740px;
+        margin: 0 auto;
+      }
+
+      .blog-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: var(--spacing-xl);
+        flex-wrap: wrap;
+      }
+
+      .blog-meta__author {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .blog-meta__author-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-primary), #00b8ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #0a0e17;
+        flex-shrink: 0;
+      }
+
+      .blog-meta__date {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+      }
+
+      .blog-meta__tag {
+        background: rgba(0, 255, 157, 0.1);
+        border: 1px solid rgba(0, 255, 157, 0.25);
+        color: var(--accent-primary);
+        padding: 0.2rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .blog-divider {
+        border: none;
+        border-top: 1px solid var(--border-subtle);
+        margin: var(--spacing-xl) 0;
+      }
+
+      .blog-body p {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .blog-body h3 {
+        font-size: 1.05rem;
+        margin-top: var(--spacing-md);
+        margin-bottom: var(--spacing-sm);
+        color: var(--text-primary);
+      }
+
+      .blog-body a {
+        color: var(--accent-primary);
+        text-decoration: none;
+      }
+
+      .blog-body a:hover {
+        text-decoration: underline;
+      }
+
+      .blog-body ul, .blog-body ol {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: var(--spacing-md);
+        padding-left: 1.5rem;
+      }
+
+      .blog-body li {
+        margin-bottom: 0.4rem;
+      }
+
+      .blog-footer {
+        border-top: 1px solid var(--border-subtle);
+        padding-top: var(--spacing-xl);
+        margin-top: var(--spacing-xl);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+      }
+
+      .blog-footer__back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--accent-primary);
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+
+      .blog-footer__back:hover {
+        text-decoration: underline;
+      }
+
+      .blog-footer__share {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      .share-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color var(--transition-base);
+      }
+
+      .share-link:hover {
+        color: var(--accent-primary);
+      }
+
+      .blog-section {
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .blog-kicker {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(0,255,157,0.07);
+        border: 1px solid rgba(0,255,157,0.25);
+        color: var(--accent-primary);
+        padding: 0.55rem 1rem;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        margin-bottom: 1rem;
+      }
+
+      .mono-block {
+        background: rgba(0,0,0,0.3);
+        border: 1px solid var(--border-subtle);
+        border-radius: 10px;
+        padding: 1rem 1.1rem;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.875rem;
+        white-space: pre;
+        color: var(--text-secondary);
+        margin: var(--spacing-md) 0;
+        overflow-x: auto;
+        line-height: 1.7;
+      }
+
+      .highlight-quote {
+        border-left: 4px solid var(--accent-primary);
+        padding: 0.75rem 1rem;
+        background: rgba(0,255,157,0.05);
+        border-radius: 0 8px 8px 0;
+        margin: var(--spacing-md) 0;
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: var(--spacing-md) 0;
+      }
+
+      @media (max-width: 600px) {
+        .two-col { grid-template-columns: 1fr; }
+      }
+
+      .blog-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: var(--spacing-md) 0;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border-subtle);
+        font-size: 0.9rem;
+      }
+
+      .blog-table th {
+        padding: 0.65rem 0.9rem;
+        text-align: left;
+        background: rgba(0,255,157,0.06);
+        color: var(--text-primary);
+        font-weight: 600;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .blog-table td {
+        padding: 0.65rem 0.9rem;
+        color: var(--text-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .blog-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.75rem;
+        margin: var(--spacing-md) 0;
+      }
+
+      .stat-card {
+        background: rgba(0,0,0,0.25);
+        border: 1px solid var(--border-subtle);
+        border-radius: 10px;
+        padding: 0.9rem 1rem;
+        text-align: center;
+      }
+
+      .stat-card__value {
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        line-height: 1.1;
+        display: block;
+      }
+
+      .stat-card__label {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin-top: 0.25rem;
+        display: block;
+        line-height: 1.3;
+      }
+---
+  <header class="page-header">
+    <div class="container">
+      <span class="page-header__label">Blog</span>
+      <h1 class="page-header__title" style="font-size: clamp(1.75rem, 4vw, 2.75rem); max-width: 820px; margin-left: auto; margin-right: auto;">
+        KI hat soeben die <span class="text-gradient">Experten-Angreifer</span>-Schwelle überschritten
+      </h1>
+      <p class="page-header__desc">
+        Im April 2026 führte ein KI-Modell erstmals einen 32-Schritte-Unternehmensnetzwerkangriff vollständig durch.
+        Mehrere unabhängige Berichte kommen nun zu einem gemeinsamen Schluss: Der Wendepunkt ist erreicht.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="section">
+      <div class="container">
+        <article class="blog-article">
+
+          <div class="blog-body">
+
+            <div class="highlight-quote">
+              Zwei Jahre lang endete jede KI-Cyber-Evaluierung mit demselben Vorbehalt: <em>„aber kein Modell kann einen vollständigen Angriff autonom durchführen – noch nicht."</em> Dieser Vorbehalt ist soeben abgelaufen.
+            </div>
+
+            <figure style="margin: var(--spacing-lg) 0 var(--spacing-xl); border-radius: 14px; overflow: hidden; border: 1px solid var(--border-subtle);">
+              <img src="/assets/images/ai-era-threshold.jpg" alt="Die KI-Ära-Schwelle: Das sichtbare Internet wird von autonomen KI-Agenten entdeckt, ins Visier genommen und ausgenutzt, während das durch NHP geschützte unsichtbare Internet nicht entdeckt werden kann – und daher nicht angegriffen werden kann" style="width: 100%; height: auto; display: block;">
+              <figcaption style="padding: 0.6rem 0.9rem; color: var(--text-muted); font-size: 0.82rem; border-top: 1px solid var(--border-subtle); background: rgba(0,0,0,0.15);">
+                Die KI-Ära-Schwelle: Sichtbarkeit ist nun die Angriffsfläche. Infrastruktur, die entdeckt werden kann, kann ins Visier genommen und ausgenutzt werden; Infrastruktur, die nicht entdeckt werden kann, ist nicht angreifbar.
+              </figcaption>
+            </figure>
+
+            <!-- 1. 22 out of 32 -->
+            <div class="blog-section">
+              <div class="blog-kicker">🎯 22 von 32</div>
+              <p>Am 13. April 2026 veröffentlichte das <a href="https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities" target="_blank" rel="noopener">UK AI Safety Institute (AISI)</a> seine Evaluierung von Claude Mythos Preview – wenige Tage zuvor am 7. April angekündigt – in einem simulierten 32-Schritte-Unternehmensangriff namens <strong>„The Last Ones" (TLO)</strong>, einem Szenario, für das menschliche Experten etwa zwanzig Stunden benötigen.</p>
+              <p>Das Modell absolvierte im Durchschnitt <strong>22 der 32 Schritte</strong> und vollendete den gesamten Angriff bei <strong>3 von 10 Versuchen</strong>. Es ist das erste jemals dokumentierte Modell, das dies geschafft hat.</p>
+              <p>Die Vorgängergeneration (Opus 4.6) schaffte im Schnitt nur 16 Schritte und hatte den Angriff nie abgeschlossen.</p>
+              <div class="highlight-quote">Kein Mensch war im Loop. Die KI führte Aufklärung, Erstzugriff, laterale Bewegung, Rechteausweitung und Datenabfluss als kontinuierliche autonome Kette aus.</div>
+            </div>
+
+            <!-- 2. The numbers -->
+            <div class="blog-section">
+              <div class="blog-kicker">📊 Die Zahlen, die sich am 13. April 2026 veränderten</div>
+              <p>Vier Zahlen aus der <a href="https://www.aisi.gov.uk/research/measuring-ai-agents-progress-on-multi-step-cyber-attack-scenarios" target="_blank" rel="noopener">AISI-Studie</a> sind es wert, länger auf sie zu schauen:</p>
+
+              <div class="stat-grid">
+                <div class="stat-card">
+                  <span class="stat-card__value">73 %</span>
+                  <span class="stat-card__label">Erfolgsquote bei CTF-Aufgaben auf Expertenniveau</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-card__value">22 / 32</span>
+                  <span class="stat-card__label">Abgeschlossene Schritte im TLO-Unternehmensangriff</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-card__value">3 / 10</span>
+                  <span class="stat-card__label">Vollständige End-to-End-Durchläufe – ein Erstmal</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-card__value">+59 %</span>
+                  <span class="stat-card__label">Zuwachs, wenn Compute von 10M → 100M Tokens skaliert wurde</span>
+                </div>
+              </div>
+
+              <p>Die 73-%-Zahl ist bedeutsam, weil <strong>kein Modell vor April 2025 überhaupt Expert-Level-CTFs lösen konnte</strong>. In weniger als einem Jahr hat sich das von „null Fähigkeit" zu „bestanden" gewandelt.</p>
+              <p>Die letzte Zahl ist die alarmierendste. Die Leistung skaliert <strong>log-linear mit der Inferenz-Rechenleistung</strong> – und AISI beobachtete <strong>kein Plateau</strong>. Mehr Geld, mehr Zeit, mehr Tokens → mehr Fähigkeit. Es ist keine architektonische Obergrenze in Sicht.</p>
+            </div>
+
+            <!-- 3. Convergence -->
+            <div class="blog-section">
+              <div class="blog-kicker">🔁 Kein Einzelfall – eine Konvergenz</div>
+              <p>Der Mythos-Bericht ist kein Ausreißer. Mehrere unabhängige Gremien kamen im selben Quartal zum selben Schluss:</p>
+
+              <table class="blog-table">
+                <thead>
+                  <tr>
+                    <th>Quelle</th>
+                    <th>Befund</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="https://internationalaisafetyreport.org/publication/2026-report-extended-summary-policymakers" target="_blank" rel="noopener">International AI Safety Report 2026</a></td>
+                    <td>„Aktuelle KI-Systeme können bereits einige Aufgaben bei Cyberangriffen autonom ausführen." Dokumentiert einen realen Vorfall.</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://www.ncsc.gov.uk/blogs/why-cyber-defenders-need-to-be-ready-for-frontier-ai" target="_blank" rel="noopener">UK NCSC</a></td>
+                    <td>Die offensive Fähigkeit von Frontier-KI <strong>verdoppelt sich alle 4 Monate</strong>.</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://www.cybersecuritydive.com/news/cybercrime-ai-ransomware-mcp-malwarebytes/811360/" target="_blank" rel="noopener">Malwarebytes 2026 Predictions</a></td>
+                    <td>„Vollständig autonome Ransomware-Pipelines", die es kleinen Crews ermöglichen, viele Ziele gleichzeitig anzugreifen.</td>
+                  </tr>
+                  <tr>
+                    <td>PentestGPT v2 (akademisch)</td>
+                    <td>76,9 % Abschlussrate bei HackTheBox Season 8 – <strong>Top 100 von 8.036 aktiven Teilnehmern</strong> weltweit.</td>
+                  </tr>
+                  <tr>
+                    <td><a href="https://hadrian.io/blog/the-ai-offensive-security-boom-seventy-tools-in-eighteen-months" target="_blank" rel="noopener">Hadrian-Erhebung</a></td>
+                    <td>70 Open-Source-KI-Pentest-Tools bis März 2026 katalogisiert – 65 davon wurden in 18 Monaten veröffentlicht.</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p>Fünf verschiedene Perspektiven – staatlich, akademisch, kommerziell, Threat-Intel – und alle weisen in dieselbe Richtung.</p>
+            </div>
+
+            <!-- 4. Doubling math -->
+            <div class="blog-section">
+              <div class="blog-kicker">📈 Was „Verdopplung alle 4 Monate" tatsächlich bedeutet</div>
+              <p>Die Einschätzung des NCSC ist leicht zu überlesen. Sollte sie aber nicht sein. Wachstum in diesem Tempo führt zu Zahlen, die Verteidiger ernst nehmen müssen:</p>
+
+              <div class="mono-block">T+0        Basislinie
+T+4 Mon.   2×
+T+8 Mon.   4×
+T+12 Mon.  8×
+T+16 Mon.  16×
+T+24 Mon.  64×</div>
+
+              <p>Eine Schwachstelle, für deren Ausnutzung ein KI-Agent heute <strong>8 Stunden</strong> benötigt, wird in zwei Jahren nur <strong>7,5 Minuten</strong> brauchen, wenn sich dieser Trend fortsetzt. Indes werden Patch-Zyklen in Unternehmen immer noch in <em>Wochen</em> gemessen, und die Zeitfenster zwischen Schwachstellenbekanntgabe und Ausnutzung schrumpfen bereits unter die Grenze menschlicher Reaktionszeit.</p>
+              <div class="highlight-quote">Die Verteidiger-Rechnung geht nicht auf. Sie können eine Fähigkeitskurve, die sich jedes Quartal verdoppelt, nicht durch Patchen einholen.</div>
+            </div>
+
+            <!-- 5. Traditional defense -->
+            <div class="blog-section">
+              <div class="blog-kicker">🏰 Warum traditionelle Verteidigung dieses Rennen verliert</div>
+              <p>Moderne Sicherheits-Stacks – TLS, WAFs, Firewalls, EDR, SIEM – wurden um eine grundlegende Annahme herum gebaut: <strong>Dienste sind sichtbar, und die Verteidigung beginnt beim Handshake</strong>. Sie öffnen einen Port. Sie veröffentlichen einen DNS-Eintrag. Sie terminieren TLS. Dann authentifizieren Sie.</p>
+              <p>Jede Schicht dieses Stacks setzt voraus, dass die ersten drei Fakten öffentlich sind. Für einen menschlichen Angreifer, der in menschlicher Geschwindigkeit arbeitet, war das vertretbar – Aufklärung kostete etwas, und Fingerprinting erforderte Aufwand.</p>
+              <p>Für einen KI-Agenten, der rund um die Uhr zu marginalen Token-Kosten läuft, <em>ist</em> diese Sichtbarkeit die Angriffsfläche. Jeder offene Port ist kostenlose Information. Jeder DNS-Eintrag ist eine Karte. Jedes TLS-Zertifikat verrät Metadaten. Die KI muss das Schloss nicht knacken – sie studiert die Baupläne, den Belegungsplan, die Lieferkette und die Patch-Historie des Anbieters, alles parallel, und wählt den Moment, in dem Sie am schwächsten sind.</p>
+              <div class="highlight-quote">Die erste Frage eines autonomen Angreifers lautet <em>„Was gibt es dort draußen?"</em> Wenn Sie diese Frage beantworten – auch nur teilweise –, haben Sie den Zeitvorteil bereits verloren.</div>
+            </div>
+
+            <!-- 6. Zero Trust is insufficient -->
+            <div class="blog-section">
+              <div class="blog-kicker">🚫 Zero Trust ist notwendig, aber unzureichend</div>
+              <p>Zero Trust hat zu Recht die Idee impliziten internen Vertrauens verworfen. Identitätszentrierte Authentifizierung, kontinuierliche Verifikation, Least Privilege – das sind echte Verbesserungen, und OpenNHP verdrängt sie nicht.</p>
+              <p>Aber die meisten Zero-Trust-Deployments <strong>öffnen die Tür, bevor sie prüfen, wer anklopft</strong>. Der Dienst ist erreichbar. Der Port antwortet. Der TLS-Handshake wird abgeschlossen. Die Authentifizierung geschieht <em>nach</em> dem Kontakt.</p>
+              <p>Diese Reihenfolge war im Zeitalter menschengetriebener Bedrohungen in Ordnung. Im Zeitalter autonomer KI-Geschwindigkeit bedeutet sie, dass Angreifer sondieren, fingerprinten, enumerieren und fuzzen dürfen, <strong>bevor überhaupt ein Credential geprüft wird</strong>. Das heißt, sie finden den einen Bug, der die Credential-Prüfung ganz überspringt – genau die Art von Fehler, von der die <a href="https://www.anthropic.com/news/claude-code-security" target="_blank" rel="noopener">Claude-Code-Security</a>-Arbeit bewiesen hat, dass KI sie nun massenhaft finden kann.</p>
+              <div class="highlight-quote">Zero Trust reduziert implizites Vertrauen. Es beseitigt nicht die Sichtbarkeit.</div>
+            </div>
+
+            <!-- 7. Dark Forest doctrine -->
+            <div class="blog-section">
+              <div class="blog-kicker">🌲 Dark-Forest-Doktrin: Nicht gesehen werden</div>
+              <p>Wir haben diese These bereits in <a href="/blog/the-internet-is-becoming-a-dark-forest/">„Das Internet wird zu einem Dunklen Wald"</a> behandelt. Die AISI-Daten verwandeln diese These von einer literarischen Metapher in eine operative Anforderung.</p>
+              <p>In einem dunklen Wald verrät jedes Geräusch den Standort und jedes Licht zieht Jäger an. Im KI-Zeitalter-Internet verrät jeder exponierte Port ein Ziel und jeder veröffentlichte DNS-Eintrag zieht automatisierte Aufklärung an.</p>
+
+              <table class="blog-table">
+                <thead>
+                  <tr>
+                    <th>Dunkler Wald</th>
+                    <th>KI-Zeitalter-Internet</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Licht</td><td>Offener Port</td></tr>
+                  <tr><td>Geräusch</td><td>IP-Adresse</td></tr>
+                  <tr><td>Signal</td><td>DNS-Eintrag</td></tr>
+                  <tr><td>Jäger</td><td>Autonomer KI-Agent</td></tr>
+                </tbody>
+              </table>
+
+              <p>Die vollständige These finden Sie auf der <a href="/vision/">Vision</a>-Seite. In einem Satz:</p>
+              <div class="highlight-quote">Sichtbarkeit ist gleich Verwundbarkeit. Die einzig skalierbare Verteidigung ist, nicht da zu sein.</div>
+            </div>
+
+            <!-- 8. OpenNHP -->
+            <div class="blog-section">
+              <div class="blog-kicker">🔐 Wie OpenNHP das Angriffskalkül verändert</div>
+              <p><strong><a href="https://github.com/OpenNHP/opennhp" target="_blank" rel="noopener">OpenNHP</a></strong> – das Network-Infrastructure Hiding Protocol – setzt Dark-Forest-Verteidigung auf der Sitzungsschicht um:</p>
+              <ul>
+                <li><strong>Kryptografischer Knock vor dem TCP-Handshake.</strong> Eine nicht authentifizierte Anfrage erhält kein SYN-ACK. Sie erhält nicht einmal ein ICMP-Unreachable. Der Dienst ist nicht „gefiltert" – er ist <em>von nichts zu unterscheiden</em>.</li>
+                <li><strong>NXDOMAIN für nicht autorisierte DNS-Abfragen.</strong> Clients ohne gültigen Identitätsnachweis erhalten dieselbe Antwort, die sie für eine nicht existierende Domain erhalten würden. Kein Fingerabdruck, keine Metadaten, keine Angriffsfläche.</li>
+                <li><strong>Default-Deny auf jeder Schicht.</strong> Domains, IPs und Ports sind alle verborgen, bis die Identität mit moderner Kryptografie (Noise Protocol, Curve25519, ChaCha20-Poly1305) nachgewiesen wird.</li>
+                <li><strong>Zustandslos und skalierbar.</strong> In speichersicherem Go gebaut, mit Benchmarks bei 10K Auth-Anfragen/s bei unter 10 ms Latenz – Verbergung geht also nicht zulasten der Leistung.</li>
+              </ul>
+              <p>Wenn ein autonomer KI-Agent eine OpenNHP-geschützte Umgebung scannt, liefert seine Aufklärung <em>nichts, worauf er aufbauen könnte</em>. Die 32-Schritte-TLO-Angriffskette bricht bei Schritt eins zusammen, weil Schritt eins erfordert, etwas zu finden, das angegriffen werden kann. Es ist nichts zu finden.</p>
+              <p>Details zum Protokoll finden Sie auf der <a href="/specification/">Spezifikations</a>-Seite. Der Entwurf wird bei der <a href="https://datatracker.ietf.org/doc/html/draft-opennhp-saag-nhp" target="_blank" rel="noopener">IETF</a> standardisiert und im <a href="https://cloudsecurityalliance.org/blog/2026/02/19/why-zero-trust-needs-to-start-at-the-session-layer" target="_blank" rel="noopener">Session-Layer-Zero-Trust-Leitfaden der Cloud Security Alliance</a> referenziert.</p>
+            </div>
+
+            <!-- 8b. Qurl -->
+            <div class="blog-section">
+              <div class="blog-kicker">⚡ Vom Protokoll zum Produkt: Qurl von LayerV</div>
+              <p>OpenNHP ist das Open-Source-<em>Protokoll</em>. Ein Protokoll einzusetzen bedeutet trotzdem, Server zu betreiben, Schlüssel zu verwalten und Clients zu integrieren. Für Teams, die Dark-Forest-Verteidigung ohne diesen operativen Aufwand benötigen, ist <strong><a href="https://layerv.ai" target="_blank" rel="noopener">Qurl</a></strong> von <a href="https://layerv.ai" target="_blank" rel="noopener">LayerV</a> das direkt auf OpenNHP aufbauende Produkt – sofort einsatzbereit.</p>
+              <p>Qurls Slogan bringt die These auf den Punkt:</p>
+              <div class="highlight-quote">„You Can't Breach What You Can't See."</div>
+              <p>Mit einem einzigen API-Aufruf erzeugt Qurl <strong>zeitlich begrenzte, selbstzerstörende Zugangs-Links</strong> zu Ihren Servern, APIs und Admin-Oberflächen. Solange keiner dieser Links vorgelegt wird, ist die zugrunde liegende Infrastruktur <strong>für Scanner, Crawler und KI-Agenten unsichtbar</strong>. Der Aufklärungsschritt der TLO-Angriffskette liefert nichts, weil es nichts zu liefern gibt.</p>
+              <ul>
+                <li><strong>Out-of-the-Box-NHP-Verteidigung</strong> – keine Protokollintegrationsarbeit nötig</li>
+                <li><strong>Flüchtiger Zugriff</strong> – jeder Link hat eine Lebensdauer und widerruft sich automatisch</li>
+                <li><strong>API-first</strong> – mit einem Aufruf in bestehende CI/CD-, Support- oder Admin-Workflows integrierbar</li>
+                <li><strong>OpenNHP unter der Haube</strong> – dieselbe standardisierungsnahe kryptografische Grundlage, dieselben Verbergungsgarantien</li>
+              </ul>
+              <div class="highlight-quote">OpenNHP ist die Open-Source-Technologie. Qurl ist, wie Sie sie am Montag produktiv einsetzen.</div>
+            </div>
+
+            <!-- 9. Window closing -->
+            <div class="blog-section">
+              <div class="blog-kicker">🧭 Das Zeitfenster schließt sich</div>
+              <p>Wenn sich der vom NCSC beobachtete Verdopplungstrend fortsetzt, wird die Lücke zwischen <em>„KI wird darin besorgniserregend gut"</em> und <em>„KI macht das autonom, in großem Umfang, billig, rund um die Uhr"</em> in einstelligen Quartalen gemessen.</p>
+              <p>Daraus folgen drei Dinge:</p>
+              <ol>
+                <li><strong>Sichtbarkeit ist keine neutrale Grundeinstellung mehr.</strong> Jede exponierte Oberfläche ist eine Subvention an automatisierte Angreifer.</li>
+                <li><strong>Erkennung und Reaktion allein werden nicht skalieren.</strong> Sie können kein SOC aufbauen, das mit einem Angriffs-Agenten mithalten kann, der 0,50 US-Dollar pro Stunde kostet.</li>
+                <li><strong>Netzwerk-Verbergung wird zur architektonischen Grundlage.</strong> Keine Nischenkontrolle, kein Premium-Feature – sondern Standard.</li>
+              </ol>
+              <div class="highlight-quote">Die Frage lautet nicht mehr <em>„Wie erkennen wir Angriffe schneller?"</em>. Sie lautet: <em>„Wie machen wir Angriffe rechnerisch bedeutungslos?"</em></div>
+              <p>OpenNHP ist eine Antwort. Es ist Open Source, standardisierungsnah und heute einsatzbereit. Die Verteidiger-Rechnung geht nur auf, wenn wir die Eingaben ändern – und die eine Eingabe, die wir kontrollieren, ist, <strong>wie viel von uns wir preisgeben</strong>.</p>
+            </div>
+
+            <!-- CTA -->
+            <div style="background: linear-gradient(135deg, rgba(0, 255, 157, 0.08), rgba(0, 184, 255, 0.05)); border: 1px solid rgba(0, 255, 157, 0.2); border-radius: 16px; padding: var(--spacing-xl); margin-top: var(--spacing-xl); text-align: center;">
+              <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: var(--spacing-md);">
+                Autonome KI-Angreifer können nicht ausnutzen, was sie nicht finden können.<br>
+                OpenNHP verbirgt Ihre Infrastruktur standardmäßig.
+              </p>
+              <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--spacing-md);">
+                <a href="https://github.com/OpenNHP/opennhp" target="_blank" class="btn btn--primary btn--sm" style="text-decoration: none;">OpenNHP auf GitHub ansehen →</a>
+                <a href="https://layerv.ai" target="_blank" class="btn btn--secondary btn--sm" style="text-decoration: none;">Qurl von LayerV ausprobieren →</a>
+              </div>
+              <a href="/vision/" style="color: var(--accent-primary); font-size: 0.9rem; display: inline-flex; align-items: center; text-decoration: none;">Vollständige Vision lesen →</a>
+            </div>
+
+          </div>
+
+          <!-- Meta -->
+          <hr class="blog-divider">
+          <div class="blog-meta">
+            <div class="blog-meta__author">
+              <div class="blog-meta__author-avatar">NHP</div>
+              <span>Das OpenNHP-Team</span>
+            </div>
+            <span class="blog-meta__date">16. April 2026</span>
+            <span class="blog-meta__tag">KI-Bedrohungen</span>
+            <span class="blog-meta__tag">Zero Trust</span>
+            <span class="blog-meta__tag">Sicherheit</span>
+          </div>
+
+          <!-- Article Footer -->
+          <div class="blog-footer">
+            <a href="/" class="blog-footer__back">
+              ← Zurück zu OpenNHP.org
+            </a>
+            <div class="blog-footer__share">
+              <span>Teilen:</span>
+              <a href="https://twitter.com/intent/tweet?text=AI+Just+Crossed+the+Expert-Attacker+Threshold&url=https%3A%2F%2Fopennhp.org%2Fblog%2Fai-has-crossed-the-expert-attacker-threshold/" target="_blank" class="share-link" aria-label="Auf X teilen">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fopennhp.org%2Fblog%2Fai-has-crossed-the-expert-attacker-threshold/" target="_blank" class="share-link" aria-label="Auf LinkedIn teilen">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </section>
+  </main>

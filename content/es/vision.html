@@ -1,6 +1,6 @@
 ---
-title: "ビジョン - OpenNHP"
-description: "OpenNHP ビジョン - なぜインターネットはダークフォレスト化しているのか、そしてなぜAI時代にゼロトラスト・ネットワーク隠蔽が不可欠なのか。"
+title: "Visión - OpenNHP"
+description: "Visión de OpenNHP: por qué Internet se está convirtiendo en un bosque oscuro y por qué la ocultación de red Zero Trust es esencial en la era de la IA."
 nav_active: "vision"
 extra_css: |
     /* NHP Architecture Diagram animations
@@ -75,14 +75,14 @@ extra_css: |
   <!-- Page Header -->
   <header class="page-header">
     <div class="container">
-      <span class="page-header__label">ビジョン</span>
+      <span class="page-header__label">Visión</span>
       <h1 class="page-header__title">
-        AIがインターネットを<br>
-        <span class="text-gradient">ダークフォレスト</span>に変えている
+        La IA está transformando Internet<br>
+        en un <span class="text-gradient">bosque oscuro</span>
       </h1>
       <p class="page-header__desc">
-        AI駆動の攻撃がインターネットを、露出が危険を意味する敵対的な環境に変えています。
-        この新しい現実において、唯一の安全な戦略は、信頼が確立されるまで不可視であり続けることです。
+        Los ataques impulsados por IA están convirtiendo Internet en un entorno hostil donde la exposición equivale a peligro.
+        En esta nueva realidad, la única estrategia segura es permanecer invisible hasta que se haya establecido la confianza.
       </p>
     </div>
   </header>
@@ -93,39 +93,39 @@ extra_css: |
     <section class="section">
       <div class="container container--narrow">
         <div class="content-section">
-          <h2 class="content-section__title">ダークフォレスト理論</h2>
+          <h2 class="content-section__title">La teoría del bosque oscuro</h2>
 
           <blockquote style="border-left: 4px solid var(--accent-primary); padding-left: var(--spacing-lg); margin: var(--spacing-lg) 0; font-style: italic; color: var(--text-secondary);">
-            「宇宙はダークフォレストだ。すべての文明は、木々の間を忍び歩く武装したハンターである……
-            この森では、他者こそが地獄だ。自らの存在を露呈した生命は、
-            たちまち消し去られるという永遠の脅威。」
+            «El universo es un bosque oscuro. Cada civilización es un cazador armado que acecha entre los árboles…
+            En este bosque, el infierno son los demás. Una amenaza eterna: cualquier vida que exponga su propia existencia
+            será eliminada rápidamente.»
             <cite style="display: block; margin-top: var(--spacing-sm); color: var(--text-muted); font-style: normal;">
-              — 劉慈欣、<a href="https://en.wikipedia.org/wiki/Dark_forest_hypothesis" target="_blank" style="color: var(--accent-primary); text-decoration: none;"><em>ダークフォレスト仮説</em></a>（<a href="https://en.wikipedia.org/wiki/The_Three-Body_Problem_(novel)" target="_blank" style="color: var(--text-muted); text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"><em>三体</em></a>三部作より）
+              — Liu Cixin, <a href="https://en.wikipedia.org/wiki/Dark_forest_hypothesis" target="_blank" style="color: var(--accent-primary); text-decoration: none;"><em>La hipótesis del bosque oscuro</em></a> (de la trilogía <a href="https://en.wikipedia.org/wiki/The_Three-Body_Problem_(novel)" target="_blank" style="color: var(--text-muted); text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'"><em>El problema de los tres cuerpos</em></a>)
             </cite>
           </blockquote>
 
           <p>
-            <strong style="color: var(--accent-primary);">GenAI</strong>の台頭により、インターネットはダークフォレストと化しました。
-            AI駆動の攻撃者は、かつてない速度と規模で脆弱性をスキャン・発見・悪用できます。
-            すべての公開サービスは、この疲れを知らないハンターたちを引き寄せるシグナルです。この環境では：
+            Con el auge de la <strong style="color: var(--accent-primary);">IA generativa</strong>, Internet se ha convertido en un bosque oscuro.
+            Los atacantes impulsados por IA pueden escanear, descubrir y explotar vulnerabilidades a una velocidad y escala sin precedentes.
+            Cada servicio expuesto es una señal que atrae a estos cazadores incansables. En este entorno:
           </p>
 
           <ul style="list-style: none; margin: var(--spacing-lg) 0;">
             <li style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
               <span style="color: var(--accent-primary);">→</span>
-              <span><strong>防御だけでは不十分。</strong> ファイアウォールやWAFは攻撃を検知・遮断できることを前提としています。<a href="#ai-attack-speed" style="color: var(--accent-primary);">AI駆動の攻撃は速すぎ、数が多すぎます。</a></span>
+              <span><strong>La defensa no basta.</strong> Los cortafuegos y WAF asumen que usted puede detectar y bloquear ataques. <a href="#ai-attack-speed" style="color: var(--accent-primary);">Los ataques impulsados por IA son demasiado rápidos y numerosos.</a></span>
             </li>
             <li style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
               <span style="color: var(--accent-primary);">→</span>
-              <span><strong>露出は危険。</strong> <a href="#ai-exploits" style="color: var(--accent-primary);">AIはすべての公開サービスを自動的に発見・悪用できます — 24時間365日、ほぼゼロコストで。</a></span>
+              <span><strong>La exposición es peligro.</strong> <a href="#ai-exploits" style="color: var(--accent-primary);">La IA puede descubrir y explotar automáticamente todos los servicios expuestos, 24/7 y a coste casi nulo.</a></span>
             </li>
             <li style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
               <span style="color: var(--accent-primary);">→</span>
-              <span><strong>公開は盗用と同義。</strong> <a href="#ai-harvesting" style="color: var(--accent-primary);">AIボットがあなたのコンテンツを瞬時に収集 — 許可していない、制御もできないモデルに永久に取り込まれます。</a></span>
+              <span><strong>Público significa robado.</strong> <a href="#ai-harvesting" style="color: var(--accent-primary);">Los bots de IA capturan su contenido al instante, alimentando permanentemente modelos que usted nunca autorizó y no puede controlar.</a></span>
             </li>
             <li style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md);">
               <span style="color: var(--accent-primary);">→</span>
-              <span><strong>不可視性こそが唯一の戦略。</strong> <a href="#nhp-paradigm" style="color: var(--accent-primary);">攻撃者があなたを見つけられなければ、攻撃もできません。</a></span>
+              <span><strong>La invisibilidad es la única estrategia.</strong> <a href="#nhp-paradigm" style="color: var(--accent-primary);">Si los atacantes no pueden encontrarle, no pueden atacarle.</a></span>
             </li>
           </ul>
         </div>
@@ -136,11 +136,11 @@ extra_css: |
     <section class="section" style="background: var(--bg-secondary);" id="ai-attack-speed">
       <div class="container container--narrow">
         <div class="content-section" style="border: none;">
-          <h2 class="content-section__title">AI攻撃：数分から数秒へ</h2>
+          <h2 class="content-section__title">Ataques con IA: de minutos a segundos</h2>
 
           <p>
-            AI駆動の攻撃は驚異的な速度で加速しています。かつてハッカーが数時間かけていたことが、今では数秒で完了します。
-            人間の防御者はもはや追いつけません — 検知と対応の時間的猶予は完全に崩壊しました。
+            Los ataques impulsados por IA se aceleran a un ritmo alarmante. Lo que antes le llevaba horas a un hacker ahora tarda segundos.
+            Los defensores humanos simplemente no pueden seguir el ritmo: la ventana para detectar y responder se ha desplomado por completo.
           </p>
 
           <div class="grid grid-2 gap-xl mt-xl">
@@ -148,10 +148,10 @@ extra_css: |
             <div class="card" style="padding: var(--spacing-xl); background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(0, 0, 0, 0.3));">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg);">
                 <h3 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; color: var(--text-primary); margin: 0;">
-                  <span>⏱️</span> 完全侵害までの時間
+                  <span>⏱️</span> Tiempo hasta el compromiso total
                 </h3>
                 <span style="background: rgba(239, 68, 68, 0.2); color: #ef4444; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.875rem; font-weight: 600;">
-                  ↓ 94%
+                  ↓ 94 %
                 </span>
               </div>
 
@@ -170,20 +170,20 @@ extra_css: |
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
                   <div style="width: 60px; height: 50px; background: linear-gradient(180deg, #ef4444, #dc2626); border-radius: 8px 8px 0 0; display: flex; align-items: flex-start; justify-content: center; padding-top: 0.75rem;">
-                    <span style="color: white; font-weight: 700; font-size: 1rem;">51s</span>
+                    <span style="color: white; font-weight: 700; font-size: 1rem;">51 s</span>
                   </div>
                   <span style="color: var(--text-muted); font-size: 0.875rem; font-weight: 500;">2024</span>
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
                   <div style="width: 60px; height: 30px; background: linear-gradient(180deg, #ef4444, #dc2626); border-radius: 8px 8px 0 0; display: flex; align-items: flex-start; justify-content: center; padding-top: 0.4rem;">
-                    <span style="color: white; font-weight: 700; font-size: 1rem;">27s</span>
+                    <span style="color: white; font-weight: 700; font-size: 1rem;">27 s</span>
                   </div>
                   <span style="color: var(--text-muted); font-size: 0.875rem; font-weight: 500;">2025</span>
                 </div>
               </div>
 
               <p style="text-align: center; margin-top: var(--spacing-lg); color: var(--text-muted); font-size: 0.8rem;">
-                出典: <a href="https://go.crowdstrike.com/2026-global-threat-report.html" target="_blank" style="color: var(--accent-primary);">CrowdStrike 2026 Global Threat Report</a>
+                Fuente: <a href="https://go.crowdstrike.com/2026-global-threat-report.html" target="_blank" style="color: var(--accent-primary);">CrowdStrike 2026 Global Threat Report</a>
               </p>
             </div>
 
@@ -191,10 +191,10 @@ extra_css: |
             <div class="card" style="padding: var(--spacing-xl); background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(0, 0, 0, 0.3));">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg);">
                 <h3 style="display: flex; align-items: center; gap: 0.5rem; font-size: 1rem; color: var(--text-primary); margin: 0;">
-                  <span>⚠️</span> 新規脆弱性
+                  <span>⚠️</span> Nuevas vulnerabilidades
                 </h3>
                 <span style="background: rgba(59, 130, 246, 0.2); color: #3b82f6; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.875rem; font-weight: 600;">
-                  ↑ 100%
+                  ↑ 100 %
                 </span>
               </div>
 
@@ -226,15 +226,15 @@ extra_css: |
               </div>
 
               <p style="text-align: center; margin-top: var(--spacing-lg); color: var(--text-muted); font-size: 0.8rem;">
-                出典: <a href="https://www.cvedetails.com/" target="_blank" style="color: var(--accent-primary);">CVE Details</a> / <a href="https://nvd.nist.gov/" target="_blank" style="color: var(--accent-primary);">NVD</a>
+                Fuente: <a href="https://www.cvedetails.com/" target="_blank" style="color: var(--accent-primary);">CVE Details</a> / <a href="https://nvd.nist.gov/" target="_blank" style="color: var(--accent-primary);">NVD</a>
               </p>
             </div>
           </div>
 
           <div class="card mt-xl" style="padding: var(--spacing-lg); background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(124, 58, 237, 0.15)); border: 1px solid rgba(239, 68, 68, 0.3); text-align: center;">
             <p style="font-size: 1.25rem; color: var(--text-primary); margin: 0;">
-              <strong>計算は明白です：</strong> より速いエクスプロイト + より多い脆弱性 = <span style="color: #ef4444;">侵害は不可避</span>。
-              <br><span style="color: var(--accent-primary); font-weight: 600;">不可視でない限り。</span>
+              <strong>La cuenta está clara:</strong>  exploits más rápidos + más vulnerabilidades = <span style="color: #ef4444;">brecha inevitable</span>.
+              <br><span style="color: var(--accent-primary); font-weight: 600;">A menos que sea invisible.</span>
             </p>
           </div>
 
@@ -246,11 +246,11 @@ extra_css: |
               </div>
               <div>
                 <blockquote style="margin: 0; font-size: 1.1rem; color: var(--text-primary); line-height: 1.6; font-style: italic;">
-                  「GenAIの時代において、サイバーセキュリティの未来は検知と対応ではなく、<strong style="color: var(--accent-primary);">先制的な能力</strong>にあります。」
+                  «En la era de la IA generativa, las <strong style="color: var(--accent-primary);">capacidades preventivas</strong>, y no la detección y respuesta, son el futuro de la ciberseguridad.»
                 </blockquote>
                 <p style="margin: var(--spacing-sm) 0 0 0; font-size: 0.85rem; color: var(--text-muted);">
-                  — Gartner、2025年9月
-                  <a href="https://www.gartner.com/en/newsroom/press-releases/2025-09-18-gartner-says-that-in-the-age-of-genai-preemptive-capabilities-not-detection-and-response-are-the-future-of-cybersecurity" target="_blank" style="color: var(--accent-primary); margin-left: 0.5rem;">詳細を読む →</a>
+                  — Gartner, septiembre de 2025
+                  <a href="https://www.gartner.com/en/newsroom/press-releases/2025-09-18-gartner-says-that-in-the-age-of-genai-preemptive-capabilities-not-detection-and-response-are-the-future-of-cybersecurity" target="_blank" style="color: var(--accent-primary); margin-left: 0.5rem;">Leer más →</a>
                 </p>
               </div>
             </div>
@@ -263,19 +263,19 @@ extra_css: |
     <section class="section" id="ai-exploits">
       <div class="container container--narrow">
         <div class="content-section">
-          <h2 class="content-section__title">可視性 = 脆弱性</h2>
+          <h2 class="content-section__title">VISIBILIDAD = VULNERABILIDAD</h2>
 
           <p>
-            AIエージェントは、公開サービスのスキャン、脆弱性の発見、動作するエクスプロイトの生成、
-            システムの侵害を自律的に実行できるようになりました — すべて人間の介在なしに、<strong style="color: #ef4444;">24時間365日、ほぼゼロコスト</strong>で。すべてのオープンポートが招待状です。
+            Los agentes de IA pueden ahora escanear de forma autónoma servicios expuestos, descubrir vulnerabilidades, generar exploits funcionales
+            y comprometer sistemas, todo ello sin intervención humana, <strong style="color: #ef4444;">24/7 y a coste casi nulo</strong>. Cada puerto abierto es una invitación.
           </p>
 
           {{< exploits-timeline >}}
 
           <div class="card mt-xl" style="padding: var(--spacing-lg); background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.15)); border: 1px solid rgba(239, 68, 68, 0.3); text-align: center;">
             <p style="font-size: 1.25rem; color: var(--text-primary); margin: 0;">
-              AIはパッチ適用よりも速く脆弱性を発見し悪用します。
-              <br><span style="color: var(--accent-primary); font-weight: 600;">NHPは攻撃対象面を完全に排除します — 不可視のサービスは悪用できません。</span>
+              La IA encuentra y explota vulnerabilidades más rápido de lo que usted puede parchearlas.
+              <br><span style="color: var(--accent-primary); font-weight: 600;">NHP elimina por completo la superficie de ataque: los servicios invisibles no pueden ser explotados.</span>
             </p>
           </div>
         </div>
@@ -286,12 +286,12 @@ extra_css: |
     <section class="section" style="background: var(--bg-secondary);" id="ai-harvesting">
       <div class="container container--narrow">
         <div class="content-section" style="border: none;">
-          <h2 class="content-section__title">公開 = 収集される</h2>
+          <h2 class="content-section__title">PÚBLICO = CAPTURADO</h2>
 
           <p>
-            たとえデータが公開されていて悪用を心配していなくても、誰がそれを消費するかは制御できません。
-            AIボットは24時間365日、ほぼゼロコストでインターネットをクロールし、利用可能になったコンテンツを即座に収集します。
-            あなたの公開データはAI訓練データセットの一部となります — <strong style="color: #ef4444;">永久に、あなたの同意なしに。</strong>
+            Aunque sus datos sean públicos y no le preocupe su explotación, aun así no puede controlar quién los consume.
+            Los bots de IA rastrean Internet 24/7 a coste casi nulo y capturan al instante cualquier contenido que esté disponible.
+            Sus datos públicos pasan a formar parte de los conjuntos de entrenamiento de IA, <strong style="color: #ef4444;">de forma permanente y sin su consentimiento.</strong>
           </p>
 
           <div style="display: flex; flex-direction: column; gap: var(--spacing-md); margin-top: var(--spacing-lg);">
@@ -302,14 +302,14 @@ extra_css: |
               </div>
               <div style="flex: 1;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                  <h3 class="card__title" style="margin: 0;">Perplexity AIがrobots.txt制限を回避</h3>
-                  <span style="color: var(--text-muted); font-size: 0.8rem;">2025年8月</span>
+                  <h3 class="card__title" style="margin: 0;">Perplexity AI elude las restricciones de robots.txt</h3>
+                  <span style="color: var(--text-muted); font-size: 0.8rem;">Ago. 2025</span>
                 </div>
                 <p class="card__desc" style="margin-bottom: 0.75rem;">
-                  CloudflareはPerplexity AIが「ステルスクローリング」技術を使用してrobots.txtディレクティブを回避し、
-                  AIスクレイピングを明示的に禁止しているウェブサイトのコンテンツにアクセスしていると告発しました。
+                  Cloudflare acusó a Perplexity AI de utilizar técnicas de «rastreo sigiloso» para eludir las directivas de robots.txt
+                  y acceder a contenido de sitios web que prohíben expresamente el rastreo por parte de la IA.
                 </p>
-                <a href="https://www.pcgamer.com/software/ai/cloudflare-calls-out-perplexity-for-hiding-crawling-activity-as-ai-bot-scrapes-websites-that-explicitly-disallow-it-perplexity-responds-by-calling-them-more-flair-than-cloud/" target="_blank" style="color: var(--accent-primary); font-size: 0.85rem;">PC Gamerレポート →</a>
+                <a href="https://www.pcgamer.com/software/ai/cloudflare-calls-out-perplexity-for-hiding-crawling-activity-as-ai-bot-scrapes-websites-that-explicitly-disallow-it-perplexity-responds-by-calling-them-more-flair-than-cloud/" target="_blank" style="color: var(--accent-primary); font-size: 0.85rem;">Informe de PC Gamer →</a>
               </div>
             </div>
 
@@ -320,14 +320,14 @@ extra_css: |
               </div>
               <div style="flex: 1;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                  <h3 class="card__title" style="margin: 0;">RedditがAnthropicを無断スクレイピングで提訴</h3>
-                  <span style="color: var(--text-muted); font-size: 0.8rem;">2025年6月</span>
+                  <h3 class="card__title" style="margin: 0;">Reddit demanda a Anthropic por rastreo no autorizado</h3>
+                  <span style="color: var(--text-muted); font-size: 0.8rem;">Jun. 2025</span>
                 </div>
                 <p class="card__desc" style="margin-bottom: 0.75rem;">
-                  Redditは、AnthropicがClaude訓練のために同意なしに自動化ボットでRedditユーザーデータをスクレイピングし、
-                  利用規約とユーザープライバシーに違反したとして訴訟を起こしました。
+                  Reddit presentó una demanda contra Anthropic alegando que la empresa utilizó bots automatizados para rastrear datos de usuarios de Reddit
+                  sin consentimiento para entrenar a Claude, infringiendo las condiciones del servicio y la privacidad de los usuarios.
                 </p>
-                <a href="https://apnews.com/article/f5ea042beb253a3f05a091e70531692d" target="_blank" style="color: var(--accent-primary); font-size: 0.85rem;">AP Newsレポート →</a>
+                <a href="https://apnews.com/article/f5ea042beb253a3f05a091e70531692d" target="_blank" style="color: var(--accent-primary); font-size: 0.85rem;">Informe de AP News →</a>
               </div>
             </div>
 
@@ -338,22 +338,22 @@ extra_css: |
               </div>
               <div style="flex: 1;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                  <h3 class="card__title" style="margin: 0;">OpenAIモデルが著作権コンテンツを「記憶」</h3>
-                  <span style="color: var(--text-muted); font-size: 0.8rem;">2025年4月</span>
+                  <h3 class="card__title" style="margin: 0;">Los modelos de OpenAI «memorizan» contenido protegido por derechos de autor</h3>
+                  <span style="color: var(--text-muted); font-size: 0.8rem;">Abr. 2025</span>
                 </div>
                 <p class="card__desc" style="margin-bottom: 0.75rem;">
-                  OpenAIのモデルが訓練中に著作権コンテンツを「記憶」している可能性があることが研究で明らかになり、
-                  AI訓練データのソースと同意に関する深刻な法的・倫理的問題を提起しました。
+                  La investigación reveló que los modelos de OpenAI pueden haber «memorizado» contenido protegido por derechos de autor durante el entrenamiento,
+                  lo que plantea importantes cuestiones legales y éticas sobre las fuentes de los datos de entrenamiento de la IA y el consentimiento.
                 </p>
-                <a href="https://techcrunch.com/2025/04/04/openais-models-memorized-copyrighted-content-new-study-suggests/" target="_blank" style="color: var(--accent-primary); font-size: 0.85rem;">TechCrunchレポート →</a>
+                <a href="https://techcrunch.com/2025/04/04/openais-models-memorized-copyrighted-content-new-study-suggests/" target="_blank" style="color: var(--accent-primary); font-size: 0.85rem;">Informe de TechCrunch →</a>
               </div>
             </div>
           </div>
 
           <div class="card mt-xl" style="padding: var(--spacing-lg); background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(234, 88, 12, 0.15)); border: 1px solid rgba(249, 115, 22, 0.3); text-align: center;">
             <p style="font-size: 1.25rem; color: var(--text-primary); margin: 0;">
-              <strong>robots.txtでは守れません。</strong> AI企業はそれを無視します。訴訟は手遅れです。
-              <br><span style="color: var(--accent-primary); font-weight: 600;">NHPはあなたのコンテンツを無許可のボットから不可視にします。</span>
+              <strong>robots.txt no le salvará.</strong> Las empresas de IA lo ignoran. Las demandas llegan demasiado tarde.
+              <br><span style="color: var(--accent-primary); font-weight: 600;">NHP hace que su contenido sea invisible para los bots no autorizados.</span>
             </p>
           </div>
         </div>
@@ -364,48 +364,48 @@ extra_css: |
     <section class="section" id="nhp-paradigm">
       <div class="container container--narrow">
         <div class="content-section" style="border: none;">
-          <h2 class="content-section__title">NHPパラダイム：デフォルトで不可視、まず認証、接続は後</h2>
+          <h2 class="content-section__title">El paradigma NHP: invisible por defecto, autenticar primero, conectar después</h2>
 
           <p>
-            <strong style="color: var(--accent-primary);">NHP (Network-Infrastructure Hiding Protocol)</strong>は、従来のセキュリティモデルを逆転させます。
-            サービスを公開して接続が確立された<em>後</em>に認証する代わりに、
-            NHPはすべてをデフォルトで隠蔽し — 暗号化認証によりクライアントの身元が証明された後にのみサービスが可視化されます。
+            <strong style="color: var(--accent-primary);">NHP (Network-Infrastructure Hiding Protocol)</strong> invierte el modelo de seguridad tradicional.
+            En lugar de exponer servicios y autenticar <em>después</em> de que se haya establecido una conexión,
+            NHP oculta todo por defecto: los servicios solo se vuelven visibles una vez que la autenticación criptográfica demuestra la identidad del cliente.
           </p>
 
           <div class="comparison mt-lg">
             <table>
               <thead>
                 <tr>
-                  <th>攻撃対象面</th>
-                  <th>従来型：まず接続</th>
-                  <th>NHP：まず認証</th>
+                  <th>Superficie de ataque</th>
+                  <th>Tradicional: conectar primero</th>
+                  <th>NHP: autenticar primero</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>ポートスキャン</td>
-                  <td>サービスがスキャナーに可視</td>
-                  <td class="highlight">すべてのポートが閉じて見える</td>
+                  <td>Escaneo de puertos</td>
+                  <td>Servicios visibles para los escáneres</td>
+                  <td class="highlight">Todos los puertos parecen cerrados</td>
                 </tr>
                 <tr>
-                  <td>DNS列挙</td>
-                  <td>ドメインレコードが公開</td>
-                  <td class="highlight">未認証者にはNXDOMAIN</td>
+                  <td>Enumeración de DNS</td>
+                  <td>Registros de dominio públicos</td>
+                  <td class="highlight">NXDOMAIN para los no autorizados</td>
                 </tr>
                 <tr>
-                  <td>認証前エクスプロイト</td>
-                  <td>ログイン前に攻撃可能</td>
-                  <td class="highlight">接続自体が不可能</td>
+                  <td>Exploits previos a la autenticación</td>
+                  <td>Ataque antes del inicio de sesión</td>
+                  <td class="highlight">Conexión imposible</td>
                 </tr>
                 <tr>
-                  <td>DDoS攻撃</td>
-                  <td>既知のIPにフラッド可能</td>
-                  <td class="highlight">IPが攻撃者から隠蔽</td>
+                  <td>Ataques DDoS</td>
+                  <td>Una IP conocida puede ser inundada</td>
+                  <td class="highlight">IP oculta a los atacantes</td>
                 </tr>
                 <tr>
-                  <td>ゼロデイ・エクスプロイト</td>
-                  <td>サービスが攻撃に晒される</td>
-                  <td class="highlight">サービスに到達不可</td>
+                  <td>Exploits de día cero</td>
+                  <td>Servicio expuesto a ataques</td>
+                  <td class="highlight">Servicio inalcanzable</td>
                 </tr>
               </tbody>
             </table>
@@ -413,7 +413,7 @@ extra_css: |
 
           <!-- NHP Architecture Diagram (based on CSA Specification) -->
           <div class="card mt-xl" style="padding: var(--spacing-xl); background: linear-gradient(135deg, rgba(0, 255, 157, 0.03), rgba(124, 58, 237, 0.03)); overflow: hidden;">
-            <h4 style="text-align: center; color: var(--text-secondary); margin-bottom: var(--spacing-md);">NHPアーキテクチャとワークフロー</h4>
+            <h4 style="text-align: center; color: var(--text-secondary); margin-bottom: var(--spacing-md);">Arquitectura y flujo de trabajo de NHP</h4>
 
             <!-- Core Components Description - Before Diagram -->
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-md); margin-bottom: var(--spacing-lg); padding-bottom: var(--spacing-md); border-bottom: 1px solid var(--border-subtle);">
@@ -423,7 +423,7 @@ extra_css: |
                   <span style="font-weight: 700; color: #3b82f6; font-size: 0.9rem;">NHP-Agent</span>
                 </div>
                 <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0; line-height: 1.4;">
-                  クライアント側コンポーネント。暗号化ノックリクエストを送信し、認証とアクセスを取得します。
+                  Componente del lado cliente que inicia solicitudes criptográficas de knock para autenticarse y obtener acceso.
                 </p>
               </div>
               <div style="text-align: center;">
@@ -432,7 +432,7 @@ extra_css: |
                   <span style="font-weight: 700; color: #a855f7; font-size: 0.9rem;">NHP-Server</span>
                 </div>
                 <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0; line-height: 1.4;">
-                  エージェントの身元を暗号的に検証し、認証プロバイダーと連携し、時間制限付きアクセストークンを付与します。
+                  Verifica criptográficamente la identidad de los agentes, coordina con el proveedor de autenticación y concede tokens de acceso con tiempo limitado.
                 </p>
               </div>
               <div style="text-align: center;">
@@ -441,7 +441,7 @@ extra_css: |
                   <span style="font-weight: 700; color: #ef4444; font-size: 0.9rem;">NHP-AC</span>
                 </div>
                 <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0; line-height: 1.4;">
-                  デフォルト拒否ポリシーを実施し、検証済みエージェントに対してのみポートを開放するアクセスコントローラー。
+                  Controlador de acceso que aplica la política de denegación por defecto y abre puertos solo para agentes verificados.
                 </p>
               </div>
             </div>
@@ -452,7 +452,7 @@ extra_css: |
               <div style="border: 2px dashed rgba(156, 163, 175, 0.5); border-radius: 16px; padding: var(--spacing-md); margin-bottom: var(--spacing-sm); position: relative; background: rgba(156, 163, 175, 0.03);">
                 <!-- Control Plane Label -->
                 <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--bg-primary); padding: 0 0.75rem;">
-                  <span style="background: rgba(156, 163, 175, 0.2); color: #9ca3af; padding: 0.15rem 0.75rem; border-radius: 999px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Control Plane</span>
+                  <span style="background: rgba(156, 163, 175, 0.2); color: #9ca3af; padding: 0.15rem 0.75rem; border-radius: 999px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Plano de control</span>
                 </div>
 
                 <!-- NHP Service Components -->
@@ -467,7 +467,7 @@ extra_css: |
                     </div>
                     <div style="background: var(--bg-tertiary); border: 2px dashed var(--border-subtle); border-radius: 10px; padding: var(--spacing-sm); text-align: center; min-width: 100px;">
                       <div style="font-size: 1.5rem;">🔐</div>
-                      <div style="font-weight: 600; color: var(--text-primary); font-size: 0.8rem;">Auth Provider</div>
+                      <div style="font-weight: 600; color: var(--text-primary); font-size: 0.8rem;">Proveedor de autenticación</div>
                     </div>
                   </div>
                 </div>
@@ -517,7 +517,7 @@ extra_css: |
               <div style="border: 2px dashed rgba(156, 163, 175, 0.5); border-radius: 16px; padding: var(--spacing-md); position: relative; background: rgba(156, 163, 175, 0.03);">
                 <!-- Data Plane Label -->
                 <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--bg-primary); padding: 0 0.75rem;">
-                  <span style="background: rgba(156, 163, 175, 0.2); color: #9ca3af; padding: 0.15rem 0.75rem; border-radius: 999px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Data Plane</span>
+                  <span style="background: rgba(156, 163, 175, 0.2); color: #9ca3af; padding: 0.15rem 0.75rem; border-radius: 999px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Plano de datos</span>
                 </div>
 
                 <!-- Resource Requestor, Arrow, Resource Provider -->
@@ -526,7 +526,7 @@ extra_css: |
                   <!-- Left: Resource Requestor -->
                   <div style="background: rgba(100, 116, 139, 0.08); border: 2px solid rgba(100, 116, 139, 0.3); border-radius: 12px; padding: var(--spacing-sm); min-width: 90px;">
                     <div style="text-align: center; margin-bottom: 0.25rem;">
-                      <span style="font-size: 0.5rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Resource Requestor</span>
+                      <span style="font-size: 0.5rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Solicitante de recursos</span>
                     </div>
                     <div class="nhp-comp-agent" style="background: var(--bg-tertiary); border: 2px solid #3b82f6; border-radius: 8px; padding: var(--spacing-xs); text-align: center;">
                       <div style="font-size: 1.25rem;">👤</div>
@@ -550,7 +550,7 @@ extra_css: |
                   <!-- Right: Resource Provider (NHP-AC → Protected Resource) -->
                   <div style="background: rgba(100, 116, 139, 0.08); border: 2px solid rgba(100, 116, 139, 0.3); border-radius: 12px; padding: var(--spacing-sm);">
                     <div style="text-align: center; margin-bottom: 0.25rem;">
-                      <span style="font-size: 0.5rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Resource Provider</span>
+                      <span style="font-size: 0.5rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Proveedor de recursos</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.25rem;">
                       <!-- NHP-AC first - Red border (default deny) -->
@@ -566,7 +566,7 @@ extra_css: |
                       <!-- Protected Resource - Green border -->
                       <div class="nhp-comp-resource" style="background: var(--bg-tertiary); border: 2px solid #00ff9d; border-radius: 8px; padding: var(--spacing-xs); text-align: center;">
                         <div style="font-size: 1rem;">🖥️</div>
-                        <div style="font-weight: 600; color: var(--text-primary); font-size: 0.6rem;">Resource</div>
+                        <div style="font-weight: 600; color: var(--text-primary); font-size: 0.6rem;">Recurso</div>
                       </div>
                     </div>
                   </div>
@@ -606,10 +606,10 @@ extra_css: |
     <section class="section">
       <div class="container container--narrow">
         <div class="content-section">
-          <h2 class="content-section__title">NHPとTLS：競合ではなく補完</h2>
+          <h2 class="content-section__title">NHP y TLS: complementarios, no rivales</h2>
 
           <p style="text-align: center; margin-bottom: var(--spacing-xl);">
-            NHPはOSI第5層（セッション）、TLSは第6層（プレゼンテーション）で動作します。両者を組み合わせることで多層防御を実現します。
+            NHP opera en la capa 5 de OSI (sesión) y TLS en la capa 6 (presentación). Juntos, proporcionan defensa en profundidad.
           </p>
 
           <!-- OSI Layer Diagram -->
@@ -619,14 +619,14 @@ extra_css: |
               <!-- Layer 7 -->
               <div style="display: flex; border: 1px solid var(--border-subtle); border-bottom: none;">
                 <div style="width: 80px; padding: 0.75rem; background: rgba(255,255,255,0.05); text-align: center; font-weight: 600; color: var(--text-muted); border-right: 1px solid var(--border-subtle);">L7</div>
-                <div style="flex: 1; padding: 0.75rem 1rem; color: var(--text-muted);">アプリケーション</div>
+                <div style="flex: 1; padding: 0.75rem 1rem; color: var(--text-muted);">Aplicación</div>
                 <div style="width: 200px; padding: 0.75rem 1rem; color: var(--text-muted); border-left: 1px solid var(--border-subtle);">HTTP, SMTP, etc.</div>
               </div>
 
               <!-- Layer 6 - TLS -->
               <div style="display: flex; border: 2px solid var(--accent-tertiary); background: rgba(124, 58, 237, 0.1);">
                 <div style="width: 80px; padding: 0.75rem; background: var(--accent-tertiary); text-align: center; font-weight: 700; color: white;">L6</div>
-                <div style="flex: 1; padding: 0.75rem 1rem; font-weight: 600; color: var(--accent-tertiary);">プレゼンテーション</div>
+                <div style="flex: 1; padding: 0.75rem 1rem; font-weight: 600; color: var(--accent-tertiary);">Presentación</div>
                 <div style="width: 200px; padding: 0.75rem 1rem; font-weight: 700; color: var(--accent-tertiary); border-left: 1px solid var(--accent-tertiary);">
                   🔐 TLS
                 </div>
@@ -635,7 +635,7 @@ extra_css: |
               <!-- Layer 5 - NHP -->
               <div style="display: flex; border: 2px solid var(--accent-primary); border-top: none; background: rgba(0, 255, 157, 0.1);">
                 <div style="width: 80px; padding: 0.75rem; background: var(--accent-primary); text-align: center; font-weight: 700; color: var(--bg-primary);">L5</div>
-                <div style="flex: 1; padding: 0.75rem 1rem; font-weight: 600; color: var(--accent-primary);">セッション</div>
+                <div style="flex: 1; padding: 0.75rem 1rem; font-weight: 600; color: var(--accent-primary);">Sesión</div>
                 <div style="width: 200px; padding: 0.75rem 1rem; font-weight: 700; color: var(--accent-primary); border-left: 1px solid var(--accent-primary);">
                   🛡️ NHP
                 </div>
@@ -644,28 +644,28 @@ extra_css: |
               <!-- Layer 4 - TCP/UDP -->
               <div style="display: flex; border: 1px solid var(--border-subtle); border-top: none;">
                 <div style="width: 80px; padding: 0.75rem; background: rgba(255,255,255,0.05); text-align: center; font-weight: 600; color: var(--text-muted); border-right: 1px solid var(--border-subtle);">L4</div>
-                <div style="flex: 1; padding: 0.75rem 1rem; color: var(--text-muted);">トランスポート</div>
+                <div style="flex: 1; padding: 0.75rem 1rem; color: var(--text-muted);">Transporte</div>
                 <div style="width: 200px; padding: 0.75rem 1rem; color: var(--text-muted); border-left: 1px solid var(--border-subtle);">TCP / UDP</div>
               </div>
 
               <!-- Layer 3 -->
               <div style="display: flex; border: 1px solid var(--border-subtle); border-top: none;">
                 <div style="width: 80px; padding: 0.75rem; background: rgba(255,255,255,0.05); text-align: center; font-weight: 600; color: var(--text-muted); border-right: 1px solid var(--border-subtle);">L3</div>
-                <div style="flex: 1; padding: 0.75rem 1rem; color: var(--text-muted);">ネットワーク</div>
+                <div style="flex: 1; padding: 0.75rem 1rem; color: var(--text-muted);">Red</div>
                 <div style="width: 200px; padding: 0.75rem 1rem; color: var(--text-muted); border-left: 1px solid var(--border-subtle);">IP</div>
               </div>
 
               <!-- Layer 2 -->
               <div style="display: flex; border: 1px solid var(--border-subtle); border-top: none;">
                 <div style="width: 80px; padding: 0.75rem; background: rgba(255,255,255,0.05); text-align: center; font-weight: 600; color: var(--text-muted); border-right: 1px solid var(--border-subtle);">L2</div>
-                <div style="flex: 1; padding: 0.75rem 1rem; color: var(--text-muted);">データリンク</div>
+                <div style="flex: 1; padding: 0.75rem 1rem; color: var(--text-muted);">Enlace de datos</div>
                 <div style="width: 200px; padding: 0.75rem 1rem; color: var(--text-muted); border-left: 1px solid var(--border-subtle);">Ethernet</div>
               </div>
 
               <!-- Layer 1 -->
               <div style="display: flex; border: 1px solid var(--border-subtle); border-top: none; border-radius: 0 0 8px 8px;">
                 <div style="width: 80px; padding: 0.75rem; background: rgba(255,255,255,0.05); text-align: center; font-weight: 600; color: var(--text-muted); border-right: 1px solid var(--border-subtle); border-radius: 0 0 0 8px;">L1</div>
-                <div style="flex: 1; padding: 0.75rem 1rem; color: var(--text-muted);">物理</div>
+                <div style="flex: 1; padding: 0.75rem 1rem; color: var(--text-muted);">Físico</div>
                 <div style="width: 200px; padding: 0.75rem 1rem; color: var(--text-muted); border-left: 1px solid var(--border-subtle); border-radius: 0 0 8px 0;"></div>
               </div>
             </div>
@@ -674,15 +674,15 @@ extra_css: |
           <!-- Comparison -->
           <div class="grid grid-2 gap-lg mt-xl">
             <div style="padding: var(--spacing-lg); border-left: 4px solid var(--accent-tertiary); background: rgba(124, 58, 237, 0.1); border-radius: 0 8px 8px 0;">
-              <h4 style="color: var(--accent-tertiary); margin-bottom: 0.5rem;">🔐 TLS：接続後に暗号化</h4>
+              <h4 style="color: var(--accent-tertiary); margin-bottom: 0.5rem;">🔐 TLS: cifrar tras conectar</h4>
               <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">
-                ハンドシェイクのためにサービスが<strong>到達可能</strong>でなければなりません。転送中のデータを保護しますが、攻撃者はサービスを発見しプローブできます。
+                El servicio debe ser <strong>accesible</strong> para el saludo. Protege los datos en tránsito, pero los atacantes aún pueden encontrar y sondear el servicio.
               </p>
             </div>
             <div style="padding: var(--spacing-lg); border-left: 4px solid var(--accent-primary); background: rgba(0, 255, 157, 0.1); border-radius: 0 8px 8px 0;">
-              <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem;">🛡️ NHP：接続前に認証</h4>
+              <h4 style="color: var(--accent-primary); margin-bottom: 0.5rem;">🛡️ NHP: autenticar antes de conectar</h4>
               <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">
-                認証されるまでサービスは<strong>不可視</strong>です。暗号的な身元証明なしにはハンドシェイクすら不可能です。
+                El servicio es <strong>invisible</strong> hasta autenticarse. Sin prueba criptográfica de identidad, no es posible ningún saludo.
               </p>
             </div>
           </div>
@@ -694,16 +694,16 @@ extra_css: |
     <section class="section">
       <div class="container container--narrow">
         <div class="cta-section">
-          <h2 class="cta-section__title">ゼロトラスト革命に参加しよう</h2>
+          <h2 class="cta-section__title">Únase a la revolución Zero Trust</h2>
           <p class="cta-section__desc">
-            ダークフォレストはすでにここにあります。問題は、あなたのインフラが可視か不可視かです。
+            El bosque oscuro ya está aquí. La cuestión es si su infraestructura será visible o invisible.
           </p>
           <div class="cta-section__actions">
             <a href="/specification/" class="btn btn--primary btn--lg">
-              仕様を読む
+              Lea la especificación
             </a>
             <a href="/demo/" class="btn btn--secondary btn--lg">
-              クイックデモを試す
+              Pruebe la demo rápida
             </a>
           </div>
         </div>

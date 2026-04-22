@@ -1,0 +1,27 @@
+# Navigation
+nav_vision: "Visión"
+nav_specification: "Especificación"
+nav_demo: "Demo"
+nav_opensource: "Código abierto"
+nav_docs: "Documentación"
+nav_research: "Investigación"
+nav_community: "Comunidad"
+
+# Footer
+footer_desc: "El protocolo Zero Trust de ocultación de infraestructura de red para la era de la IA. De código abierto, impulsado por criptografía, diseñado para amenazas modernas."
+footer_resources: "Recursos"
+footer_documentation: "Documentación"
+footer_research_papers: "Artículos de investigación"
+footer_blog: "Blog"
+footer_discussions: "Debates"
+footer_code_of_conduct: "Código de conducta"
+footer_contributors: "Colaboradores"
+footer_sponsors: "Patrocinadores"
+footer_copyright: "© 2026 Proyecto OpenNHP. <span style=\"color: #10b981; font-weight: 500;\">Una iniciativa global de código abierto sin ánimo de lucro.</span> Publicado bajo la licencia Apache 2.0."
+footer_attribution: "Construido con ❤️ — Ad Majorem Dei Gloriam"
+
+# Página Visión — conmutador de la cronología VISIBILITY = VULNERABILITY
+show_older_findings:
+  other: "Mostrar {{ .Count }} hallazgos anteriores ▾"
+hide_older_findings:
+  other: "Ocultar hallazgos anteriores ▴"

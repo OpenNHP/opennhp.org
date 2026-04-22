@@ -1,0 +1,345 @@
+---
+title: "Especificación - OpenNHP"
+description: "Especificación de OpenNHP: Internet-Draft del IETF y especificación Zero Trust de la CSA para el protocolo de ocultación de infraestructura de red."
+nav_active: "specification"
+---
+  <header class="page-header">
+    <div class="container">
+      <span class="page-header__label">Especificación</span>
+      <h1 class="page-header__title">
+        <span class="text-gradient">Estandarización</span> del protocolo
+      </h1>
+      <p class="page-header__desc">
+        OpenNHP se está estandarizando a través del IETF y de la CSA para garantizar la interoperabilidad,
+        la revisión de seguridad y la adopción a escala industrial.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+     <!-- CSA Section -->
+    <section class="section" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-header__label">La principal autoridad en seguridad en la nube</span>
+          <h2 class="section-header__title">Especificación Zero Trust de <span style="color: var(--accent-tertiary);">CSA</span></h2>
+          <p class="section-header__desc">
+            La <a href="https://cloudsecurityalliance.org" target="_blank" style="color: var(--accent-tertiary);">Cloud Security Alliance (CSA)</a>, la principal organización mundial en estándares de seguridad en la nube con más de 500 miembros corporativos, entre ellos AWS, Google, Microsoft y Alibaba, ha publicado una guía completa sobre «Stealth Mode SDP for Zero Trust Network Infrastructure» que introduce NHP.
+          </p>
+        </div>
+
+        <div class="grid grid-2 gap-lg" style="align-items: start;">
+          <div>
+            <div class="spec-table">
+              <div class="spec-table__header">
+                <div class="spec-table__icon" style="background: rgba(124, 58, 237, 0.1);">📘</div>
+                <div>
+                  <h3 class="spec-table__title">Stealth Mode SDP for Zero Trust Network Infrastructure</h3>
+                </div>
+              </div>
+              <div class="spec-table__rows">
+                <div class="spec-row">
+                  <span class="spec-row__label">Documento</span>
+                  <span class="spec-row__value">
+                    <a href="https://cloudsecurityalliance.org/artifacts/stealth-mode-sdp-for-zero-trust-network-infrastructure" target="_blank">
+                      Ver en CSA →
+                    </a>
+                  </span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-row__label">Organización</span>
+                  <span class="spec-row__value">Cloud Security Alliance (CSA)</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-row__label">Grupo de trabajo</span>
+                  <span class="spec-row__value">ZT5 - Pilar: redes (Zero Trust Research)</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-row__label">Autores principales</span>
+                  <span class="spec-row__value">Benfeng Chen, Justin Posey, Yuanyuan Liu</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-row__label">Colaboradores</span>
+                  <span class="spec-row__value">Michael Roza, Leon Zeng, Jason Garbis</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-row__label">Revisores</span>
+                  <span class="spec-row__value">Justin Bowen, George Chi, Xinpi Du, Philip Griffiths, Matias Katz, Prashant Khanwale, Vaibhav Malik, Dr. Victor Monga, Surendra Narang, Dharnisha Narasappa, Chinaza Obidike, Srinivasa Ravi Teja Peri, Venkataramana Ragothaman, Shashank Shelat, Jen Trahan, Washima Tuleun</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-row__label">Equipo de CSA</span>
+                  <span class="spec-row__value">Erik Johnson</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="margin-bottom: var(--spacing-md);">Contenido del documento</h3>
+
+            <ul style="list-style: none;">
+              <li style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); padding: var(--spacing-md); background: var(--bg-tertiary); border-radius: var(--radius-md);">
+                <span style="color: var(--accent-tertiary); font-size: 1.25rem;">✓</span>
+                <div>
+                  <strong>Panorama de amenazas impulsadas por IA</strong>
+                  <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">
+                    Análisis de amenazas de escaneo, reconocimiento y explotación de día cero impulsadas por IA
+                  </p>
+                </div>
+              </li>
+              <li style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); padding: var(--spacing-md); background: var(--bg-tertiary); border-radius: var(--radius-md);">
+                <span style="color: var(--accent-tertiary); font-size: 1.25rem;">✓</span>
+                <div>
+                  <strong>Arquitectura y flujo de trabajo de NHP</strong>
+                  <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">
+                    Componentes principales (NHP-Agent, NHP-Server, NHP-AC) y flujo de trabajo completo del protocolo
+                  </p>
+                </div>
+              </li>
+              <li style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); padding: var(--spacing-md); background: var(--bg-tertiary); border-radius: var(--radius-md);">
+                <span style="color: var(--accent-tertiary); font-size: 1.25rem;">✓</span>
+                <div>
+                  <strong>Marco criptográfico</strong>
+                  <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">
+                    Noise Protocol, formato de cabecera del mensaje y especificación de 18 tipos de mensaje
+                  </p>
+                </div>
+              </li>
+              <li style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-md); padding: var(--spacing-md); background: var(--bg-tertiary); border-radius: var(--radius-md);">
+                <span style="color: var(--accent-tertiary); font-size: 1.25rem;">✓</span>
+                <div>
+                  <strong>Guía de integración</strong>
+                  <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">
+                    Patrones de integración con SDP, DNS y FIDO, con consideraciones de implementación
+                  </p>
+                </div>
+              </li>
+              <li style="display: flex; gap: var(--spacing-sm); padding: var(--spacing-md); background: var(--bg-tertiary); border-radius: var(--radius-md);">
+                <span style="color: var(--accent-tertiary); font-size: 1.25rem;">✓</span>
+                <div>
+                  <strong>Registro y cumplimiento</strong>
+                  <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">
+                    Tipos de registro, formato, transmisión y requisitos de auditoría de cumplimiento
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Abstract Quote -->
+        <div style="margin-top: var(--spacing-xl); padding: var(--spacing-xl); background: var(--bg-tertiary); border-radius: var(--radius-lg); border-left: 4px solid var(--accent-tertiary);">
+          <blockquote style="font-style: italic; color: var(--text-secondary); margin-bottom: var(--spacing-md);">
+            «La visibilidad de red por defecto de TCP/IP ha facilitado gran parte de la actividad maliciosa actual. Dado nuestro panorama
+            de amenazas y la adopción generalizada de Zero Trust como conjunto de principios y mejores prácticas, creemos
+            que ahora tenemos el imperativo de orientar nuestras tecnologías de red principales hacia una postura de denegación por defecto,
+            alineada con conceptos emergentes como la ciberseguridad preventiva de Gartner, que pone énfasis en denegar, engañar
+            e interrumpir las amenazas antes de que puedan lanzarse o tener éxito.»
+          </blockquote>
+          <cite style="color: var(--text-muted); font-size: 0.9rem;">— Especificación Stealth Mode SDP de la CSA, Resumen</cite>
+        </div>
+
+      </div>
+    </section>
+
+  <!-- IETF Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__label">El organismo de estándares tras Internet</span>
+        <h2 class="section-header__title">Internet-Draft del <span style="color: var(--accent-primary);">IETF</span></h2>
+        <p class="section-header__desc">
+          El <a href="https://www.ietf.org" target="_blank" rel="noopener" style="color: var(--accent-primary);">Internet Engineering Task Force (IETF)</a>, la organización que definió TCP/IP, HTTP, TLS, DNS
+          y prácticamente todos los protocolos básicos de Internet, está ahora estandarizando NHP. Con más de 9000 RFC publicadas,
+          el IETF es la autoridad de referencia en estándares de protocolos de Internet.
+        </p>
+      </div>
+
+      <div class="grid grid-2 gap-lg" style="align-items: start;">
+        <div>
+          <div class="spec-table">
+            <div class="spec-table__header">
+              <div class="spec-table__icon">📄</div>
+              <div>
+                <h3 class="spec-table__title">draft-opennhp-saag-nhp</h3>
+              </div>
+            </div>
+            <div class="spec-table__rows">
+              <div class="spec-row">
+                <span class="spec-row__label">Estado</span>
+                <span class="spec-row__value"><span class="tag tag--accent">Internet-Draft activo</span></span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-row__label">Grupo de trabajo</span>
+                <span class="spec-row__value">SAAG (Security Area Advisory Group)</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-row__label">Publicado</span>
+                <span class="spec-row__value">1 de enero de 2026</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-row__label">Expira</span>
+                <span class="spec-row__value">5 de julio de 2026</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-row__label">Autores</span>
+                <span class="spec-row__value">Benfeng Chen</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-row__label">Documento</span>
+                <span class="spec-row__value">
+                  <a href="https://datatracker.ietf.org/doc/html/draft-opennhp-saag-nhp" target="_blank">
+                    Ver en el Datatracker del IETF →
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-lg">
+            <h4 style="margin-bottom: var(--spacing-sm);">Participe en la estandarización</h4>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+              Únase al esfuerzo de estandarización de NHP en el IETF. ¡Las contribuciones son bienvenidas!
+            </p>
+            <div class="flex gap-sm mt-md" style="flex-wrap: wrap;">
+              <a href="https://github.com/OpenNHP/ietf-rfc-nhp" class="btn btn--secondary btn--sm" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                Desarrollo de la RFC
+              </a>
+              <a href="mailto:saag@ietf.org" class="btn btn--outline btn--sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Lista de correo SAAG
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin-bottom: var(--spacing-md);">Aspectos destacados de la especificación</h3>
+
+          <div class="card mb-md">
+            <div class="card__icon">🏗️</div>
+            <h4 class="card__title">Arquitectura del protocolo</h4>
+            <p class="card__desc">
+              Define los componentes NHP-Agent, NHP-Server, NHP-AC y ASP, con una clara separación de responsabilidades
+              para lograr escalabilidad y seguridad.
+            </p>
+          </div>
+
+          <div class="card mb-md">
+            <div class="card__icon">🔐</div>
+            <h4 class="card__title">Marco criptográfico</h4>
+            <p class="card__desc">
+              Basado en el Noise Protocol Framework con los patrones de handshake XX, IK y K.
+              Utiliza Curve25519, ChaCha20-Poly1305 y HKDF.
+            </p>
+          </div>
+
+          <div class="card mb-md">
+            <div class="card__icon">📦</div>
+            <h4 class="card__title">Formatos de mensaje</h4>
+            <p class="card__desc">
+              Especificación completa de NHP-KNK (Knock), NHP-ACK, NHP-AOP, NHP-ACC y otros
+              tipos de mensaje con codificación binaria.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon">🔗</div>
+            <h4 class="card__title">Patrones de integración</h4>
+            <p class="card__desc">
+              Guía para integrarse con SDP, DNS, autenticación FIDO y motores de políticas Zero Trust.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Related Standards -->
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="section-header">
+          <span class="section-header__label">Fundamento</span>
+          <h2 class="section-header__title">Construido sobre estándares de la industria</h2>
+          <p class="section-header__desc">
+            NHP se basa en estándares y protocolos de seguridad consolidados y hace referencia a ellos.
+          </p>
+        </div>
+
+        <div class="features__grid">
+          <div class="card">
+            <div class="card__icon">📋</div>
+            <h3 class="card__title">NIST SP 800-207</h3>
+            <p class="card__desc">
+              Directrices de arquitectura Zero Trust del National Institute of Standards and Technology.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon">🔒</div>
+            <h3 class="card__title">RFC 8446 (TLS 1.3)</h3>
+            <p class="card__desc">
+              NHP complementa a TLS proporcionando autenticación previa a la conexión y ocultación del servicio.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon">⚡</div>
+            <h3 class="card__title">RFC 9000 (QUIC)</h3>
+            <p class="card__desc">
+              NHP puede proteger servicios basados en QUIC con las mismas capacidades de ocultación que con TCP.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon">🔐</div>
+            <h3 class="card__title">RFC 9180 (HPKE)</h3>
+            <p class="card__desc">
+              Hybrid Public Key Encryption, referenciado para escenarios avanzados de encapsulación de claves.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon">🎵</div>
+            <h3 class="card__title">Noise Protocol Framework</h3>
+            <p class="card__desc">
+              La base criptográfica para los patrones de handshake y el intercambio de claves de NHP.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card__icon">🏢</div>
+            <h3 class="card__title">CSA SDP Spec v2.0</h3>
+            <p class="card__desc">
+              Especificación Software Defined Perimeter de Garbis, Koilpillai, Islam, Flores, Bailey, Chen et al. (marzo de 2022).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="cta-section">
+          <h2 class="cta-section__title">Contribuya a la estandarización de NHP</h2>
+          <p class="cta-section__desc">
+            Ayude a dar forma al futuro de las redes Zero Trust. Revise la especificación,
+            envíe comentarios y participe en el proceso del IETF.
+          </p>
+          <div class="cta-section__actions">
+            <a href="https://datatracker.ietf.org/doc/html/draft-opennhp-saag-nhp" class="btn btn--primary btn--lg" target="_blank">
+              Leer el borrador del IETF
+            </a>
+            <a href="https://github.com/OpenNHP/ietf-rfc-nhp" class="btn btn--secondary btn--lg" target="_blank">
+              Contribuir en GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->

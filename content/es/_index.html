@@ -1,0 +1,347 @@
+---
+title: "OpenNHP - Protocolo de ocultación de red Zero Trust"
+description: "OpenNHP - El protocolo Zero Trust para el Internet como bosque oscuro en la era de la IA. Proteja su infraestructura con la ocultación de red basada en criptografía."
+keywords:
+  - OpenNHP
+  - Zero Trust
+  - Network Hiding Protocol
+  - Ciberseguridad
+  - Seguridad de IA
+  - SDP
+author: "Proyecto OpenNHP"
+og:
+  title: "OpenNHP - Protocolo de ocultación de red Zero Trust"
+  description: "El protocolo para el Internet como bosque oscuro en la era de la IA"
+  type: "website"
+  url: "https://www.opennhp.org"
+---
+
+  <!-- Blog Announcement Bar (fixed below nav) -->
+  <div style="position: fixed; top: 72px; left: 0; right: 0; z-index: 999; text-align: center; padding: 0.4rem 1rem; backdrop-filter: blur(20px);">
+    <a href="/blog/ai-has-crossed-the-expert-attacker-threshold/" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: var(--text-muted); text-decoration: none;" onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='var(--text-muted)'">
+      <span style="background: var(--accent-primary); color: #0a0e17; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 999px; letter-spacing: 0.03em;">Nueva entrada del blog</span>
+      <span>La IA acaba de cruzar el umbral del atacante experto: esto es lo que significa</span>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="section section--hero">
+    <div class="container">
+      <div class="hero">
+        <div class="hero__badges">
+          <div class="hero__badge">
+            <span>Internet-Draft del IETF publicado</span>
+          </div>
+          <div class="hero__badge">
+            <span>Especificación de la CSA publicada</span>
+          </div>
+        </div>
+
+        <h1 class="hero__title">
+          El protocolo para el<br>
+          <span class="text-gradient">Internet como bosque oscuro</span><br>
+          en la era de la IA
+        </h1>
+
+        <p class="hero__subtitle">
+          Un protocolo de seguridad Zero Trust basado en criptografía que oculta su infraestructura de los atacantes.
+          No pueden atacar lo que no pueden encontrar. Invisible hasta ser de confianza.
+        </p>
+
+        <div class="hero__actions">
+          <a href="/vision/" class="btn btn--primary btn--lg">
+            Explore la visión
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/specification/" class="btn btn--secondary btn--lg">
+            Lea la especificación
+          </a>
+          <a href="https://github.com/OpenNHP/opennhp" class="btn btn--outline btn--lg" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            Destaque en GitHub
+          </a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <span class="hero__stat-value">13,8k+</span>
+            <span class="hero__stat-label">Estrellas en GitHub</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-value">2,5k+</span>
+            <span class="hero__stat-label">Forks</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-value">&lt;10 ms</span>
+            <span class="hero__stat-label">Latencia de autenticación</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-value">10k/s</span>
+            <span class="hero__stat-label">Rendimiento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Protocol Evolution -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__label">Evolución del protocolo</span>
+        <h2 class="section-header__title">Tercera generación de ocultación de red</h2>
+        <p class="section-header__desc">
+          De Port Knocking a SPA y a NHP: la evolución de la ocultación de la infraestructura de red frente a las amenazas.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline__item">
+          <span class="timeline__label">Generación 1</span>
+          <h4 class="timeline__title">Port Knocking</h4>
+          <p class="timeline__desc">Sencillo pero inseguro. Vulnerable a ataques de repetición y a la escucha indebida.</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__label">Generación 2</span>
+          <h4 class="timeline__title">Single Packet Authorization (SPA)</h4>
+          <p class="timeline__desc">Seguridad mejorada con paquetes cifrados. Limitado por secretos compartidos y problemas de escalabilidad.</p>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__label">Generación 3 — Ahora</span>
+          <h4 class="timeline__title">Network-Infrastructure Hiding Protocol (NHP)</h4>
+          <p class="timeline__desc">Criptografía moderna (Noise Protocol, ECC), autenticación mutua y escalabilidad de nivel empresarial. Oculta por completo dominios, IP y puertos.</p>
+        </div>
+      </div>
+
+      <!-- NHP vs SPA Comparison -->
+      <div style="margin-top: var(--spacing-xl);">
+        <h3 style="text-align: center; margin-bottom: var(--spacing-lg); color: var(--text-secondary);">NHP frente a SPA</h3>
+        <div class="comparison">
+          <table>
+            <thead>
+              <tr>
+                <th>Característica</th>
+                <th>SPA</th>
+                <th>NHP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Criptografía</td>
+                <td>Secretos compartidos</td>
+                <td class="highlight">Algoritmos criptográficos modernos (p. ej. Noise, IBC, etc.)</td>
+              </tr>
+              <tr>
+                <td>Escalabilidad</td>
+                <td>Cuello de botella en un único punto</td>
+                <td class="highlight">Sin estado, escalable de forma infinita</td>
+              </tr>
+              <tr>
+                <td>Comunicación</td>
+                <td>Unidireccional</td>
+                <td class="highlight">Bidireccional con estado</td>
+              </tr>
+              <tr>
+                <td>Capacidad de ocultación</td>
+                <td>Solo puertos</td>
+                <td class="highlight">Dominio, IP y puertos</td>
+              </tr>
+              <tr>
+                <td>Extensibilidad</td>
+                <td>Normalmente SDP</td>
+                <td class="highlight">De uso general y personalizable</td>
+              </tr>
+              <tr>
+                <td>Biblioteca</td>
+                <td>C/C++ (memoria no segura)</td>
+                <td class="highlight">Go con memoria segura (OpenNHP)</td>
+              </tr>
+              <tr>
+                <td>Integración</td>
+                <td>Limitada</td>
+                <td class="highlight">DNS, FIDO, IAM, motores de políticas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="section features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__label">Características clave</span>
+        <h2 class="section-header__title">¿Por qué OpenNHP?</h2>
+        <p class="section-header__desc">
+          Diseñado para la era de la IA, en la que los atacantes utilizan LLM para detectar y explotar vulnerabilidades de forma automática.
+        </p>
+      </div>
+
+      <div class="features__grid">
+        <div class="card">
+          <div class="card__icon">🔒</div>
+          <h3 class="card__title">Acceso denegado por defecto</h3>
+          <p class="card__desc">Todos los recursos permanecen ocultos por defecto. Solo los usuarios autenticados y autorizados pueden siquiera descubrir que existen los servicios.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">👁️‍🗨️</div>
+          <h3 class="card__title">Ocultación total de la infraestructura</h3>
+          <p class="card__desc">Oculte dominios, direcciones IP y puertos. Los atacantes no pueden atacar lo que no pueden encontrar. NXDOMAIN para consultas no autorizadas.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">⚡</div>
+          <h3 class="card__title">Alto rendimiento</h3>
+          <p class="card__desc">10 000 solicitudes de autenticación por segundo con una latencia inferior a 10 ms. Creado con Go para lograr seguridad de memoria y concurrencia.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">🔐</div>
+          <h3 class="card__title">Criptografía moderna</h3>
+          <p class="card__desc">Noise Protocol Framework, Curve25519, ChaCha20-Poly1305. Intercambio de claves seguro y probado para prevenir ataques MITM.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">🌐</div>
+          <h3 class="card__title">Despliegue flexible</h3>
+          <p class="card__desc">Cliente a pasarela, cliente a servidor, servidor a servidor, pasarela a pasarela. Desde entornos autónomos hasta clústeres multiinquilino.</p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">🔗</div>
+          <h3 class="card__title">Integración fluida</h3>
+          <p class="card__desc">Funciona con los motores IAM, DNS, FIDO y de políticas Zero Trust existentes. Amplía su pila de seguridad en lugar de reemplazarla.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ecosystem -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__label">Ecosistema</span>
+        <h2 class="section-header__title">Proyectos de código abierto</h2>
+        <p class="section-header__desc">
+          Un ecosistema creciente de herramientas e implementaciones para la seguridad de red Zero Trust.
+        </p>
+      </div>
+
+      <div class="ecosystem">
+        <div class="ecosystem-card">
+          <div class="ecosystem-card__header">
+            <div class="ecosystem-card__icon">🛡️</div>
+            <div>
+              <h3 class="ecosystem-card__title">OpenNHP Core</h3>
+              <span class="ecosystem-card__subtitle">Implementación de referencia</span>
+            </div>
+          </div>
+          <p class="ecosystem-card__desc">
+            La implementación oficial del protocolo NHP en Go. Incluye los componentes nhp-agent, nhp-server y nhp-ac para despliegues completos Zero Trust.
+          </p>
+          <div class="ecosystem-card__tags">
+            <span class="tag tag--accent">Go</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Windows</span>
+            <span class="tag">macOS</span>
+          </div>
+          <a href="https://github.com/OpenNHP/opennhp" class="card__link" target="_blank">
+            Ver en GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="ecosystem-card">
+          <div class="ecosystem-card__header">
+            <div class="ecosystem-card__icon">🌐</div>
+            <div>
+              <h3 class="ecosystem-card__title">StealthDNS</h3>
+              <span class="ecosystem-card__subtitle">Cliente DNS Zero Trust</span>
+            </div>
+          </div>
+          <p class="ecosystem-card__desc">
+            Un cliente DNS impulsado por OpenNHP que implementa la resolución DNS invisible. Los dominios protegidos devuelven NXDOMAIN a los clientes no autorizados.
+          </p>
+          <div class="ecosystem-card__tags">
+            <span class="tag tag--accent">DNS</span>
+            <span class="tag">Multiplataforma</span>
+            <span class="tag">SDK móvil</span>
+          </div>
+          <a href="https://github.com/OpenNHP/stealth-dns" class="card__link" target="_blank">
+            Ver en GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="ecosystem-card">
+          <div class="ecosystem-card__header">
+            <div class="ecosystem-card__icon">🔀</div>
+            <div>
+              <h3 class="ecosystem-card__title">NHP-FRP</h3>
+              <span class="ecosystem-card__subtitle">Proxy inverso Zero Trust</span>
+            </div>
+          </div>
+          <p class="ecosystem-card__desc">
+            Integra la ocultación de red de OpenNHP con el proxy inverso frp: los puertos del servidor permanecen invisibles hasta que el cliente se autentica.
+          </p>
+          <div class="ecosystem-card__tags">
+            <span class="tag tag--accent">Go</span>
+            <span class="tag">Proxy inverso</span>
+            <span class="tag">NAT Traversal</span>
+          </div>
+          <a href="https://github.com/OpenNHP/nhp-frp" class="card__link" target="_blank">
+            Ver en GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="ecosystem-card">
+          <div class="ecosystem-card__header">
+            <div class="ecosystem-card__icon">📜</div>
+            <div>
+              <h3 class="ecosystem-card__title">JS Agent</h3>
+              <span class="ecosystem-card__subtitle">Cliente NHP para navegador</span>
+            </div>
+          </div>
+          <p class="ecosystem-card__desc">
+            Implementación en JavaScript del protocolo NHP para aplicaciones web. Habilite el acceso Zero Trust directamente desde el navegador.
+          </p>
+          <div class="ecosystem-card__tags">
+            <span class="tag tag--accent">JavaScript</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Navegador</span>
+          </div>
+          <a href="https://github.com/OpenNHP/js-agent" class="card__link" target="_blank">
+            Ver en GitHub
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="cta-section">
+        <h2 class="cta-section__title">¿Listo para ocultar su infraestructura?</h2>
+        <p class="cta-section__desc">
+          Únase a miles de desarrolladores que construyen seguridad Zero Trust con OpenNHP.
+        </p>
+        <div class="cta-section__actions">
+          <a href="https://discord.gg/CpyVmspx5x" class="btn btn--primary btn--lg" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            Únase a Discord
+          </a>
+          <a href="https://github.com/OpenNHP/opennhp" class="btn btn--secondary btn--lg" target="_blank">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            Destaque en GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,27 @@
+# Navigation
+nav_vision: "Vision"
+nav_specification: "Spezifikation"
+nav_demo: "Demo"
+nav_opensource: "Open Source"
+nav_docs: "Dokumentation"
+nav_research: "Forschung"
+nav_community: "Community"
+
+# Footer
+footer_desc: "Das Zero-Trust-Network-Infrastructure-Hiding-Protocol für das KI-Zeitalter. Open Source, kryptografiegestützt, für moderne Bedrohungen gebaut."
+footer_resources: "Ressourcen"
+footer_documentation: "Dokumentation"
+footer_research_papers: "Forschungsarbeiten"
+footer_blog: "Blog"
+footer_discussions: "Diskussionen"
+footer_code_of_conduct: "Verhaltenskodex"
+footer_contributors: "Mitwirkende"
+footer_sponsors: "Sponsoren"
+footer_copyright: "© 2026 OpenNHP-Projekt. <span style=\"color: #10b981; font-weight: 500;\">Eine globale, gemeinnützige Open-Source-Initiative.</span> Veröffentlicht unter der Apache-2.0-Lizenz."
+footer_attribution: "Mit ❤️ gebaut — Ad Majorem Dei Gloriam"
+
+# Visionsseite — VISIBILITY = VULNERABILITY Zeitleisten-Schalter
+show_older_findings:
+  other: "{{ .Count }} ältere Erkenntnisse anzeigen ▾"
+hide_older_findings:
+  other: "Ältere Erkenntnisse ausblenden ▴"

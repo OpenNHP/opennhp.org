@@ -9,7 +9,7 @@
           </a>
           <!-- Language Switcher -->
           <div style="position: relative;">
-            <select title="Language" aria-label="Language" onchange="if(this.value) window.location.href=this.value" style="appearance: none; -webkit-appearance: none; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; color: var(--text-secondary); font-size: 0.75rem; padding: 0.3rem 1.6rem 0.3rem 0.5rem; cursor: pointer; outline: none; background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23888%22 stroke-width=%222%22><path d=%22M6 9l6 6 6-6%22/></svg>'); background-repeat: no-repeat; background-position: right 0.4rem center;">
+            <select title="Language" aria-label="Language" onchange="if(this.value){try{localStorage.setItem('opennhp_lang',this.options[this.selectedIndex].dataset.lang)}catch(e){}window.location.href=this.value}" style="appearance: none; -webkit-appearance: none; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; color: var(--text-secondary); font-size: 0.75rem; padding: 0.3rem 1.6rem 0.3rem 0.5rem; cursor: pointer; outline: none; background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%23888%22 stroke-width=%222%22><path d=%22M6 9l6 6 6-6%22/></svg>'); background-repeat: no-repeat; background-position: right 0.4rem center;">
               {{ $page := . }}
               {{ range .Site.Languages }}
                 {{ $lang := . }}
@@ -26,7 +26,7 @@
                     {{ $url = cond (eq $lang.Lang "en") "/" (printf "/%s/" $lang.Lang) }}
                   {{ end }}
                 {{ end }}
-                <option value="{{ $url }}" {{ if eq $page.Site.Language.Lang $lang.Lang }}selected{{ end }}>{{ $lang.LanguageName }}</option>
+                <option value="{{ $url }}" data-lang="{{ $lang.Lang }}" {{ if eq $page.Site.Language.Lang $lang.Lang }}selected{{ end }}>{{ $lang.LanguageName }}</option>
               {{ end }}
             </select>
           </div>

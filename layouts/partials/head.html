@@ -1,5 +1,57 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Language preference: redirect to the user's stored choice, or on first
+     visit detect from navigator.languages. Runs inline before render so the
+     flash of the wrong language is minimized. Silent on storage failures. -->
+<script>
+(function () {
+  var SUPPORTED = ['en', 'zh-cn', 'zh-tw', 'ja', 'de', 'fr', 'es'];
+  var KEY = 'opennhp_lang';
+  function currentLang() {
+    var m = location.pathname.match(/^\/(en|zh-cn|zh-tw|ja|de|fr|es)(\/|$)/);
+    return m ? m[1] : 'en';
+  }
+  function matchLang(tag) {
+    if (!tag) return null;
+    var lower = tag.toLowerCase();
+    if (SUPPORTED.indexOf(lower) !== -1) return lower;
+    var primary = lower.split('-')[0];
+    if (primary === 'zh') {
+      return /-(tw|hk|mo|hant)\b/.test(lower) ? 'zh-tw' : 'zh-cn';
+    }
+    return SUPPORTED.indexOf(primary) !== -1 ? primary : null;
+  }
+  function detectLang() {
+    var list = navigator.languages || [navigator.language || ''];
+    for (var i = 0; i < list.length; i++) {
+      var m = matchLang(list[i]);
+      if (m) return m;
+    }
+    return null;
+  }
+  function urlFor(lang) {
+    var stripped = location.pathname.replace(/^\/(en|zh-cn|zh-tw|ja|de|fr|es)(\/|$)/, '/');
+    var path = lang === 'en' ? stripped : '/' + lang + stripped;
+    return path + location.search + location.hash;
+  }
+  try {
+    var current = currentLang();
+    var stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (e) {}
+    if (stored && SUPPORTED.indexOf(stored) !== -1) {
+      if (stored !== current) location.replace(urlFor(stored));
+      return;
+    }
+    var detected = detectLang();
+    if (detected && detected !== current) {
+      try { localStorage.setItem(KEY, detected); } catch (e) {}
+      location.replace(urlFor(detected));
+    }
+  } catch (e) { /* fail-safe: render as-is */ }
+})();
+</script>
+
 <meta name="description" content="{{ .Params.description | default .Site.Title }}">
 
 {{ with .Params.keywords }}

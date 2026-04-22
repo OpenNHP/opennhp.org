@@ -4,17 +4,18 @@
 
 ## Core Pages
 
-- [Vision](https://opennhp.org/vision.html): Why the Internet is becoming a Dark Forest and how Zero Visibility addresses AI-era threats. Covers the shift from Zero Trust to Zero Visibility.
-- [Specification](https://opennhp.org/specification.html): Technical specification of the NHP protocol — architecture, components, cryptographic design, and packet format.
-- [Open Source](https://opennhp.org/opensource.html): The OpenNHP open-source project, GitHub repository, contributors, and how to get involved.
-- [Research](https://opennhp.org/research.html): Academic papers and standards documents — CSA specification and IETF Internet-Draft.
-- [Demo](https://opennhp.org/demo.html): Live demonstration of OpenNHP's Zero Visibility capabilities.
-- [Community](https://opennhp.org/community.html): Discord, GitHub Discussions, and community resources.
+- [Vision](https://www.opennhp.org/vision/): Why the Internet is becoming a Dark Forest and how Zero Visibility addresses AI-era threats. Covers the shift from Zero Trust to Zero Visibility and a running timeline of AI-driven offensive-security milestones (UK AISI Frontier AI Trends Report, Anthropic Claude Code Security, Stanford ARTEMIS, AI-generated CVE exploits, Google Big Sleep, and more).
+- [Specification](https://www.opennhp.org/specification/): Technical specification of the NHP protocol — architecture, components, cryptographic design, and packet format.
+- [Open Source](https://www.opennhp.org/opensource/): The OpenNHP open-source project, GitHub repository, contributors, and how to get involved.
+- [Research](https://www.opennhp.org/research/): Academic papers and standards documents — CSA specification and IETF Internet-Draft.
+- [Demo](https://www.opennhp.org/demo/): Live demonstration of OpenNHP's Zero Visibility capabilities.
+- [Community](https://www.opennhp.org/community/): Discord, GitHub Discussions, and community resources.
 - [Documentation](https://docs.opennhp.org): Full developer and operator documentation.
 
 ## Blog
 
-- [The Internet Is Becoming a Dark Forest — And AI Is the Hunter](https://opennhp.org/blog/the-internet-is-becoming-a-dark-forest.html): How AI is transforming network threats, why visibility equals vulnerability, and how Zero Visibility architecture (OpenNHP) addresses the AI-era attack surface. References PentAGI (autonomous AI pentesting) and Claude Code Security (500+ vulnerabilities found in production codebases).
+- [AI Has Crossed the Expert-Attacker Threshold — Here's What It Means](https://www.opennhp.org/blog/ai-has-crossed-the-expert-attacker-threshold/): The UK AI Security Institute's first Frontier AI Trends Report documents AI completing expert-level cyber attack tasks that typically require 10+ years of human experience, with the duration of unassisted cyber attack tasks doubling roughly every eight months. OpenNHP's Zero Visibility architecture removes the attack surface before AI can act on it.
+- [The Internet Is Becoming a Dark Forest — And AI Is the Hunter](https://www.opennhp.org/blog/the-internet-is-becoming-a-dark-forest/): How AI is transforming network threats, why visibility equals vulnerability, and how Zero Visibility architecture (OpenNHP) addresses the AI-era attack surface. References PentAGI (autonomous AI pentesting) and Claude Code Security (500+ vulnerabilities found in production codebases).
 
 ## Key Concepts
 
@@ -22,6 +23,18 @@
 - **Zero Trust vs Zero Visibility**: Zero Trust verifies identity after contact. Zero Visibility eliminates the attack surface before contact is possible.
 - **NHP (Network Hiding Protocol)**: The underlying protocol that enforces cryptographic identity-first connectivity.
 - **Dark Forest Theory**: From Liu Cixin's sci-fi novel — any entity that reveals its location will be targeted. Applied to AI-era network security: visibility equals vulnerability.
+
+## Languages
+
+The site is published in seven languages. Each page above is available at the language-prefixed path (English stays at the root):
+
+- English — `https://www.opennhp.org/`
+- 简体中文 — `https://www.opennhp.org/zh-cn/`
+- 繁體中文 — `https://www.opennhp.org/zh-tw/`
+- 日本語 — `https://www.opennhp.org/ja/`
+- Deutsch — `https://www.opennhp.org/de/`
+- Français — `https://www.opennhp.org/fr/`
+- Español — `https://www.opennhp.org/es/`
 
 ## Standards & Recognition
 

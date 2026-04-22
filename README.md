@@ -16,6 +16,11 @@ This repository contains the source code for the OpenNHP project website, built 
 | 简体中文 | [opennhp.org/zh-cn/](https://www.opennhp.org/zh-cn/) | ✅ Complete |
 | 繁體中文 | [opennhp.org/zh-tw/](https://www.opennhp.org/zh-tw/) | ✅ Complete |
 | 日本語 | [opennhp.org/ja/](https://www.opennhp.org/ja/) | ✅ Complete |
+| Deutsch | [opennhp.org/de/](https://www.opennhp.org/de/) | ✅ Complete |
+| Français | [opennhp.org/fr/](https://www.opennhp.org/fr/) | ✅ Complete |
+| Español | [opennhp.org/es/](https://www.opennhp.org/es/) | ✅ Complete |
+
+First-time visitors are auto-redirected to the best match for their browser language (`navigator.languages`). The logic lives in an inline script at the top of [`layouts/partials/head.html`](layouts/partials/head.html) and is silent on storage failures (private browsing). Once a visitor manually picks a language from the footer switcher, the choice is stored in `localStorage` (`opennhp_lang`) and honored site-wide on subsequent loads — auto-detection never overrides an explicit choice.
 
 ## Pages
 
@@ -45,7 +50,7 @@ This repository contains the source code for the OpenNHP project website, built 
 website/
 ├── hugo.toml                  # Hugo configuration (languages, build settings)
 ├── content/
-│   ├── en/                    # English content
+│   ├── en/                    # English content (default, served at site root)
 │   │   ├── _index.html        # Homepage
 │   │   ├── vision.html
 │   │   ├── specification.html
@@ -56,7 +61,14 @@ website/
 │   │   └── blog/
 │   ├── zh-cn/                 # Simplified Chinese
 │   ├── zh-tw/                 # Traditional Chinese
-│   └── ja/                    # Japanese
+│   ├── ja/                    # Japanese
+│   ├── de/                    # German
+│   ├── fr/                    # French
+│   └── es/                    # Spanish
+├── data/
+│   └── exploits.yaml          # Timeline stories for vision page
+│                              #   (per-entry: date, icon, localized titles/
+│                              #    descs/links for all 7 languages)
 ├── layouts/
 │   ├── _default/
 │   │   ├── baseof.html        # Base template (head, body, scripts)
@@ -65,16 +77,22 @@ website/
 │   │   ├── list.html          # Blog listing layout
 │   │   └── single.html        # Blog post layout
 │   ├── index.html             # Homepage layout
-│   └── partials/
-│       ├── head.html           # <head> meta, fonts, favicon
-│       ├── nav.html            # Navigation bar
-│       ├── footer.html         # Footer with language switcher
-│       └── background.html     # Particle/grid background effects
+│   ├── partials/
+│   │   ├── head.html          # <head> meta, fonts, favicon, lang-detect
+│   │   ├── nav.html           # Navigation bar
+│   │   ├── footer.html        # Footer with language switcher
+│   │   ├── exploit-card.html  # One card in the vision-page timeline
+│   │   └── background.html    # Particle/grid background effects
+│   └── shortcodes/
+│       └── exploits-timeline.html  # Renders timeline from data/exploits.yaml
 ├── i18n/
-│   ├── en.yaml                # English UI strings
+│   ├── en.yaml                # English UI strings (nav, footer, timeline)
 │   ├── zh-cn.yaml             # Simplified Chinese UI strings
 │   ├── zh-tw.yaml             # Traditional Chinese UI strings
-│   └── ja.yaml                # Japanese UI strings
+│   ├── ja.yaml                # Japanese UI strings
+│   ├── de.yaml                # German UI strings
+│   ├── fr.yaml                # French UI strings
+│   └── es.yaml                # Spanish UI strings
 ├── static/
 │   ├── css/styles.css         # Main stylesheet
 │   ├── js/main.js             # JavaScript interactions
@@ -88,6 +106,10 @@ website/
 ├── LICENSE
 └── README.md
 ```
+
+### Data-driven timeline
+
+The "VISIBILITY = VULNERABILITY" section on `/vision/` renders from [`data/exploits.yaml`](data/exploits.yaml) via the [`exploits-timeline` shortcode](layouts/shortcodes/exploits-timeline.html). Adding a new story is a single YAML entry — titles/descs/date labels/link labels all live per-language in the same record. The shortcode sorts by date desc, shows the newest 4 cards, and hides the rest behind a localized toggle button (`show_older_findings` / `hide_older_findings` in each `i18n/*.yaml`). The per-card renderer is [`layouts/partials/exploit-card.html`](layouts/partials/exploit-card.html) and falls back to English for any missing translation.
 
 ## Design Theme
 
@@ -118,10 +140,10 @@ Then visit `http://localhost:1313`
 
 ### Adding a new language
 
-1. Add the language config in `hugo.toml` under `[languages]`
-2. Create a content directory: `content/<lang-code>/`
-3. Copy English content files and translate them
-4. Add UI strings in `i18n/<lang-code>.yaml`
+1. Add the language block in `hugo.toml` under `[languages]` — it will automatically show up in the footer switcher and in the first-visit auto-detect list once the code is added to the `SUPPORTED` array in [`layouts/partials/head.html`](layouts/partials/head.html).
+2. Create `content/<lang-code>/` and translate the 10 content files from `content/en/`.
+3. Add UI strings in `i18n/<lang-code>.yaml` (nav, footer, `show_older_findings` / `hide_older_findings`).
+4. Add the new language's keys (`titles`, `descs`, `date_labels`, link `labels`) to every entry in [`data/exploits.yaml`](data/exploits.yaml). Missing entries fall back to English.
 
 ## Deployment
 

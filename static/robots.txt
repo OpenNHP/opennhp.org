@@ -23,4 +23,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://opennhp.org/sitemap.xml
+Sitemap: https://www.opennhp.org/sitemap.xml

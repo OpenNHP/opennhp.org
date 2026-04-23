@@ -296,7 +296,7 @@ console.log(`
 → https://discord.gg/CpyVmspx5x
 
 %cProtocol Specification:
-→ https://datatracker.ietf.org/doc/html/draft-opennhp-saag-nhp
+→ https://datatracker.ietf.org/doc/html/draft-opennhp-ztcpp-nhp
 `, 
   'font-size: 20px; font-weight: bold; color: #00ff9d;',
   'font-size: 14px; color: #a0aec0; font-style: italic;',

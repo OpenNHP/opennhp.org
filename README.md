@@ -159,7 +159,7 @@ The site is automatically built and deployed via GitHub Actions on every push to
 
 - **Main Project**: [github.com/OpenNHP/opennhp](https://github.com/OpenNHP/opennhp)
 - **Documentation**: [docs.opennhp.org](https://docs.opennhp.org)
-- **IETF Draft**: [draft-opennhp-saag-nhp](https://datatracker.ietf.org/doc/html/draft-opennhp-saag-nhp)
+- **IETF Draft**: [draft-opennhp-ztcpp-nhp](https://datatracker.ietf.org/doc/html/draft-opennhp-ztcpp-nhp)
 - **Discord**: [OpenNHP Discord](https://discord.gg/CpyVmspx5x)
 
 ## Contributing

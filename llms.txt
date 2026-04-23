@@ -25,6 +25,6 @@
 
 ## Standards & Recognition
 
-- IETF Internet-Draft: https://datatracker.ietf.org/doc/html/draft-opennhp-saag-nhp
+- IETF Internet-Draft: https://datatracker.ietf.org/doc/html/draft-opennhp-ztcpp-nhp
 - Cloud Security Alliance Specification: https://cloudsecurityalliance.org/artifacts/stealth-mode-sdp-for-zero-trust-network-infrastructure
 - GitHub: https://github.com/OpenNHP/opennhp

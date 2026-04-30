@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+  <defs>
+    <style>
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; fill: #666; }
+      .heading { font-family: system-ui, -apple-system, sans-serif; font-size: 24px; font-weight: 600; }
+      .subtext { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; fill: #666; }
+      .italic { font-style: italic; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#fff"/>
+
+  <!-- The Visible Internet box -->
+  <g transform="translate(100, 40)">
+    <rect width="280" height="115" rx="8" fill="#f5f0e8" stroke="#d4cfc5" stroke-width="2"/>
+    <text x="140" y="40" text-anchor="middle" class="heading" fill="#333">The <tspan class="italic">Visible</tspan> Internet</text>
+    <text x="140" y="68" text-anchor="middle" class="subtext" fill="#888">NOT AI-attack resistant</text>
+    <text x="140" y="92" text-anchor="middle" class="subtext" fill="#888">NOT AI-agent friendly</text>
+  </g>
+
+  <!-- Center dashed divider -->
+  <line x1="500" y1="30" x2="500" y2="415" stroke="#ccc" stroke-width="2" stroke-dasharray="8,8"/>
+
+  <!-- VS circle -->
+  <g transform="translate(500, 97)">
+    <circle r="25" fill="#fff" stroke="#ccc" stroke-width="2"/>
+    <text text-anchor="middle" y="6" class="label" fill="#888">vs</text>
+  </g>
+
+  <!-- The Invisible Internet box -->
+  <g transform="translate(620, 40)">
+    <rect width="280" height="115" rx="8" fill="#e6f7f5" stroke="#0d9488" stroke-width="2"/>
+    <text x="140" y="40" text-anchor="middle" class="heading" fill="#0d9488">The <tspan class="italic">Invisible</tspan> Internet</text>
+    <text x="140" y="68" text-anchor="middle" class="subtext" fill="#0d9488">AI-native security &amp; privacy</text>
+    <text x="140" y="92" text-anchor="middle" class="subtext" fill="#0d9488">AI-agent ready</text>
+  </g>
+
+  <!-- Left arrow and label -->
+  <line x1="240" y1="260" x2="240" y2="155" stroke="#d4cfc5" stroke-width="2" marker-end="url(#arrow-gray)"/>
+  <text x="260" y="215" class="label italic" fill="#888">security &amp; privacy bolted on</text>
+
+  <!-- Right arrow and label -->
+  <line x1="760" y1="260" x2="760" y2="155" stroke="#0d9488" stroke-width="2" marker-end="url(#arrow-teal)"/>
+  <text x="740" y="215" text-anchor="end" class="label italic" fill="#0d9488">security &amp; privacy by design</text>
+
+  <!-- Unmanaged session layer box -->
+  <g transform="translate(100, 280)">
+    <rect width="280" height="80" rx="8" fill="#f5f0e8" stroke="#d4cfc5" stroke-width="2"/>
+    <text x="140" y="46" text-anchor="middle" class="heading" fill="#333">Unmanaged OSI layer 5</text>
+  </g>
+
+  <!-- 1990 - Today label -->
+  <text x="310" y="395" text-anchor="start" class="label italic" fill="#888">1990 — Today</text>
+
+  <!-- Managed session layer box -->
+  <g transform="translate(620, 280)">
+    <rect width="280" height="80" rx="8" fill="#e6f7f5" stroke="#0d9488" stroke-width="2"/>
+    <text x="140" y="35" text-anchor="middle" class="heading" fill="#0d9488">Managed OSI layer 5</text>
+    <text x="140" y="60" text-anchor="middle" class="heading" fill="#0d9488" style="font-size: 20px;">with OpenNHP</text>
+  </g>
+
+  <!-- The future label -->
+  <text x="690" y="395" text-anchor="end" class="label italic" fill="#0d9488">The future</text>
+
+  <!-- Arrows from OSI to session layers -->
+  <path d="M 400 440 L 240 370" stroke="#d4cfc5" stroke-width="2" fill="none" marker-end="url(#arrow-gray)"/>
+  <path d="M 600 440 L 760 370" stroke="#0d9488" stroke-width="2" fill="none" marker-end="url(#arrow-teal)"/>
+
+  <!-- OSI network layers box -->
+  <g transform="translate(300, 430)">
+    <rect width="400" height="60" rx="8" fill="#e0f2fe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="200" y="38" text-anchor="middle" class="heading" fill="#3b82f6">OSI network layers 1–4</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(100, 540)">
+    <rect width="16" height="16" rx="3" fill="#d4cfc5"/>
+    <text x="24" y="13" class="label">Today's internet</text>
+
+    <rect x="200" width="16" height="16" rx="3" fill="#0d9488"/>
+    <text x="224" y="13" class="label">The Invisible Internet</text>
+
+    <rect x="420" width="16" height="16" rx="3" fill="#3b82f6"/>
+    <text x="444" y="13" class="label">Shared foundation</text>
+  </g>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow-gray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#d4cfc5"/>
+    </marker>
+    <marker id="arrow-teal" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0d9488"/>
+    </marker>
+  </defs>
+</svg>

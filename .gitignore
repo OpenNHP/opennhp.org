@@ -5,3 +5,4 @@ resources/_gen/
 # Local editor/tool artifacts
 .claude/
 .hintrc
+.DS_Store

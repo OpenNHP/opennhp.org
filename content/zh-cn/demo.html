@@ -184,10 +184,10 @@ extra_css: |
             <img src="/assets/images/OpenNHP_ACDemo0.png" alt="NHP 演示 - 服务器对未认证用户不可见" style="width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
           </div>
 
-          <h3 style="margin-bottom: var(--spacing-md); font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);">2) 端口扫描同样返回 TIME OUT</h3>
+          <h3 style="margin-bottom: var(--spacing-md); font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);">2) 端口扫描超时 —— 服务器看似离线</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
-            对服务器进行端口扫描同样会返回 <strong>TIME OUT</strong> 错误。
-            所有端口对未授权的扫描器都显示为关闭状态。您可以使用在线端口扫描工具亲自验证：
+            对服务器进行端口扫描会返回 <strong>TIME OUT</strong> 错误，<code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.85em;">nmap</code> 还会报告 <strong>"Host seems down"</strong> ——
+            对未授权扫描器而言，服务器不仅看似被防火墙挡住，更像是根本不在线。您可以使用在线端口扫描工具亲自验证：
           </p>
 
           <div class="card" style="margin-bottom: var(--spacing-xl);">
@@ -198,10 +198,26 @@ extra_css: |
             <img src="/assets/images/OpenNHP_ScanDemo.png" alt="NHP 演示 - 端口扫描返回 TIME OUT" style="width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
           </div>
 
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
+            直接运行 <code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.85em;">nmap</code> 也会返回 <strong>"Host seems down"</strong> —— 从攻击者的视角看，这台服务器并非只是被防火墙拦截，而是看起来根本不存在：
+          </p>
+
+          <div class="card" style="margin-bottom: var(--spacing-xl); border-color: rgba(239, 68, 68, 0.3);">
+            <div style="background: var(--bg-primary); border-radius: var(--radius-md); padding: var(--spacing-md); font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.65;">
+              <div style="color: var(--text-muted);">$ nmap --reason ac.opennhp.org</div>
+              <div style="color: var(--text-secondary); margin-top: 8px;">Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-07 11:40 PDT</div>
+              <div style="color: #ef4444; margin-top: 4px;">Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn</div>
+              <div style="color: var(--text-secondary); margin-top: 4px;">Nmap done: 1 IP address (<span style="color: #ef4444; font-weight: 600;">0 hosts up</span>) scanned in 3.04 seconds</div>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--spacing-md); margin-bottom: 0;">
+              <span style="color: #ef4444;">✗</span> <strong>0 hosts up</strong>（无主机在线）—— nmap 的主机发现本身就失败了，扫描器在尝试任何端口探测之前就已认定服务器离线。
+            </p>
+          </div>
+
           <h3 style="margin-bottom: var(--spacing-md); font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);">3) 通过 Auth Plugin、Web NHP-Agent 或 StealthDNS 应用进行认证</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
             使用<a href="https://auth-plugin.opennhp.org/" target="_blank" style="color: var(--accent-primary);">Auth Plugin 网页</a>、<a href="https://agent.opennhp.org/" target="_blank" style="color: var(--accent-primary);">Web NHP-Agent</a>或 <a href="https://github.com/OpenNHP/stealth-dns" target="_blank" style="color: var(--accent-primary);">StealthDNS 应用</a>与 NHP 服务器进行认证。
-            成功登录后，您即可访问受保护的服务器。
+            认证成功后，您即可访问受保护的服务器。
           </p>
 
           <div class="card" style="margin-bottom: var(--spacing-xl);">

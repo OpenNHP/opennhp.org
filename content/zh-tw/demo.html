@@ -184,10 +184,10 @@ extra_css: |
             <img src="/assets/images/OpenNHP_ACDemo0.png" alt="NHP 示範 - 伺服器對未驗證使用者隱形" style="width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
           </div>
 
-          <h3 style="margin-bottom: var(--spacing-md); font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);">2) 連接埠掃描同樣回傳逾時</h3>
+          <h3 style="margin-bottom: var(--spacing-md); font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);">2) 連接埠掃描逾時 —— 伺服器看似離線</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
-            對伺服器進行連接埠掃描同樣會回傳<strong>逾時（TIME OUT）</strong>錯誤。
-            所有連接埠對未授權掃描器都顯示為關閉狀態。您可以使用線上連接埠掃描器自行嘗試：
+            對伺服器進行連接埠掃描會回傳<strong>逾時（TIME OUT）</strong>錯誤，<code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.85em;">nmap</code> 還會回報 <strong>「Host seems down」</strong> ——
+            對未授權掃描器而言，伺服器不僅看似被防火牆封鎖，而是根本不在線上。您可以使用線上連接埠掃描器自行嘗試：
           </p>
 
           <div class="card" style="margin-bottom: var(--spacing-xl);">
@@ -198,10 +198,26 @@ extra_css: |
             <img src="/assets/images/OpenNHP_ScanDemo.png" alt="NHP 示範 - 連接埠掃描回傳逾時" style="width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
           </div>
 
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
+            直接執行 <code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.85em;">nmap</code> 也會回傳 <strong>「Host seems down」</strong> —— 從攻擊者的角度看，這台伺服器並非只是被防火牆擋住，而是看起來根本不存在：
+          </p>
+
+          <div class="card" style="margin-bottom: var(--spacing-xl); border-color: rgba(239, 68, 68, 0.3);">
+            <div style="background: var(--bg-primary); border-radius: var(--radius-md); padding: var(--spacing-md); font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.65;">
+              <div style="color: var(--text-muted);">$ nmap --reason ac.opennhp.org</div>
+              <div style="color: var(--text-secondary); margin-top: 8px;">Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-07 11:40 PDT</div>
+              <div style="color: #ef4444; margin-top: 4px;">Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn</div>
+              <div style="color: var(--text-secondary); margin-top: 4px;">Nmap done: 1 IP address (<span style="color: #ef4444; font-weight: 600;">0 hosts up</span>) scanned in 3.04 seconds</div>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--spacing-md); margin-bottom: 0;">
+              <span style="color: #ef4444;">✗</span> <strong>0 hosts up</strong>（沒有主機上線）—— nmap 的主機探索本身就失敗了，掃描器在嘗試任何連接埠探測之前就已判定伺服器離線。
+            </p>
+          </div>
+
           <h3 style="margin-bottom: var(--spacing-md); font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);">3) 透過 Auth Plugin、Web NHP-Agent 或 StealthDNS 應用程式進行驗證</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
             使用<a href="https://auth-plugin.opennhp.org/" target="_blank" style="color: var(--accent-primary);">Auth Plugin 網頁</a>、<a href="https://agent.opennhp.org/" target="_blank" style="color: var(--accent-primary);">Web NHP-Agent</a>或 <a href="https://github.com/OpenNHP/stealth-dns" target="_blank" style="color: var(--accent-primary);">StealthDNS 應用程式</a>向 NHP 伺服器進行身份驗證。
-            登入成功後，您即可存取受保護的伺服器。
+            驗證成功後，您即可存取受保護的伺服器。
           </p>
 
           <div class="card" style="margin-bottom: var(--spacing-xl);">

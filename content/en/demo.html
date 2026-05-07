@@ -184,10 +184,10 @@ extra_css: |
             <img src="/assets/images/OpenNHP_ACDemo0.png" alt="NHP Demo - Server Invisible to Unauthenticated Users" style="width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
           </div>
           
-          <h3 style="margin-bottom: var(--spacing-md); font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);">2) Port Scanning Also Returns TIME OUT</h3>
+          <h3 style="margin-bottom: var(--spacing-md); font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);">2) Port Scans Time Out — The Server Appears Offline</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
-            Port scanning the server will also return a <strong>TIME OUT</strong> error. 
-            All ports appear closed to unauthorized scanners. Try it yourself with an online port scanner:
+            Port scanning the server returns a <strong>TIME OUT</strong> error and <code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.85em;">nmap</code> reports <strong>"Host seems down"</strong> —
+            to unauthorized scanners, the server doesn't just look firewalled, it appears not to be online at all. Try it yourself with an online port scanner:
           </p>
           
           <div class="card" style="margin-bottom: var(--spacing-xl);">
@@ -197,11 +197,27 @@ extra_css: |
             </a>
             <img src="/assets/images/OpenNHP_ScanDemo.png" alt="NHP Demo - Port Scanning Returns TIME OUT" style="width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
           </div>
-          
+
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
+            Even running <code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.85em;">nmap</code> directly returns <strong>"Host seems down"</strong> — the server doesn't merely look firewalled, it appears not to exist at all from the attacker's point of view:
+          </p>
+
+          <div class="card" style="margin-bottom: var(--spacing-xl); border-color: rgba(239, 68, 68, 0.3);">
+            <div style="background: var(--bg-primary); border-radius: var(--radius-md); padding: var(--spacing-md); font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.65;">
+              <div style="color: var(--text-muted);">$ nmap --reason ac.opennhp.org</div>
+              <div style="color: var(--text-secondary); margin-top: 8px;">Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-07 11:40 PDT</div>
+              <div style="color: #ef4444; margin-top: 4px;">Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn</div>
+              <div style="color: var(--text-secondary); margin-top: 4px;">Nmap done: 1 IP address (<span style="color: #ef4444; font-weight: 600;">0 hosts up</span>) scanned in 3.04 seconds</div>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--spacing-md); margin-bottom: 0;">
+              <span style="color: #ef4444;">✗</span> <strong>0 hosts up</strong> — nmap's host discovery itself fails, so the scanner concludes the server is offline before it ever attempts a single port probe.
+            </p>
+          </div>
+
           <h3 style="margin-bottom: var(--spacing-md); font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);">3) Authenticate with Auth Plugin, Web NHP-Agent, or StealthDNS App</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
             Use the <a href="https://auth-plugin.opennhp.org/" target="_blank" style="color: var(--accent-primary);">Auth Plugin Webpage</a> or the <a href="https://agent.opennhp.org/" target="_blank" style="color: var(--accent-primary);">Web-based NHP-Agent</a> or <a href="https://github.com/OpenNHP/stealth-dns" target="_blank" style="color: var(--accent-primary);">StealthDNS App</a> to authenticate with the NHP server. 
-            After successful login, you can access the protected server.
+            After successful authentication, you can access the protected server.
           </p>
           
           <div class="card" style="margin-bottom: var(--spacing-xl);">

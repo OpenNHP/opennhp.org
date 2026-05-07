@@ -184,10 +184,10 @@ extra_css: |
             <img src="/assets/images/OpenNHP_ACDemo0.png" alt="NHPデモ - 未認証ユーザーにはサーバーが不可視" style="width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
           </div>
 
-          <h3 style="margin-bottom: var(--spacing-md); font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);">2) ポートスキャンもタイムアウトを返す</h3>
+          <h3 style="margin-bottom: var(--spacing-md); font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);">2) ポートスキャンはタイムアウト ── サーバーはオフラインに見える</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
-            サーバーをポートスキャンしても<strong>タイムアウト</strong>エラーが返されます。
-            未認証のスキャナーには全てのポートが閉じて見えます。オンラインポートスキャナーで試してみてください：
+            サーバーをポートスキャンすると<strong>タイムアウト</strong>エラーが返され、<code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.85em;">nmap</code> は <strong>「Host seems down」</strong> と報告します ──
+            未認証のスキャナーから見ると、サーバーは単にファイアウォールで守られているだけでなく、そもそもオンラインですらないように見えます。オンラインポートスキャナーで試してみてください：
           </p>
 
           <div class="card" style="margin-bottom: var(--spacing-xl);">
@@ -198,10 +198,26 @@ extra_css: |
             <img src="/assets/images/OpenNHP_ScanDemo.png" alt="NHPデモ - ポートスキャンがタイムアウトを返す" style="width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
           </div>
 
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
+            <code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.85em;">nmap</code> を直接実行しても <strong>「Host seems down」</strong> が返ります ── 攻撃者の視点では、サーバーは単にファイアウォールで遮断されているのではなく、そもそも存在していないように見えます：
+          </p>
+
+          <div class="card" style="margin-bottom: var(--spacing-xl); border-color: rgba(239, 68, 68, 0.3);">
+            <div style="background: var(--bg-primary); border-radius: var(--radius-md); padding: var(--spacing-md); font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.65;">
+              <div style="color: var(--text-muted);">$ nmap --reason ac.opennhp.org</div>
+              <div style="color: var(--text-secondary); margin-top: 8px;">Starting Nmap 7.80 ( https://nmap.org ) at 2026-05-07 11:40 PDT</div>
+              <div style="color: #ef4444; margin-top: 4px;">Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn</div>
+              <div style="color: var(--text-secondary); margin-top: 4px;">Nmap done: 1 IP address (<span style="color: #ef4444; font-weight: 600;">0 hosts up</span>) scanned in 3.04 seconds</div>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: var(--spacing-md); margin-bottom: 0;">
+              <span style="color: #ef4444;">✗</span> <strong>0 hosts up</strong>（オンラインのホスト 0 件）── nmap のホスト探索そのものが失敗するため、スキャナーは単一のポート探査を試みる前にサーバーをオフラインと判定します。
+            </p>
+          </div>
+
           <h3 style="margin-bottom: var(--spacing-md); font-size: 1.1rem; font-weight: 500; color: var(--text-secondary);">3) Auth Plugin、Web NHP-Agent、またはStealthDNSアプリで認証する</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
             <a href="https://auth-plugin.opennhp.org/" target="_blank" style="color: var(--accent-primary);">Auth Plugin Webpage</a>、<a href="https://agent.opennhp.org/" target="_blank" style="color: var(--accent-primary);">Web NHP-Agent</a>、または<a href="https://github.com/OpenNHP/stealth-dns" target="_blank" style="color: var(--accent-primary);">StealthDNSアプリ</a>を使用してNHPサーバーで認証します。
-            ログインに成功すると、保護されたサーバーにアクセスできるようになります。
+            認証に成功すると、保護されたサーバーにアクセスできるようになります。
           </p>
 
           <div class="card" style="margin-bottom: var(--spacing-xl);">

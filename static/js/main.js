@@ -185,7 +185,7 @@ const statsObserver = new IntersectionObserver((entries) => {
       const text = statValue.textContent;
       
       if (text.includes('k+')) {
-        const num = parseFloat(text) * 1000;
+        const num = parseFloat(text.replace(',', '.')) * 1000;
         animateCounter(statValue, num);
       }
       

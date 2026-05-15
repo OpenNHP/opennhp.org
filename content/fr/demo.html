@@ -59,6 +59,68 @@ extra_css: |
         height: 18px;
         flex-shrink: 0;
       }
+      .demo-auth-video-tabs__inner {
+        display: flex;
+        flex-wrap: wrap;
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        background: var(--bg-secondary);
+      }
+      .demo-auth-video-tabs__radio {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      .demo-auth-video-tabs__label {
+        flex: 1 1 30%;
+        text-align: center;
+        padding: 0.75rem 0.4rem;
+        cursor: pointer;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        background: var(--bg-tertiary);
+        border-bottom: 2px solid transparent;
+        transition: color 0.2s, border-color 0.2s, background 0.2s;
+      }
+      @media (min-width: 480px) {
+        .demo-auth-video-tabs__label {
+          font-size: 0.875rem;
+          padding: 0.85rem 0.5rem;
+        }
+      }
+      .demo-auth-video-tabs__label:hover {
+        color: var(--text-secondary);
+      }
+      .demo-auth-video-tabs__radio:checked + .demo-auth-video-tabs__label {
+        color: var(--accent-primary);
+        background: var(--bg-primary);
+        border-bottom-color: var(--accent-primary);
+      }
+      .demo-auth-video-tabs__panel {
+        flex-basis: 100%;
+        display: none;
+        padding: var(--spacing-md);
+        background: var(--bg-primary);
+      }
+      .demo-auth-video-tabs__panel video {
+        width: 100%;
+        border-radius: var(--radius-md);
+        background: #0a0a0a;
+        vertical-align: middle;
+      }
+      #demo-auth-v-plugin:checked ~ .demo-auth-video-tabs__panel--plugin,
+      #demo-auth-v-agent:checked ~ .demo-auth-video-tabs__panel--agent,
+      #demo-auth-v-stealth:checked ~ .demo-auth-video-tabs__panel--stealth {
+        display: block;
+      }
 ---
   <!-- Page Header -->
   <header class="page-header">
@@ -165,6 +227,42 @@ extra_css: |
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="section-header" style="margin-bottom: var(--spacing-lg);">
+          <h2 class="section-header__title"><span class="text-gradient">Vidéos de démo (lecture)</span></h2>
+        </div>
+        <div class="card demo-auth-video-tabs" style="margin-bottom: var(--spacing-xl); padding: var(--spacing-lg);">
+          <p style="margin: 0 0 var(--spacing-md); color: var(--text-muted); font-size: 0.9rem; line-height: 1.55;">
+            <strong>Page Auth Plugin</strong>, <strong>Web NHP-Agent</strong> et <strong>application StealthDNS</strong> — utilisez les onglets pour regarder chaque enregistrement.
+          </p>
+          <div class="demo-auth-video-tabs__inner">
+            <input type="radio" name="demo-auth-videos" id="demo-auth-v-plugin" class="demo-auth-video-tabs__radio" checked>
+            <label for="demo-auth-v-plugin" class="demo-auth-video-tabs__label">Page Auth Plugin</label>
+            <input type="radio" name="demo-auth-videos" id="demo-auth-v-agent" class="demo-auth-video-tabs__radio">
+            <label for="demo-auth-v-agent" class="demo-auth-video-tabs__label">Web NHP-Agent</label>
+            <input type="radio" name="demo-auth-videos" id="demo-auth-v-stealth" class="demo-auth-video-tabs__radio">
+            <label for="demo-auth-v-stealth" class="demo-auth-video-tabs__label">App StealthDNS</label>
+            <div class="demo-auth-video-tabs__panel demo-auth-video-tabs__panel--plugin">
+              <video controls preload="metadata" playsinline title="Page Auth Plugin — enregistrement de démo">
+                <source src="/video/Auth%20Plugin%20Webpage.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="demo-auth-video-tabs__panel demo-auth-video-tabs__panel--agent">
+              <video controls preload="metadata" playsinline title="Web NHP-Agent — enregistrement de démo">
+                <source src="/video/Web-based%20NHP-Agent.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="demo-auth-video-tabs__panel demo-auth-video-tabs__panel--stealth">
+              <video controls preload="metadata" playsinline title="Application StealthDNS — enregistrement de démo">
+                <source src="/video/StealthDNS%20App.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-header" style="margin-bottom: var(--spacing-lg);">
+          <h2 class="section-header__title"><span class="text-gradient">Démo en ligne pas à pas</span></h2>
         </div>
 
         <div class="content-section" style="border: none;">

@@ -37,6 +37,16 @@ defaultContentLanguageInSubdir = false
     weight = 7
     contentDir = 'content/es'
 
+[module]
+  # Custom mounts replace Hugo's default static union; without the `static`
+  # entry, only `video/` would be published and /css/styles.css would 404.
+  [[module.mounts]]
+    source = 'static'
+    target = 'static'
+  [[module.mounts]]
+    source = 'video'
+    target = 'static/video'
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

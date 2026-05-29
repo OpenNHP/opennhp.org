@@ -1,0 +1,877 @@
+---
+title: "Anthropic 的 Glasswing 项目印证了黑暗森林互联网 - OpenNHP 博客"
+description: "AI 发现漏洞的速度已超过人类修复的速度。Glasswing 项目在一个月内发现了超过 10,000 个高危和严重漏洞,印证了可见基础设施时代正在终结。"
+og:
+  title: "Anthropic 的 Glasswing 项目印证了黑暗森林互联网"
+  description: "AI 发现漏洞的速度已超过人类修复的速度。可见基础设施的时代正在终结。"
+  image: "/assets/images/glasswing-dark-forest.jpg"
+  type: "article"
+extra_css: |
+    .blog-article {
+        max-width: 740px;
+        margin: 0 auto;
+      }
+
+      .blog-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: var(--spacing-xl);
+        flex-wrap: wrap;
+      }
+
+      .blog-meta__author {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .blog-meta__author-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-primary), #00b8ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #0a0e17;
+        flex-shrink: 0;
+      }
+
+      .blog-meta__date {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+      }
+
+      .blog-meta__tag {
+        background: rgba(0, 255, 157, 0.1);
+        border: 1px solid rgba(0, 255, 157, 0.25);
+        color: var(--accent-primary);
+        padding: 0.2rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .blog-divider {
+        border: none;
+        border-top: 1px solid var(--border-subtle);
+        margin: var(--spacing-xl) 0;
+      }
+
+      .blog-body p {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .blog-body h3 {
+        font-size: 1.05rem;
+        margin-top: var(--spacing-md);
+        margin-bottom: var(--spacing-sm);
+        color: var(--text-primary);
+      }
+
+      .blog-body a {
+        color: var(--accent-primary);
+        text-decoration: none;
+      }
+
+      .blog-body a:hover {
+        text-decoration: underline;
+      }
+
+      .blog-body ul, .blog-body ol {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: var(--spacing-md);
+        padding-left: 1.5rem;
+      }
+
+      .blog-body li {
+        margin-bottom: 0.4rem;
+      }
+
+      .blog-footer {
+        border-top: 1px solid var(--border-subtle);
+        padding-top: var(--spacing-xl);
+        margin-top: var(--spacing-xl);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+      }
+
+      .blog-footer__back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--accent-primary);
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+
+      .blog-footer__back:hover {
+        text-decoration: underline;
+      }
+
+      .blog-footer__share {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      .share-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color var(--transition-base);
+      }
+
+      .share-link:hover {
+        color: var(--accent-primary);
+      }
+
+      .blog-section {
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .blog-kicker {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(0,255,157,0.07);
+        border: 1px solid rgba(0,255,157,0.25);
+        color: var(--accent-primary);
+        padding: 0.55rem 1rem;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        margin-bottom: 1rem;
+      }
+
+      .mono-block {
+        background: rgba(0,0,0,0.3);
+        border: 1px solid var(--border-subtle);
+        border-radius: 10px;
+        padding: 1rem 1.1rem;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.875rem;
+        white-space: pre;
+        color: var(--text-secondary);
+        margin: var(--spacing-md) 0;
+        overflow-x: auto;
+        line-height: 1.7;
+      }
+
+      .highlight-quote {
+        border-left: 4px solid var(--accent-primary);
+        padding: 0.75rem 1rem;
+        background: rgba(0,255,157,0.05);
+        border-radius: 0 8px 8px 0;
+        margin: var(--spacing-md) 0;
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: var(--spacing-md) 0;
+      }
+
+      @media (max-width: 600px) {
+        .two-col { grid-template-columns: 1fr; }
+      }
+
+      .blog-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: var(--spacing-md) 0;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border-subtle);
+        font-size: 0.9rem;
+      }
+
+      .blog-table th {
+        padding: 0.65rem 0.9rem;
+        text-align: left;
+        background: rgba(0,255,157,0.06);
+        color: var(--text-primary);
+        font-weight: 600;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .blog-table td {
+        padding: 0.65rem 0.9rem;
+        color: var(--text-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .blog-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.75rem;
+        margin: var(--spacing-md) 0;
+      }
+
+      .stat-card {
+        background: rgba(0,0,0,0.25);
+        border: 1px solid var(--border-subtle);
+        border-radius: 10px;
+        padding: 0.9rem 1rem;
+        text-align: center;
+      }
+
+      .stat-card__value {
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        line-height: 1.1;
+        display: block;
+      }
+
+      .stat-card__label {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin-top: 0.25rem;
+        display: block;
+        line-height: 1.3;
+      }
+---
+  <header class="page-header">
+    <div class="container">
+      <span class="page-header__label">博客</span>
+      <h1 class="page-header__title" style="font-size: clamp(1.75rem, 4vw, 2.75rem); max-width: 820px; margin-left: auto; margin-right: auto;">
+        Anthropic 的 Glasswing 项目印证了<span class="text-gradient">黑暗森林</span>互联网
+      </h1>
+      <p class="page-header__desc">
+        AI 发现漏洞的速度已超过人类修复的速度。可见基础设施的时代正在终结。
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="section">
+      <div class="container">
+        <article class="blog-article">
+
+          <div class="blog-body">
+
+            <div class="highlight-quote">
+              互联网正在进入一个新时代。
+            </div>
+
+            <!-- 1. The Old Assumption -->
+            <div class="blog-section">
+              <div class="blog-kicker">人类速度安全的终结</div>
+              <p>数十年来,网络攻击者受限于人类的速度。发现漏洞需要技术精湛的研究人员、昂贵的工具和大量时间。安全团队一直假设他们能够在攻击者发现漏洞之前发现并修补它们。</p>
+              <p>这个假设正在瓦解。</p>
+              <p>2026 年 4 月,Anthropic 启动了 <strong>Glasswing 项目</strong>,这是一项涉及全球多家大型科技公司的网络安全计划。一个月后,Anthropic 报告称其 AI 系统已在广泛部署的软件系统中发现了超过 <strong>10,000 个高危和严重漏洞</strong>。</p>
+
+              <div class="stat-grid">
+                <div class="stat-card">
+                  <span class="stat-card__value">10,000+</span>
+                  <span class="stat-card__label">发现的高危/严重漏洞</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-card__value">1 个月</span>
+                  <span class="stat-card__label">发现所需时间</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-card__value">24/7</span>
+                  <span class="stat-card__label">持续扫描</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-card__value">全球</span>
+                  <span class="stat-card__label">覆盖范围</span>
+                </div>
+              </div>
+
+              <p>Glasswing 的重要性不在于这个数字本身。</p>
+              <p>重要性在于这个数字所代表的含义。</p>
+              <div class="highlight-quote">漏洞发现首次正在以机器规模实现自动化。</div>
+
+              <!-- AI Discovery Cycle Diagram -->
+              <svg viewBox="0 0 600 160" style="width: 100%; max-width: 600px; margin: var(--spacing-lg) auto; display: block;">
+                <defs>
+                  <marker id="arrowhead1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#00ff9d"/>
+                  </marker>
+                </defs>
+                <!-- Boxes -->
+                <rect x="10" y="50" width="120" height="60" rx="8" fill="rgba(0,255,157,0.1)" stroke="#00ff9d" stroke-width="2"/>
+                <text x="70" y="85" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">AI 扫描</text>
+
+                <rect x="170" y="50" width="120" height="60" rx="8" fill="rgba(0,255,157,0.1)" stroke="#00ff9d" stroke-width="2"/>
+                <text x="230" y="85" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">发现漏洞</text>
+
+                <rect x="330" y="50" width="120" height="60" rx="8" fill="rgba(0,255,157,0.1)" stroke="#00ff9d" stroke-width="2"/>
+                <text x="390" y="85" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">报告</text>
+
+                <rect x="490" y="50" width="100" height="60" rx="8" fill="rgba(0,255,157,0.1)" stroke="#00ff9d" stroke-width="2"/>
+                <text x="540" y="85" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">重复</text>
+
+                <!-- Arrows -->
+                <line x1="130" y1="80" x2="165" y2="80" stroke="#00ff9d" stroke-width="2" marker-end="url(#arrowhead1)"/>
+                <line x1="290" y1="80" x2="325" y2="80" stroke="#00ff9d" stroke-width="2" marker-end="url(#arrowhead1)"/>
+                <line x1="450" y1="80" x2="485" y2="80" stroke="#00ff9d" stroke-width="2" marker-end="url(#arrowhead1)"/>
+
+                <!-- Loop back arrow -->
+                <path d="M 540 115 L 540 140 L 70 140 L 70 115" fill="none" stroke="#00ff9d" stroke-width="2" stroke-dasharray="5,5"/>
+                <polygon points="70,115 65,125 75,125" fill="#00ff9d"/>
+
+                <!-- Labels -->
+                <text x="300" y="25" text-anchor="middle" fill="var(--text-muted)" font-size="12">持续 24/7 循环</text>
+              </svg>
+
+              <p>攻击者不再需要手动搜索弱点。AI 可以持续、全球性地以人类团队无法匹敌的速度进行扫描。</p>
+              <p>互联网正在变成一片黑暗森林。</p>
+            </div>
+
+            <!-- 2. Designed to Be Visible -->
+            <div class="blog-section">
+              <div class="blog-kicker">互联网生来就是可见的</div>
+              <p>驱动当今互联网的 TCP/IP 协议在 20 世纪 70 年代设计时只有一个主要目标:<strong>连通性</strong>。</p>
+
+              <table class="blog-table">
+                <thead>
+                  <tr>
+                    <th>层级</th>
+                    <th>暴露内容</th>
+                    <th>攻击者获取的信息</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>网络层</td>
+                    <td>IP 地址</td>
+                    <td>位置、托管提供商、网络拓扑</td>
+                  </tr>
+                  <tr>
+                    <td>DNS</td>
+                    <td>域名</td>
+                    <td>服务、子域名、基础设施图谱</td>
+                  </tr>
+                  <tr>
+                    <td>传输层</td>
+                    <td>开放端口</td>
+                    <td>运行的服务、软件版本</td>
+                  </tr>
+                  <tr>
+                    <td>应用层</td>
+                    <td>服务标识</td>
+                    <td>软件栈、补丁级别、配置</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p>任何人都可以发现任何东西。这种开放性帮助创造了现代互联网,但也带来了一个意想不到的后果:<strong>可见性成为了攻击的前提条件</strong>。</p>
+
+              <!-- Attack Prerequisites Diagram -->
+              <svg viewBox="0 0 500 200" style="width: 100%; max-width: 500px; margin: var(--spacing-lg) auto; display: block;">
+                <defs>
+                  <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#00ff9d"/>
+                  </marker>
+                  <linearGradient id="dangerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#00ff9d;stop-opacity:0.3"/>
+                    <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0.3"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Background gradient bar -->
+                <rect x="50" y="85" width="400" height="30" rx="4" fill="url(#dangerGrad)"/>
+
+                <!-- Steps -->
+                <circle cx="100" cy="100" r="30" fill="rgba(0,255,157,0.15)" stroke="#00ff9d" stroke-width="2"/>
+                <text x="100" y="105" text-anchor="middle" fill="#00ff9d" font-size="11" font-weight="600">发现</text>
+
+                <circle cx="250" cy="100" r="30" fill="rgba(255,200,0,0.15)" stroke="#ffcc00" stroke-width="2"/>
+                <text x="250" y="105" text-anchor="middle" fill="#ffcc00" font-size="11" font-weight="600">扫描</text>
+
+                <circle cx="400" cy="100" r="30" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="2"/>
+                <text x="400" y="105" text-anchor="middle" fill="#ff4444" font-size="11" font-weight="600">利用</text>
+
+                <!-- Arrows -->
+                <line x1="135" y1="100" x2="210" y2="100" stroke="#00ff9d" stroke-width="2" marker-end="url(#arrowhead2)"/>
+                <line x1="285" y1="100" x2="360" y2="100" stroke="#ffcc00" stroke-width="2" marker-end="url(#arrowhead2)"/>
+
+                <!-- Labels -->
+                <text x="100" y="155" text-anchor="middle" fill="var(--text-muted)" font-size="10">找到目标</text>
+                <text x="250" y="155" text-anchor="middle" fill="var(--text-muted)" font-size="10">找到弱点</text>
+                <text x="400" y="155" text-anchor="middle" fill="var(--text-muted)" font-size="10">发起攻击</text>
+
+                <text x="250" y="35" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">攻击链</text>
+                <text x="250" y="180" text-anchor="middle" fill="var(--text-muted)" font-size="11">阻断第 1 步 → 第 2 步和第 3 步将无法进行</text>
+              </svg>
+
+              <p>在攻击者利用系统之前,他们必须先找到它。</p>
+              <p>从历史上看,这个发现过程是昂贵的。</p>
+              <div class="highlight-quote">AI 正在迅速将这一成本降至接近零。</div>
+            </div>
+
+            <!-- 3. Glasswing as Glimpse -->
+            <div class="blog-section">
+              <div class="blog-kicker">Glasswing 项目是未来的一瞥</div>
+              <p>Glasswing 是一项防御性计划。其目的是帮助软件供应商在对手之前发现漏洞。</p>
+              <p>但网络安全历史表明,防御能力很少能保持独占。</p>
+
+              <table class="blog-table">
+                <thead>
+                  <tr>
+                    <th>防御工具</th>
+                    <th>原始用途</th>
+                    <th>攻击者的使用方式</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Nmap、Nessus</td>
+                    <td>网络审计</td>
+                    <td>侦察和目标发现</td>
+                  </tr>
+                  <tr>
+                    <td>Metasploit</td>
+                    <td>渗透测试</td>
+                    <td>漏洞开发和投递</td>
+                  </tr>
+                  <tr>
+                    <td>Cobalt Strike</td>
+                    <td>红队行动</td>
+                    <td>命令与控制基础设施</td>
+                  </tr>
+                  <tr>
+                    <td>AI 漏洞发现</td>
+                    <td>主动修补</td>
+                    <td><em>即将到来</em></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p>Glasswing 项目实际上展示了防御者和攻击者未来都将拥有的能力。</p>
+              <div class="highlight-quote">问题不再是漏洞是否存在。问题是 AI 能多快找到它们。</div>
+            </div>
+
+            <!-- 4. End of Patch Velocity -->
+            <div class="blog-section">
+              <div class="blog-kicker">补丁速度安全模式的终结</div>
+              <p>现代网络安全主要依赖一个简单的模型:</p>
+
+              <div class="mono-block">1. 将服务暴露在互联网上
+2. 发现漏洞
+3. 在攻击者利用之前修补漏洞</div>
+
+              <p>当漏洞发现很慢时,这个模型是有效的。</p>
+              <p>当 AI 能够在互联网规模发现漏洞时,它变得越来越脆弱。</p>
+
+              <table class="blog-table">
+                <thead>
+                  <tr>
+                    <th>活动</th>
+                    <th>人类速度</th>
+                    <th>AI 速度</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>漏洞发现</td>
+                    <td>数天到数周</td>
+                    <td>数分钟到数小时</td>
+                  </tr>
+                  <tr>
+                    <td>风险分析</td>
+                    <td>数小时到数天</td>
+                    <td>数秒</td>
+                  </tr>
+                  <tr>
+                    <td>漏洞利用开发</td>
+                    <td>数天到数月</td>
+                    <td>数小时到数天</td>
+                  </tr>
+                  <tr>
+                    <td>补丁部署</td>
+                    <td>数周到数月</td>
+                    <td>仍然是数周到数月</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p>即使是最优秀的组织也无法立即修补数千个发现。安全团队必须分析风险、测试修复、协调部署并维护运营稳定性。</p>
+
+              <!-- Vulnerability Gap Diagram -->
+              <svg viewBox="0 0 500 220" style="width: 100%; max-width: 500px; margin: var(--spacing-lg) auto; display: block;">
+                <defs>
+                  <linearGradient id="gapGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#00ff9d;stop-opacity:0.1"/>
+                    <stop offset="100%" style="stop-color:#ff4444;stop-opacity:0.3"/>
+                  </linearGradient>
+                </defs>
+
+                <text x="250" y="25" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">不断扩大的漏洞差距</text>
+
+                <!-- Axes -->
+                <line x1="60" y1="180" x2="460" y2="180" stroke="var(--text-muted)" stroke-width="1"/>
+                <line x1="60" y1="180" x2="60" y2="50" stroke="var(--text-muted)" stroke-width="1"/>
+
+                <!-- Gap area -->
+                <path d="M 80 160 Q 200 150, 320 100 Q 400 60, 440 45 L 440 170 Q 350 165, 260 168 Q 150 172, 80 175 Z" fill="url(#gapGrad)" opacity="0.5"/>
+
+                <!-- AI Discovery line (steep) -->
+                <path d="M 80 160 Q 200 150, 320 100 Q 400 60, 440 45" fill="none" stroke="#00ff9d" stroke-width="3"/>
+                <circle cx="440" cy="45" r="5" fill="#00ff9d"/>
+                <text x="445" y="40" fill="#00ff9d" font-size="10" font-weight="600">AI 发现</text>
+
+                <!-- Human Patching line (flat) -->
+                <path d="M 80 175 Q 200 173, 320 170 Q 400 168, 440 165" fill="none" stroke="#ff4444" stroke-width="3"/>
+                <circle cx="440" cy="165" r="5" fill="#ff4444"/>
+                <text x="445" y="170" fill="#ff4444" font-size="10" font-weight="600">人类修补</text>
+
+                <!-- Gap label -->
+                <line x1="380" y1="65" x2="380" y2="167" stroke="#ffcc00" stroke-width="2" stroke-dasharray="4,4"/>
+                <text x="395" y="120" fill="#ffcc00" font-size="11" font-weight="600">差距</text>
+
+                <!-- Axis labels -->
+                <text x="250" y="200" text-anchor="middle" fill="var(--text-muted)" font-size="10">时间 →</text>
+                <text x="30" y="115" text-anchor="middle" fill="var(--text-muted)" font-size="10" transform="rotate(-90, 30, 115)">速度 →</text>
+              </svg>
+
+              <p>随着 AI 加速发现,发现漏洞和修复漏洞之间的差距持续扩大。</p>
+              <div class="highlight-quote">在 AI 时代,暴露的基础设施应被视为可发现的。</div>
+            </div>
+
+            <!-- 5. Visibility Is Vulnerability -->
+            <div class="blog-section">
+              <div class="blog-kicker">可见性现在是一种漏洞</div>
+              <p>大多数网络安全技术专注于在系统<em>变得可见之后</em>保护它们。</p>
+
+              <table class="blog-table">
+                <thead>
+                  <tr>
+                    <th>技术</th>
+                    <th>功能</th>
+                    <th>假设</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>防火墙</td>
+                    <td>过滤流量</td>
+                    <td>攻击者可以到达边界</td>
+                  </tr>
+                  <tr>
+                    <td>IDS / IPS</td>
+                    <td>检查流量</td>
+                    <td>攻击者可以发送数据包</td>
+                  </tr>
+                  <tr>
+                    <td>WAF</td>
+                    <td>过滤 HTTP 请求</td>
+                    <td>攻击者可以到达 Web 服务器</td>
+                  </tr>
+                  <tr>
+                    <td>EDR</td>
+                    <td>监控端点</td>
+                    <td>攻击者已经获得访问权限</td>
+                  </tr>
+                  <tr>
+                    <td>SIEM</td>
+                    <td>分析事件</td>
+                    <td>攻击已经在进行中</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p>这些技术仍然至关重要,但它们都有一个共同的假设:<strong>攻击者已经可以看到目标。</strong></p>
+              <p>AI 改变了这一假设的经济学。当侦察变得实际上免费时,可见性本身就成为一种安全风险。</p>
+
+              <!-- Dark Forest Visual -->
+              <svg viewBox="0 0 550 200" style="width: 100%; max-width: 550px; margin: var(--spacing-lg) auto; display: block;">
+                <!-- Title -->
+                <text x="275" y="20" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">黑暗森林互联网</text>
+
+                <!-- Left side: Visible -->
+                <rect x="20" y="40" width="240" height="140" rx="8" fill="rgba(255,68,68,0.05)" stroke="#ff4444" stroke-width="1"/>
+                <text x="140" y="60" text-anchor="middle" fill="#ff4444" font-size="11" font-weight="600">可见基础设施</text>
+
+                <!-- Visible servers (lit up, targeted) -->
+                <circle cx="70" cy="110" r="20" fill="rgba(255,200,0,0.3)" stroke="#ffcc00" stroke-width="2"/>
+                <text x="70" y="115" text-anchor="middle" fill="#fff" font-size="18">🖥️</text>
+                <circle cx="70" cy="110" r="30" fill="none" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3">
+                  <animate attributeName="r" values="25;35;25" dur="2s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite"/>
+                </circle>
+
+                <circle cx="140" cy="130" r="20" fill="rgba(255,200,0,0.3)" stroke="#ffcc00" stroke-width="2"/>
+                <text x="140" y="135" text-anchor="middle" fill="#fff" font-size="18">🖥️</text>
+                <circle cx="140" cy="130" r="30" fill="none" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3">
+                  <animate attributeName="r" values="25;35;25" dur="2.5s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="1;0.3;1" dur="2.5s" repeatCount="indefinite"/>
+                </circle>
+
+                <circle cx="200" cy="100" r="20" fill="rgba(255,200,0,0.3)" stroke="#ffcc00" stroke-width="2"/>
+                <text x="200" y="105" text-anchor="middle" fill="#fff" font-size="18">🖥️</text>
+                <circle cx="200" cy="100" r="30" fill="none" stroke="#ff4444" stroke-width="1" stroke-dasharray="3,3">
+                  <animate attributeName="r" values="25;35;25" dur="1.8s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/>
+                </circle>
+
+                <text x="140" y="170" text-anchor="middle" fill="#ff4444" font-size="10">🎯 被 AI 扫描器锁定</text>
+
+                <!-- Right side: Invisible -->
+                <rect x="290" y="40" width="240" height="140" rx="8" fill="rgba(0,255,157,0.05)" stroke="#00ff9d" stroke-width="1"/>
+                <text x="410" y="60" text-anchor="middle" fill="#00ff9d" font-size="11" font-weight="600">隐身 (OpenNHP)</text>
+
+                <!-- Hidden servers (dark, protected) -->
+                <circle cx="340" cy="110" r="20" fill="rgba(0,0,0,0.5)" stroke="var(--border-subtle)" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="340" y="115" text-anchor="middle" fill="var(--text-muted)" font-size="14" opacity="0.4">🖥️</text>
+
+                <circle cx="410" cy="130" r="20" fill="rgba(0,0,0,0.5)" stroke="var(--border-subtle)" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="410" y="135" text-anchor="middle" fill="var(--text-muted)" font-size="14" opacity="0.4">🖥️</text>
+
+                <circle cx="470" cy="100" r="20" fill="rgba(0,0,0,0.5)" stroke="var(--border-subtle)" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="470" y="105" text-anchor="middle" fill="var(--text-muted)" font-size="14" opacity="0.4">🖥️</text>
+
+                <text x="410" y="170" text-anchor="middle" fill="#00ff9d" font-size="10">🛡️ 对扫描器不可见</text>
+              </svg>
+
+              <div class="two-col">
+                <div class="stat-card">
+                  <span class="stat-card__value">无法发现</span>
+                  <span class="stat-card__label">→ 无法扫描</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-card__value">无法扫描</span>
+                  <span class="stat-card__label">→ 无法利用</span>
+                </div>
+              </div>
+
+              <div class="highlight-quote">最有效的攻击面缩减策略是首先防止未经授权的发现。</div>
+            </div>
+
+            <!-- 6. Zero Trust Needs Invisibility -->
+            <div class="blog-section">
+              <div class="blog-kicker">为什么 Zero Trust 需要隐身</div>
+              <p>传统的 Zero Trust 架构专注于身份、认证、授权、最小权限和持续验证。这些原则仍然至关重要。</p>
+              <p>然而,AI 引入了一个新挑战。当漏洞发现变得自动化时,减少暴露变得与验证身份同样重要。</p>
+              <p>最初的软件定义边界(SDP)架构引入了在认证成功之前使基础设施不可见的概念。<strong>OpenNHP</strong> 通过网络基础设施隐身协议(NHP)扩展了这一原则。</p>
+
+              <table class="blog-table">
+                <thead>
+                  <tr>
+                    <th>传统模式</th>
+                    <th>OpenNHP 模式</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1. 服务可见</td>
+                    <td>1. 服务不可见</td>
+                  </tr>
+                  <tr>
+                    <td>2. 攻击者连接</td>
+                    <td>2. 用户提供加密证明</td>
+                  </tr>
+                  <tr>
+                    <td>3. 认证开始</td>
+                    <td>3. 证明被验证</td>
+                  </tr>
+                  <tr>
+                    <td>4. 认证前漏洞可被利用</td>
+                    <td>4. 服务仅对已验证用户可见</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- Traditional vs OpenNHP Flow Diagram -->
+              <svg viewBox="0 0 600 320" style="width: 100%; max-width: 600px; margin: var(--spacing-lg) auto; display: block;">
+                <defs>
+                  <marker id="arrowhead3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#ff4444"/>
+                  </marker>
+                  <marker id="arrowhead4" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#00ff9d"/>
+                  </marker>
+                </defs>
+
+                <!-- Traditional Model (top) -->
+                <text x="300" y="25" text-anchor="middle" fill="#ff4444" font-size="12" font-weight="700">传统模式:连接 → 认证</text>
+
+                <rect x="30" y="45" width="80" height="50" rx="6" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="2"/>
+                <text x="70" y="75" text-anchor="middle" fill="#fff" font-size="11">攻击者</text>
+
+                <rect x="160" y="45" width="80" height="50" rx="6" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="2"/>
+                <text x="200" y="68" text-anchor="middle" fill="#fff" font-size="10">服务</text>
+                <text x="200" y="82" text-anchor="middle" fill="#ff4444" font-size="9">可见</text>
+
+                <rect x="290" y="45" width="80" height="50" rx="6" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="2"/>
+                <text x="330" y="68" text-anchor="middle" fill="#fff" font-size="10">扫描 &amp;</text>
+                <text x="330" y="82" text-anchor="middle" fill="#fff" font-size="10">探测</text>
+
+                <rect x="420" y="45" width="80" height="50" rx="6" fill="rgba(255,68,68,0.15)" stroke="#ff4444" stroke-width="2"/>
+                <text x="460" y="68" text-anchor="middle" fill="#fff" font-size="10">利用</text>
+                <text x="460" y="82" text-anchor="middle" fill="#ff4444" font-size="9">认证前</text>
+
+                <rect x="530" y="45" width="55" height="50" rx="6" fill="rgba(255,68,68,0.3)" stroke="#ff4444" stroke-width="2"/>
+                <text x="557" y="75" text-anchor="middle" fill="#ff4444" font-size="10" font-weight="700">入侵</text>
+
+                <line x1="110" y1="70" x2="155" y2="70" stroke="#ff4444" stroke-width="2" marker-end="url(#arrowhead3)"/>
+                <line x1="240" y1="70" x2="285" y2="70" stroke="#ff4444" stroke-width="2" marker-end="url(#arrowhead3)"/>
+                <line x1="370" y1="70" x2="415" y2="70" stroke="#ff4444" stroke-width="2" marker-end="url(#arrowhead3)"/>
+                <line x1="500" y1="70" x2="525" y2="70" stroke="#ff4444" stroke-width="2" marker-end="url(#arrowhead3)"/>
+
+                <!-- Divider -->
+                <line x1="30" y1="130" x2="570" y2="130" stroke="var(--border-subtle)" stroke-width="1" stroke-dasharray="5,5"/>
+
+                <!-- OpenNHP Model (bottom) -->
+                <text x="300" y="160" text-anchor="middle" fill="#00ff9d" font-size="12" font-weight="700">OpenNHP:验证 → 连接</text>
+
+                <rect x="30" y="180" width="80" height="50" rx="6" fill="rgba(0,255,157,0.15)" stroke="#00ff9d" stroke-width="2"/>
+                <text x="70" y="210" text-anchor="middle" fill="#fff" font-size="11">用户</text>
+
+                <rect x="160" y="180" width="80" height="50" rx="6" fill="rgba(0,255,157,0.15)" stroke="#00ff9d" stroke-width="2"/>
+                <text x="200" y="200" text-anchor="middle" fill="#fff" font-size="10">加密</text>
+                <text x="200" y="214" text-anchor="middle" fill="#fff" font-size="10">证明</text>
+
+                <rect x="290" y="180" width="80" height="50" rx="6" fill="rgba(0,255,157,0.15)" stroke="#00ff9d" stroke-width="2"/>
+                <text x="330" y="200" text-anchor="middle" fill="#fff" font-size="10">NHP</text>
+                <text x="330" y="214" text-anchor="middle" fill="#fff" font-size="10">验证</text>
+
+                <rect x="420" y="180" width="80" height="50" rx="6" fill="rgba(0,255,157,0.15)" stroke="#00ff9d" stroke-width="2"/>
+                <text x="460" y="200" text-anchor="middle" fill="#fff" font-size="10">服务</text>
+                <text x="460" y="214" text-anchor="middle" fill="#00ff9d" font-size="9">显现</text>
+
+                <rect x="530" y="180" width="55" height="50" rx="6" fill="rgba(0,255,157,0.3)" stroke="#00ff9d" stroke-width="2"/>
+                <text x="557" y="205" text-anchor="middle" fill="#00ff9d" font-size="9" font-weight="700">授权</text>
+                <text x="557" y="218" text-anchor="middle" fill="#00ff9d" font-size="8">访问</text>
+
+                <line x1="110" y1="205" x2="155" y2="205" stroke="#00ff9d" stroke-width="2" marker-end="url(#arrowhead4)"/>
+                <line x1="240" y1="205" x2="285" y2="205" stroke="#00ff9d" stroke-width="2" marker-end="url(#arrowhead4)"/>
+                <line x1="370" y1="205" x2="415" y2="205" stroke="#00ff9d" stroke-width="2" marker-end="url(#arrowhead4)"/>
+                <line x1="500" y1="205" x2="525" y2="205" stroke="#00ff9d" stroke-width="2" marker-end="url(#arrowhead4)"/>
+
+                <!-- Attacker blocked -->
+                <rect x="30" y="260" width="80" height="50" rx="6" fill="rgba(255,68,68,0.1)" stroke="#ff4444" stroke-width="1" stroke-dasharray="4,4"/>
+                <text x="70" y="290" text-anchor="middle" fill="var(--text-muted)" font-size="11">攻击者</text>
+
+                <line x1="110" y1="285" x2="145" y2="285" stroke="var(--text-muted)" stroke-width="2"/>
+                <text x="180" y="285" fill="var(--text-muted)" font-size="20">✕</text>
+                <text x="250" y="290" fill="var(--text-muted)" font-size="11">无服务可见 → 无可攻击目标</text>
+              </svg>
+
+              <p>受保护的资源在加密验证成功之前保持不可见。未经授权的实体无法发现受保护的服务、扫描其端口或与其交互。</p>
+              <div class="highlight-quote">结果是攻击面大幅缩小,网络架构与 AI 驱动的网络威胁现实相适应。</div>
+            </div>
+
+            <!-- 7. Future Internet -->
+            <div class="blog-section">
+              <div class="blog-kicker">未来的互联网必须默认隐身</div>
+              <p>Glasswing 项目是一个重要的里程碑。</p>
+              <p>不是因为它发现了数千个漏洞。</p>
+              <p>而是因为它展示了当 AI 被大规模应用于漏洞发现时会发生什么。</p>
+              <p>教训很清楚。</p>
+              <p>如果 AI 发现漏洞的速度比人类修复的速度更快,那么安全就不能再仅仅依赖补丁、检测和响应。</p>
+              <p><strong>我们还必须减少可见性。</strong></p>
+
+              <table class="blog-table">
+                <thead>
+                  <tr>
+                    <th>旧范式</th>
+                    <th>新范式</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>默认可见</td>
+                    <td>默认隐身</td>
+                  </tr>
+                  <tr>
+                    <td>检测和响应</td>
+                    <td>防止发现</td>
+                  </tr>
+                  <tr>
+                    <td>更高的城墙</td>
+                    <td>没有城墙可找</td>
+                  </tr>
+                  <tr>
+                    <td>更快修补</td>
+                    <td>隐身则无需修补</td>
+                  </tr>
+                  <tr>
+                    <td>先信任后验证</td>
+                    <td>先验证后显现</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p>下一代网络安全不仅仅会验证谁可以访问资源。</p>
+              <p>它将防止未经授权的各方首先发现资源。</p>
+              <p>未来的互联网不会通过更高的城墙来保护。</p>
+              <p>它将通过使关键基础设施在加密验证之前保持不可见来实现安全。</p>
+              <div class="highlight-quote">默认隐身。仅通过验证可访问。</div>
+            </div>
+
+            <!-- CTA -->
+            <div style="background: linear-gradient(135deg, rgba(0, 255, 157, 0.08), rgba(0, 184, 255, 0.05)); border: 1px solid rgba(0, 255, 157, 0.2); border-radius: 16px; padding: var(--spacing-xl); margin-top: var(--spacing-xl); text-align: center;">
+              <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: var(--spacing-md);">
+                AI 驱动的攻击者无法利用他们找不到的东西。<br>
+                OpenNHP 默认隐藏您的基础设施。
+              </p>
+              <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--spacing-md);">
+                <a href="https://github.com/OpenNHP/opennhp" target="_blank" class="btn btn--primary btn--sm" style="text-decoration: none;">在 GitHub 上查看 OpenNHP →</a>
+                <a href="https://layerv.ai" target="_blank" class="btn btn--secondary btn--sm" style="text-decoration: none;">试用 LayerV 的 Qurl →</a>
+              </div>
+              <a href="/zh-cn/vision/" style="color: var(--accent-primary); font-size: 0.9rem; display: inline-flex; align-items: center; text-decoration: none;">阅读完整愿景 →</a>
+            </div>
+
+          </div>
+
+          <!-- Meta -->
+          <hr class="blog-divider">
+          <div class="blog-meta">
+            <div class="blog-meta__author">
+              <div class="blog-meta__author-avatar">NHP</div>
+              <span>OpenNHP 团队</span>
+            </div>
+            <span class="blog-meta__date">2026 年 5 月 29 日</span>
+            <span class="blog-meta__tag">AI 威胁</span>
+            <span class="blog-meta__tag">黑暗森林</span>
+            <span class="blog-meta__tag">Zero Trust</span>
+          </div>
+
+          <!-- Article Footer -->
+          <div class="blog-footer">
+            <a href="/zh-cn/" class="blog-footer__back">
+              ← 返回 OpenNHP.org
+            </a>
+            <div class="blog-footer__share">
+              <span>分享:</span>
+              <a href="https://twitter.com/intent/tweet?text=Anthropic+%E7%9A%84+Glasswing+%E9%A1%B9%E7%9B%AE%E5%8D%B0%E8%AF%81%E4%BA%86%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E4%BA%92%E8%81%94%E7%BD%91&url=https%3A%2F%2Fopennhp.org%2Fzh-cn%2Fblog%2Fglasswing-confirms-dark-forest-internet/" target="_blank" class="share-link" aria-label="分享到 X">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fopennhp.org%2Fzh-cn%2Fblog%2Fglasswing-confirms-dark-forest-internet/" target="_blank" class="share-link" aria-label="分享到 LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </section>
+  </main>

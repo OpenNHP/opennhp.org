@@ -1,0 +1,279 @@
+---
+title: "IETF 126 ハッカソン — 参加募集：OpenNHP - OpenNHP ブログ"
+description: "OpenNHP は IETF 126 ハッカソンに参加します。挑戦はシンプルです：破ってみてください。見えないように設計されたインフラを発見できますか？"
+og:
+  title: "IETF 126 ハッカソン — 参加募集：OpenNHP"
+  description: "見えないように設計されたインフラを発見できますか？IETF 126 に参加して試してみてください。"
+  type: "article"
+extra_css: |
+    .blog-article {
+        max-width: 740px;
+        margin: 0 auto;
+      }
+      .blog-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: var(--spacing-xl);
+        flex-wrap: wrap;
+      }
+      .blog-meta__author {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+      .blog-meta__author-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-primary), #00b8ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #0a0e17;
+        flex-shrink: 0;
+      }
+      .blog-meta__date { color: var(--text-muted); font-size: 0.875rem; }
+      .blog-meta__tag {
+        background: rgba(0, 255, 157, 0.1);
+        border: 1px solid rgba(0, 255, 157, 0.25);
+        color: var(--accent-primary);
+        padding: 0.2rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      .blog-divider { border: none; border-top: 1px solid var(--border-subtle); margin: var(--spacing-xl) 0; }
+      .blog-body p { color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--spacing-md); }
+      .blog-body a { color: var(--accent-primary); text-decoration: none; }
+      .blog-body a:hover { text-decoration: underline; }
+      .blog-body ul, .blog-body ol { color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--spacing-md); padding-left: 1.5rem; }
+      .blog-body li { margin-bottom: 0.4rem; }
+      .blog-footer {
+        border-top: 1px solid var(--border-subtle);
+        padding-top: var(--spacing-xl);
+        margin-top: var(--spacing-xl);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+      }
+      .blog-footer__back { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--accent-primary); font-size: 0.9rem; text-decoration: none; }
+      .blog-footer__back:hover { text-decoration: underline; }
+      .blog-footer__share { display: flex; align-items: center; gap: 0.75rem; color: var(--text-muted); font-size: 0.85rem; }
+      .share-link { color: var(--text-secondary); text-decoration: none; transition: color var(--transition-base); }
+      .share-link:hover { color: var(--accent-primary); }
+      .blog-section { margin-bottom: var(--spacing-xl); }
+      .blog-kicker {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(0,255,157,0.07);
+        border: 1px solid rgba(0,255,157,0.25);
+        color: var(--accent-primary);
+        padding: 0.55rem 1rem;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        margin-bottom: 1rem;
+      }
+      .highlight-quote {
+        border-left: 4px solid var(--accent-primary);
+        padding: 0.75rem 1rem;
+        background: rgba(0,255,157,0.05);
+        border-radius: 0 8px 8px 0;
+        margin: var(--spacing-md) 0;
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .outcome-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: var(--spacing-md) 0;
+      }
+      @media (max-width: 600px) { .outcome-block { grid-template-columns: 1fr; } }
+      .outcome-card { border-radius: 10px; padding: 1.1rem 1.2rem; border: 1px solid; }
+      .outcome-card--success { background: rgba(0,255,157,0.05); border-color: rgba(0,255,157,0.3); }
+      .outcome-card--failure { background: rgba(255,68,68,0.05); border-color: rgba(255,68,68,0.3); }
+      .outcome-card__label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
+      .outcome-card--success .outcome-card__label { color: var(--accent-primary); }
+      .outcome-card--failure .outcome-card__label { color: #ff4444; }
+      .outcome-card__text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+      .resource-row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--border-subtle);
+        text-decoration: none;
+        color: inherit;
+        transition: background 0.15s;
+      }
+      .resource-row:last-child { border-bottom: none; }
+      .resource-row:hover { background: rgba(0,255,157,0.04); }
+      .resource-row__icon { font-size: 1.1rem; flex-shrink: 0; }
+      .resource-row__label { font-size: 0.9rem; color: var(--text-secondary); flex: 1; }
+      .resource-row__link { font-size: 0.85rem; color: var(--accent-primary); }
+---
+  <header class="page-header">
+    <div class="container">
+      <span class="page-header__label">ブログ · IETF 126 ハッカソン</span>
+      <h1 class="page-header__title" style="font-size: clamp(1.75rem, 4vw, 2.75rem); max-width: 820px; margin-left: auto; margin-right: auto;">
+        IETF 126 ハッカソン — <span class="text-gradient">参加募集</span>
+      </h1>
+      <p class="page-header__desc">OpenNHP は IETF 126 ハッカソンにシンプルな挑戦で参加します：破ってみてください。</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <article class="blog-article">
+
+          <div class="blog-meta">
+            <div class="blog-meta__author">
+              <div class="blog-meta__author-avatar">NHP</div>
+              <span>The OpenNHP Team</span>
+            </div>
+            <span class="blog-meta__date">2026年7月5日</span>
+            <span class="blog-meta__tag">IETF 126</span>
+            <span class="blog-meta__tag">ハッカソン</span>
+            <span class="blog-meta__tag">ゼロトラスト</span>
+          </div>
+
+          <div class="blog-body">
+
+            <div class="highlight-quote">ネットワークインフラがデフォルトで見えなかったとしたら？</div>
+
+            <div class="blog-section">
+              <p>自律型 AI によるサイバー攻撃に関する最近の懸念は、根本的な変化を示しています：AI エージェントはインターネットを<strong>暗黒森林</strong>に変えつつあります。そこでは可視なものすべてが機械速度で発見、探索、悪用される可能性があります。</p>
+              <p>劉慈欣の<em>三体</em>で描かれているように、そのような環境での唯一の信頼できる生存戦略は、見えなくなること自体かもしれません。</p>
+              <p><strong>OpenNHP</strong> は <strong>Network-infrastructure Hiding Protocol (NHP)</strong> のオープンソース実装です。認証前接続ゼロトラストプロトコルで、保護されたインフラを未認証エンティティにとってアクセス不能かつ発見不可能にします。</p>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">挑戦内容</div>
+              <p>Para el <a href="https://wiki.ietf.org/en/meeting/126/hackathon#opennhp-network-infrastructure-hiding-protocol-nhp" target="_blank" rel="noopener">IETF 126 ハッカソン</a>, コミュニティに一つのことをお願いしています：</p>
+              <div class="highlight-quote">ぜひ、破ってみてください。</div>
+              <p>セキュリティ研究者、プロトコル設計者、暗号学者、ネットワークエンジニア、DNS/TLS/PKI の専門家、AI セキュリティ研究者、そして前提に挑戦することを楽しむすべての方を歓迎します。挑戦領域の例：</p>
+              <ul>
+                <li>認証なしで保護されたサービスを発見する</li>
+                <li>隠されたポート、IP アドレス、ドメイン名を列挙する</li>
+                <li>認証または認可メカニズムをバイパスする</li>
+                <li>認証前の攻撃面を悪用する</li>
+                <li>暗号的な弱点またはプロトコル設計の欠陥を見つける</li>
+                <li>DDoS およびスキャン攻撃への耐性をテストする</li>
+                <li>AI 支援攻撃技術を評価する</li>
+              </ul>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">二つの結果。どちらも価値がある。</div>
+              <div class="outcome-block">
+                <div class="outcome-card outcome-card--failure">
+                  <div class="outcome-card__label">破れた場合</div>
+                  <div class="outcome-card__text">弱点を理解して修正します。プロトコルはより強固になります。</div>
+                </div>
+                <div class="outcome-card outcome-card--success">
+                  <div class="outcome-card__label">破れなかった場合</div>
+                  <div class="outcome-card__text">プロトコルのセキュリティ特性についての信頼を集合的に高めることができます。</div>
+                </div>
+              </div>
+              <p>公開された敵対的テスト、ピアレビュー、動作するコードは、信頼できるインターネットセキュリティプロトコルを構築するための最良のツールであり続けます。</p>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">参加方法</div>
+              <p>IETF ミーティングへの現地参加は必須ではありません — リモート参加を歓迎します。</p>
+              <ol>
+                <li><strong><a href="https://registration.ietf.org/126/new/hackathon/" target="_blank" rel="noopener">IETF 126 ハッカソンに登録する</a></strong> — 無料、リモートまたは現地</li>
+                <li><strong><a href="https://wiki.ietf.org/en/meeting/126/hackathon#opennhp-network-infrastructure-hiding-protocol-nhp" target="_blank" rel="noopener">プロジェクトエントリを読む</a></strong></li>
+                <li><strong><a href="https://github.com/OpenNHP/opennhp" target="_blank" rel="noopener">環境を構築する</a></strong> — またはライブデモ環境を使用する</li>
+                <li><strong>攻撃する</strong> — あらゆる角度を歓迎します：偵察、認証バイパス、プロトコルファジング、暗号解析、AI 支援スキャン</li>
+                <li><strong><a href="https://github.com/OpenNHP/opennhp/issues" target="_blank" rel="noopener">発見事項を報告する</a></strong> — または IETF ハッカソンチャットで OpenNHP チームに直接連絡</li>
+              </ol>
+              <p>ご質問は <a href="mailto:ztcpp@ietf.org">ztcpp@ietf.org メーリングリスト</a>.</p>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">リソース</div>
+              <div style="border: 1px solid var(--border-subtle); border-radius: 12px; overflow: hidden; margin: var(--spacing-md) 0;">
+                <a href="https://wiki.ietf.org/en/meeting/126/hackathon#opennhp-network-infrastructure-hiding-protocol-nhp" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">📋</span>
+                  <span class="resource-row__label">Hackathon Wiki Entry — IETF 126</span>
+                  <span class="resource-row__link">wiki.ietf.org →</span>
+                </a>
+                <a href="https://github.com/OpenNHP/opennhp" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">💻</span>
+                  <span class="resource-row__label">Source Code — OpenNHP on GitHub</span>
+                  <span class="resource-row__link">github.com →</span>
+                </a>
+                <a href="https://demo.opennhp.org" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">🌐</span>
+                  <span class="resource-row__label">Live Demo Environment</span>
+                  <span class="resource-row__link">demo.opennhp.org →</span>
+                </a>
+                <a href="https://datatracker.ietf.org/doc/draft-opennhp-ztcpp-nhp/" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">📄</span>
+                  <span class="resource-row__label">Internet-Draft — draft-opennhp-ztcpp-nhp</span>
+                  <span class="resource-row__link">datatracker.ietf.org →</span>
+                </a>
+                <a href="https://opennhp.org" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">🏠</span>
+                  <span class="resource-row__label">Project Website</span>
+                  <span class="resource-row__link">opennhp.org →</span>
+                </a>
+              </div>
+              <p>OpenNHP チームはハッカソンに現地参加し、協力者、批評家、そして特に懐疑論者を歓迎します。</p>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(0,255,157,0.08), rgba(0,184,255,0.05)); border: 1px solid rgba(0,255,157,0.2); border-radius: 16px; padding: var(--spacing-xl); margin-top: var(--spacing-xl); text-align: center;">
+              <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem;">デフォルトで見えない。検証によってのみアクセス可能。</p>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: var(--spacing-md);">それが本当かどうか、ぜひテストしに来てください。</p>
+              <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--spacing-md);">
+                <a href="https://wiki.ietf.org/en/meeting/126/hackathon#opennhp-network-infrastructure-hiding-protocol-nhp" target="_blank" rel="noopener" class="btn btn--primary btn--sm" style="text-decoration: none;">ハッカソンに参加する →</a>
+                <a href="https://github.com/OpenNHP/opennhp" target="_blank" rel="noopener" class="btn btn--secondary btn--sm" style="text-decoration: none;">GitHub でソースを見る →</a>
+              </div>
+              <a href="/blog/the-internet-is-becoming-a-dark-forest/" style="color: var(--accent-primary); font-size: 0.9rem; display: inline-flex; align-items: center; text-decoration: none;">記事を読む：インターネットは暗黒森林になりつつある →</a>
+            </div>
+
+          </div>
+
+          <hr class="blog-divider">
+          <div class="blog-meta">
+            <div class="blog-meta__author">
+              <div class="blog-meta__author-avatar">NHP</div>
+              <span>The OpenNHP Team</span>
+            </div>
+            <span class="blog-meta__date">2026年7月5日</span>
+            <span class="blog-meta__tag">IETF 126</span>
+            <span class="blog-meta__tag">ハッカソン</span>
+            <span class="blog-meta__tag">ゼロトラスト</span>
+            <span class="blog-meta__tag">暗黒森林</span>
+          </div>
+
+          <div class="blog-footer">
+            <a href="/" class="blog-footer__back">← Back to OpenNHP.org</a>
+            <div class="blog-footer__share">
+              <span>Share:</span>
+              <a href="https://twitter.com/intent/tweet?text=IETF+126+Hackathon+%E2%80%94+Call+for+Participation%3A+OpenNHP&url=https%3A%2F%2Fopennhp.org%2Fblog%2Fietf-126-hackathon-opennhp-dark-forest%2F" target="_blank" class="share-link" aria-label="Share on X">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fopennhp.org%2Fblog%2Fietf-126-hackathon-opennhp-dark-forest%2F" target="_blank" class="share-link" aria-label="Share on LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </section>
+  </main>

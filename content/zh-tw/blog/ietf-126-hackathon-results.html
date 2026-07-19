@@ -1,0 +1,385 @@
+---
+title: "IETF 126 黑客松結果：OpenNHP 依然屹立 - OpenNHP 部落格"
+description: "IETF 126 黑客松已圓滿結束。OpenNHP 的線上示範已運行一個月，黑客松也已結束，但至今尚無人攻破該協議。感謝所有參與嘗試的人。"
+og:
+  title: "IETF 126 黑客松結果：OpenNHP 依然屹立"
+  description: "線上示範已運行一個月。黑客松已結束。至今無人攻破。感謝所有嘗試過的人。"
+  type: "article"
+extra_css: |
+    .blog-article {
+        max-width: 740px;
+        margin: 0 auto;
+      }
+      .blog-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: var(--spacing-xl);
+        flex-wrap: wrap;
+      }
+      .blog-meta__author {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+      .blog-meta__author-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-primary), #00b8ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #0a0e17;
+        flex-shrink: 0;
+      }
+      .blog-meta__date { color: var(--text-muted); font-size: 0.875rem; }
+      .blog-meta__tag {
+        background: rgba(0, 255, 157, 0.1);
+        border: 1px solid rgba(0, 255, 157, 0.25);
+        color: var(--accent-primary);
+        padding: 0.2rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+      .blog-divider { border: none; border-top: 1px solid var(--border-subtle); margin: var(--spacing-xl) 0; }
+      .blog-body p { color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--spacing-md); }
+      .blog-body a { color: var(--accent-primary); text-decoration: none; }
+      .blog-body a:hover { text-decoration: underline; }
+      .blog-body ul, .blog-body ol { color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--spacing-md); padding-left: 1.5rem; }
+      .blog-body li { margin-bottom: 0.4rem; }
+      .blog-footer {
+        border-top: 1px solid var(--border-subtle);
+        padding-top: var(--spacing-xl);
+        margin-top: var(--spacing-xl);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+      }
+      .blog-footer__back { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--accent-primary); font-size: 0.9rem; text-decoration: none; }
+      .blog-footer__back:hover { text-decoration: underline; }
+      .blog-footer__share { display: flex; align-items: center; gap: 0.75rem; color: var(--text-muted); font-size: 0.85rem; }
+      .share-link { color: var(--text-secondary); text-decoration: none; transition: color var(--transition-base); }
+      .share-link:hover { color: var(--accent-primary); }
+      .blog-section { margin-bottom: var(--spacing-xl); }
+      .blog-kicker {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(0,255,157,0.07);
+        border: 1px solid rgba(0,255,157,0.25);
+        color: var(--accent-primary);
+        padding: 0.55rem 1rem;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        margin-bottom: 1rem;
+      }
+      .highlight-quote {
+        border-left: 4px solid var(--accent-primary);
+        padding: 0.75rem 1rem;
+        background: rgba(0,255,157,0.05);
+        border-radius: 0 8px 8px 0;
+        margin: var(--spacing-md) 0;
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.75rem;
+        margin: var(--spacing-md) 0;
+      }
+      .stat-card {
+        background: rgba(0,0,0,0.25);
+        border: 1px solid var(--border-subtle);
+        border-radius: 10px;
+        padding: 0.9rem 1rem;
+        text-align: center;
+      }
+      .stat-card__value {
+        font-family: 'Outfit', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--accent-primary);
+        line-height: 1.1;
+        display: block;
+      }
+      .stat-card__label {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin-top: 0.25rem;
+        display: block;
+        line-height: 1.3;
+      }
+      .resource-row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--border-subtle);
+        text-decoration: none;
+        color: inherit;
+        transition: background 0.15s;
+      }
+      .resource-row:last-child { border-bottom: none; }
+      .resource-row:hover { background: rgba(0,255,157,0.04); }
+      .resource-row__icon { font-size: 1.1rem; flex-shrink: 0; }
+      .resource-row__label { font-size: 0.9rem; color: var(--text-secondary); flex: 1; }
+      .resource-row__link { font-size: 0.85rem; color: var(--accent-primary); }
+---
+  <header class="page-header">
+    <div class="container">
+      <span class="page-header__label">部落格 · IETF 126 黑客松</span>
+      <h1 class="page-header__title" style="font-size: clamp(1.75rem, 4vw, 2.75rem); max-width: 820px; margin-left: auto; margin-right: auto;">
+        IETF 126 黑客松結果： <span class="text-gradient">OpenNHP 依然屹立</span>
+      </h1>
+      <p class="page-header__desc">一個月的公開測試，一場聚集眾多高手嘗試攻破它的黑客松——協議依然屹立不搖。</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <article class="blog-article">
+
+          <div class="blog-meta">
+            <div class="blog-meta__author">
+              <div class="blog-meta__author-avatar">NHP</div>
+              <span>The OpenNHP Team</span>
+            </div>
+            <span class="blog-meta__date">2026年7月19日</span>
+            <span class="blog-meta__tag">IETF 126</span>
+            <span class="blog-meta__tag">黑客松</span>
+            <span class="blog-meta__tag">零信任</span>
+          </div>
+
+
+          <div style="margin: 0 0 var(--spacing-xl) 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-subtle);">
+            <img src="/images/ietf-126-hackathon-infographic.png" alt="OpenNHP — 你能攻破它嗎？展示 NHP 架構與 IETF 126 黑客松號召的資訊圖。" style="width: 100%; height: auto; display: block;">
+          </div>
+
+          <div class="blog-body">
+
+            <div class="highlight-quote">IETF 126 黑客松已經結束。至今沒有人攻破 OpenNHP。</div>
+
+            <div class="blog-section">
+              <p>兩週前，我們<a href="/blog/ietf-126-hackathon-opennhp-dark-forest/">邀請 IETF 社群</a>攻擊 OpenNHP——我們對網路基礎設施隱藏協議（NHP）的開源實現。要求很簡單：在未經認證的情況下找到發現或存取受保護基礎設施的方法。</p>
+              <p>我們很高興地宣布，黑客松已圓滿結束，我們要感謝所有抽空參與、測試協議、提出尖銳問題，並協助我們在公開場合驗證我們假設的人。</p>
+            </div>
+
+            <!-- Photo gallery -->
+            <div class="blog-section">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-subtle);">
+                  <img src="/images/ietf-126-hackathon-poster-wall.jpg" alt="IETF 126 黑客松，14 號桌的 OpenNHP 海報。" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                </div>
+                <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-subtle);">
+                  <img src="/images/ietf-126-hackathon-table-photo.jpg" alt="IETF 126 黑客松，OpenNHP 攤位前的 Benfeng Chen。" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                </div>
+              </div>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">數據一覽</div>
+              <div class="stat-grid">
+                <div class="stat-card">
+                  <span class="stat-card__value">1 個月</span>
+                  <span class="stat-card__label">黑客松前公開運行的線上示範時長</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-card__value">0</span>
+                  <span class="stat-card__label">成功回報的認證前突破次數</span>
+                </div>
+                <div class="stat-card">
+                  <span class="stat-card__value">IETF 126</span>
+                  <span class="stat-card__label">現場與遠端黑客松會議</span>
+                </div>
+              </div>
+              <p>線上示範環境在黑客松開始前整整一個月就已上線，讓任何人都能提前開始探測。加上黑客松期間的現場與遠端參與，OpenNHP 一直處於持續的公開對抗性測試之中——截至今日，尚無人證明能在沒有有效密碼學認證的情況下發現或存取受保護的資源。</p>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">這意味著什麼——以及不意味著什麼</div>
+              <p>我們想準確說明這個「零突破」結果實際說明了什麼。這<strong>並不</strong>意味著 OpenNHP 堅不可摧，也不意味著協議已經「完成」。這意味著「先認證後連線」的安全模型經受住了安全社群一輪真實的公開對抗性審查——這是一個有意義的資料點，而非終點。</p>
+              <p>黑客松中的每一次嘗試、每一個問題、每一個「你有沒有考慮過……」都讓協議和規範變得更強大。我們相信，這正是網際網路安全協議在被要求大規模信任之前應該經歷的過程。</p>
+              <div class="highlight-quote">公開對抗測試、同行評審和可運行程式碼，仍然是我們建構可信網際網路安全協議所擁有的最佳工具。</div>
+            </div>
+
+                        <div class="blog-section">
+              <div class="blog-kicker">最初的參與邀請函</div>
+              <p>作為存證，以下是 2026 年 7 月 6 日發送至 IETF <code>hackathon</code> 和 <code>ztcpp</code> 郵件列表、開啟這整個行動的原始公告：</p>
+              <div style="border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem 1.5rem; background: rgba(0,0,0,0.15); font-size: 0.92rem; margin: var(--spacing-md) 0;">
+                <p style="margin-bottom: 0.75rem;"><strong>[hackathon] IETF 126 Hackathon project: OpenNHP — The Internet Is Becoming a Dark Forest</strong></p>
+                <p style="margin-bottom: 0.75rem; font-size: 0.85rem; color: var(--text-muted);">Benfeng Chen &lt;benfeng@gmail.com&gt; — Mon, Jul 6, 2026<br>to hackathon, ztcpp@ietf.org</p>
+                <p>Hi all,</p>
+                <p>The recent concerns surrounding autonomous AI-driven cyberattacks, including discussions around systems such as Claude Mythos, may be signaling a fundamental shift in cybersecurity: autonomous AI agents are turning the Internet into a &ldquo;Dark Forest,&rdquo; where anything visible can be discovered, probed, and exploited at machine speed.</p>
+                <p>As described in the &ldquo;Dark Forest&rdquo; theory from Liu Cixin&rsquo;s <em>The Three-Body Problem</em>, the only reliable survival strategy in such an environment may be invisibility. Rather than continuing the decades-long cycle of exposing services and then attempting to defend them, we are exploring a different question:</p>
+                <p><strong>What if network infrastructure were invisible by default?</strong></p>
+                <p>To explore this idea, I&rsquo;ve added a project to the IETF 126 Hackathon wiki:</p>
+                <p>OpenNHP — Network-infrastructure Hiding Protocol (NHP)<br><a href="https://wiki.ietf.org/en/meeting/126/hackathon#opennhp-network-infrastructure-hiding-protocol-nhp" target="_blank" rel="noopener">wiki.ietf.org/en/meeting/126/hackathon#opennhp-network-infrastructure-hiding-protocol-nhp</a></p>
+                <p>OpenNHP is an open-source implementation of the emerging Network-infrastructure Hiding Protocol (NHP), an authenticate-before-connect Zero Trust protocol designed to make protected infrastructure inaccessible—and ideally undiscoverable—to unauthorized entities.</p>
+                <p>Unlike traditional security architectures that attempt to protect visible services, NHP seeks to prevent reconnaissance, scanning, DDoS, and pre-authentication exploitation by hiding network resources until cryptographic authentication succeeds.</p>
+                <p>For the IETF 126 Hackathon, we&rsquo;re inviting the community to do something simple:</p>
+                <p><strong>Please try to break it.</strong></p>
+                <p>We welcome participation from security researchers, protocol designers, cryptographers, network engineers, DNS/TLS/PKI experts, AI security researchers, and anyone who enjoys attacking assumptions.</p>
+                <p>Potential challenge areas include:</p>
+                <ul style="margin-bottom: 0.75rem;">
+                  <li>Discovering protected services without authentication</li>
+                  <li>Enumerating hidden ports, IP addresses, or domain names</li>
+                  <li>Performing reconnaissance against NHP-protected infrastructure</li>
+                  <li>Bypassing authentication or authorization mechanisms</li>
+                  <li>Exploiting pre-authentication attack surfaces</li>
+                  <li>Testing resistance to DDoS and scanning attacks</li>
+                  <li>Finding cryptographic weaknesses or protocol design flaws</li>
+                  <li>Evaluating AI-assisted attack techniques</li>
+                  <li>Testing interoperability and performance characteristics</li>
+                  <li>Demonstrating any attack path that violates the &ldquo;authenticate-before-connect&rdquo; security model</li>
+                </ul>
+                <p>The challenge outcome is straightforward:</p>
+                <ul style="margin-bottom: 0.75rem;">
+                  <li>If you can discover or access protected resources without successful authentication, we want to understand the weakness and fix it.</li>
+                  <li>If you cannot, we collectively gain additional confidence in the security properties of the protocol.</li>
+                </ul>
+                <p>We believe that public adversarial testing, peer review, and running code remain the best tools available for building trustworthy Internet security protocols.</p>
+                <p>Resources:</p>
+                <ul style="margin-bottom: 0.75rem;">
+                  <li>Project website: <a href="https://opennhp.org" target="_blank" rel="noopener">OpenNHP Website</a></li>
+                  <li>Source code: <a href="https://github.com/OpenNHP/opennhp" target="_blank" rel="noopener">OpenNHP GitHub Repository</a></li>
+                  <li>Live demo: <a href="https://opennhp.org/demo/" target="_blank" rel="noopener">OpenNHP Demo Environment</a></li>
+                  <li>Internet-Draft: <a href="https://datatracker.ietf.org/doc/draft-opennhp-ztcpp-nhp/" target="_blank" rel="noopener">draft-opennhp-ztcpp-nhp</a></li>
+                </ul>
+                <p>I&rsquo;ll be participating in person at the Hackathon and would welcome collaborators, critics, and especially skeptics.</p>
+                <p>Thanks,<br>Benfeng Chen<br>OpenNHP Project</p>
+              </div>
+              <div style="border: 1px solid var(--border-subtle); border-radius: 12px; overflow: hidden; margin: var(--spacing-md) 0;">
+                <a href="https://mailarchive.ietf.org/arch/browse/hackathon/" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">✉️</span>
+                  <span class="resource-row__label">IETF 郵件列表存檔 — hackathon</span>
+                  <span class="resource-row__link">mailarchive.ietf.org →</span>
+                </a>
+                <a href="https://mailarchive.ietf.org/arch/browse/ztcpp/" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">✉️</span>
+                  <span class="resource-row__label">IETF 郵件列表存檔 — ztcpp</span>
+                  <span class="resource-row__link">mailarchive.ietf.org →</span>
+                </a>
+              </div>
+            </div>
+
+<div class="blog-section">
+              <div class="blog-kicker">會議簡報</div>
+              <p>黑客松的結果已在 IETF 126 黑客松會議上展示。涵蓋專案、挑戰和結果的簡報可供下載：</p>
+              <div style="border: 1px solid var(--border-subtle); border-radius: 12px; overflow: hidden; margin: var(--spacing-md) 0;">
+                <a href="https://datatracker.ietf.org/meeting/126/session/hackathon" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">📊</span>
+                  <span class="resource-row__label">IETF 126 黑客松會議 — 簡報與資料</span>
+                  <span class="resource-row__link">datatracker.ietf.org →</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">接下來</div>
+              <p>攻擊 OpenNHP 的邀請不會隨著黑客松結束而停止。線上示範環境將持續在線，原始碼將持續開放，Internet-Draft 也將繼續推進 IETF 標準化流程。如果你發現了弱點，我們希望盡快、負責任地、低調地了解到。</p>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">致謝</div>
+              <p>致所有註冊、閱讀規範、發起攻擊、在走廊或聊天中提出尖銳問題，或只是默默關注的人們——謝謝你們。協議之所以變得更好，正是因為有像你們這樣的人挺身而出嘗試攻破它。下次再見。</p>
+              <p>我們還要感謝 <a href="https://layerv.ai" target="_blank" rel="noopener">LayerV.ai</a>，正是他們的贊助協助我們得以參與本次 IETF 126 黑客松。</p>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">眾多回覆中的一封</div>
+              <p>最初的郵件列表貼文既收到了 IETF 新人的回覆，也收到了資深成員的回覆。以下是其中一封（略作匿名處理），很能體現大家反饋的精神：</p>
+              <div style="border: 1px solid var(--border-subtle); border-radius: 12px; padding: 1.25rem 1.5rem; background: rgba(0,0,0,0.15); font-size: 0.92rem; margin: var(--spacing-md) 0;">
+                <p>Thank you for sharing this Benfeng!</p>
+                <p>This is my first time attending an IETF event, and I found NHP extremely interesting to read up on. I am currently prototyping a cloud-based application into which I'd love to integrate NHP for testing, so thank you for sharing this.</p>
+                <p>In return, I will attempt to do my best to break it!</p>
+                <p>Have an amazing week!</p>
+                <p style="margin-top: 0.75rem; margin-bottom: 0; font-size: 0.8rem; color: var(--text-muted);">— A first-time IETF Hackathon participant</p>
+              </div>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">參考資源</div>
+              <div style="border: 1px solid var(--border-subtle); border-radius: 12px; overflow: hidden; margin: var(--spacing-md) 0;">
+                <a href="https://datatracker.ietf.org/meeting/126/session/hackathon" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">📊</span>
+                  <span class="resource-row__label">黑客松簡報 — IETF 126</span>
+                  <span class="resource-row__link">datatracker.ietf.org →</span>
+                </a>
+                <a href="https://github.com/OpenNHP/opennhp" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">💻</span>
+                  <span class="resource-row__label">原始碼 — GitHub 上的 OpenNHP</span>
+                  <span class="resource-row__link">github.com →</span>
+                </a>
+                <a href="https://opennhp.org/demo/" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">🌐</span>
+                  <span class="resource-row__label">線上示範環境 — 仍在運行</span>
+                  <span class="resource-row__link">opennhp.org/demo →</span>
+                </a>
+                <a href="https://datatracker.ietf.org/doc/draft-opennhp-ztcpp-nhp/" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">📄</span>
+                  <span class="resource-row__label">Internet-Draft — draft-opennhp-ztcpp-nhp</span>
+                  <span class="resource-row__link">datatracker.ietf.org →</span>
+                </a>
+                <a href="https://opennhp.org" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">🏠</span>
+                  <span class="resource-row__label">專案網站</span>
+                  <span class="resource-row__link">opennhp.org →</span>
+                </a>
+              </div>
+              <p>OpenNHP 團隊歡迎合作者、批評者，尤其是懷疑者。</p>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(0,255,157,0.08), rgba(0,184,255,0.05)); border: 1px solid rgba(0,255,157,0.2); border-radius: 16px; padding: var(--spacing-xl); margin-top: var(--spacing-xl); text-align: center;">
+              <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem;">依然預設隱身。依然未被攻破。</p>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: var(--spacing-md);">示範仍在線，歡迎前來嘗試。</p>
+              <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--spacing-md);">
+                <a href="https://opennhp.org/demo/" target="_blank" rel="noopener" class="btn btn--primary btn--sm" style="text-decoration: none;">體驗線上示範 →</a>
+                <a href="https://github.com/OpenNHP/opennhp" target="_blank" rel="noopener" class="btn btn--secondary btn--sm" style="text-decoration: none;">在 GitHub 查看原始碼 →</a>
+              </div>
+              <a href="/blog/ietf-126-hackathon-opennhp-dark-forest/" style="color: var(--accent-primary); font-size: 0.9rem; display: inline-flex; align-items: center; text-decoration: none;">閱讀：最初的徵集參與者文章 →</a>
+            </div>
+
+          </div>
+
+          <hr class="blog-divider">
+          <div class="blog-meta">
+            <div class="blog-meta__author">
+              <div class="blog-meta__author-avatar">NHP</div>
+              <span>The OpenNHP Team</span>
+            </div>
+            <span class="blog-meta__date">2026年7月19日</span>
+            <span class="blog-meta__tag">IETF 126</span>
+            <span class="blog-meta__tag">黑客松</span>
+            <span class="blog-meta__tag">零信任</span>
+          </div>
+
+          <div class="blog-footer">
+            <a href="/" class="blog-footer__back">← Back to OpenNHP.org</a>
+            <div class="blog-footer__share">
+              <span>Share:</span>
+              <a href="https://twitter.com/intent/tweet?text=IETF+126+黑客松結果%3A+OpenNHP+依然屹立&url=https%3A%2F%2Fopennhp.org%2Fblog%2Fietf-126-hackathon-results%2F" target="_blank" class="share-link" aria-label="Share on X">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fopennhp.org%2Fblog%2Fietf-126-hackathon-results%2F" target="_blank" class="share-link" aria-label="Share on LinkedIn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </section>
+  </main>

@@ -354,6 +354,156 @@ extra_css: |
       </div>
     </section>
 
+    <!-- Demo Architecture -->
+    <section class="section" id="architecture" style="background: var(--bg-secondary);">
+      <div class="container container--narrow">
+        <div class="section-header">
+          <span class="section-header__label">Under the Hood</span>
+          <h2 class="section-header__title">
+            How the Demo Environment Is Wired
+            <a href="#architecture" aria-label="Link to this section" style="color: var(--text-muted); text-decoration: none; font-size: 0.65em; margin-left: 0.4rem; vertical-align: middle;">#</a>
+          </h2>
+          <p class="section-header__desc">
+            Seven hosts, three roles. Click any box to view its source code.
+          </p>
+        </div>
+
+        <div class="card" style="padding: var(--spacing-lg); overflow-x: auto;">
+          <svg viewBox="0 0 960 760" style="width: 100%; min-width: 720px; height: auto; display: block;" xmlns="http://www.w3.org/2000/svg">
+            <style>
+              .arch-node { cursor: pointer; transition: opacity 0.15s ease, filter 0.15s ease; }
+              .arch-node:hover { opacity: 0.85; filter: brightness(1.25); }
+              .arch-node:hover rect { stroke-width: 2.5; }
+            </style>
+            <defs>
+              <marker id="archArrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+                <polygon points="0 0, 9 3.5, 0 7" fill="var(--text-muted)"/>
+              </marker>
+            </defs>
+
+            <!-- ===== connecting lines (drawn first, under boxes) ===== -->
+            <!-- Browser -> server (direct) -->
+            <line x1="125" y1="120" x2="125" y2="300" stroke="#06b6d4" stroke-width="2" marker-end="url(#archArrow)"/>
+            <!-- stealth-dns -> server (direct) -->
+            <line x1="355" y1="120" x2="355" y2="300" stroke="#06b6d4" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#archArrow)"/>
+            <!-- stealth-dns -> server2 (direct, ducks under relay) -->
+            <path d="M 380 120 L 380 253 L 520 253 L 520 300" fill="none" stroke="#06b6d4" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#archArrow)"/>
+            <!-- agent -> relay -->
+            <line x1="605" y1="120" x2="605" y2="150" stroke="#06b6d4" stroke-width="2" marker-end="url(#archArrow)"/>
+            <!-- reg -> relay -->
+            <line x1="835" y1="120" x2="835" y2="150" stroke="#06b6d4" stroke-width="2" marker-end="url(#archArrow)"/>
+            <!-- relay -> server2 -->
+            <line x1="720" y1="230" x2="720" y2="300" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#archArrow)"/>
+            <!-- relay -> server (also reachable) -->
+            <path d="M 600 230 L 600 277 L 400 277 L 400 300" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#archArrow)"/>
+            <!-- server -> ac -->
+            <line x1="240" y1="400" x2="240" y2="430" stroke="#00ff9d" stroke-width="2" marker-end="url(#archArrow)"/>
+            <!-- server2 -> ac2 -->
+            <line x1="720" y1="400" x2="720" y2="430" stroke="#00ff9d" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#archArrow)"/>
+            <!-- ac -> resource -->
+            <path d="M 260 520 L 260 535 L 400 535 L 400 550" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#archArrow)"/>
+            <!-- ac2 -> resource -->
+            <path d="M 700 520 L 700 535 L 560 535 L 560 550" fill="none" stroke="#a855f7" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#archArrow)"/>
+
+            <!-- ===== Row A: clients ===== -->
+            <a href="https://github.com/OpenNHP/opennhp/tree/main/examples/server_plugin/basic" target="_blank" rel="noopener" class="arch-node">
+              <rect x="20" y="30" width="210" height="90" rx="10" fill="rgba(6,182,212,0.08)" stroke="#06b6d4" stroke-width="1.5"/>
+              <text x="125" y="60" text-anchor="middle" fill="var(--text-primary)" font-size="16" font-weight="700" text-decoration="underline">Browser / User</text>
+              <text x="125" y="85" text-anchor="middle" fill="var(--text-muted)" font-size="14">opens auth page directly</text>
+              <text x="125" y="108" text-anchor="middle" fill="var(--text-muted)" font-size="13">not an NHP component</text>
+            </a>
+
+            <a href="https://github.com/OpenNHP/stealth-dns" target="_blank" rel="noopener" class="arch-node">
+              <rect x="250" y="30" width="210" height="90" rx="10" fill="rgba(6,182,212,0.08)" stroke="#06b6d4" stroke-width="1.5"/>
+              <text x="355" y="60" text-anchor="middle" fill="var(--text-primary)" font-size="16" font-weight="700" text-decoration="underline">stealth-dns</text>
+              <text x="355" y="85" text-anchor="middle" fill="var(--text-muted)" font-size="14">NHP-Agent</text>
+              <text x="355" y="108" text-anchor="middle" fill="var(--text-muted)" font-size="13">talks to both Servers, no relay</text>
+            </a>
+
+            <a href="https://github.com/OpenNHP/opennhp/blob/main/endpoints/js-agent/examples/relay-test.html" target="_blank" rel="noopener" class="arch-node">
+              <rect x="500" y="30" width="210" height="90" rx="10" fill="rgba(6,182,212,0.08)" stroke="#06b6d4" stroke-width="1.5"/>
+              <text x="605" y="60" text-anchor="middle" fill="var(--text-primary)" font-size="16" font-weight="700" text-decoration="underline">agent.opennhp.org</text>
+              <text x="605" y="85" text-anchor="middle" fill="var(--text-muted)" font-size="14">NHP-Agent</text>
+              <text x="605" y="108" text-anchor="middle" fill="var(--text-muted)" font-size="13">sends the NHP knock</text>
+            </a>
+
+            <a href="https://github.com/OpenNHP/opennhp/blob/main/endpoints/js-agent/examples/reg.html" target="_blank" rel="noopener" class="arch-node">
+              <rect x="730" y="30" width="210" height="90" rx="10" fill="rgba(6,182,212,0.08)" stroke="#06b6d4" stroke-width="1.5"/>
+              <text x="835" y="60" text-anchor="middle" fill="var(--text-primary)" font-size="16" font-weight="700" text-decoration="underline">reg.opennhp.org</text>
+              <text x="835" y="85" text-anchor="middle" fill="var(--text-muted)" font-size="14">NHP-Agent</text>
+              <text x="835" y="108" text-anchor="middle" fill="var(--text-muted)" font-size="13">sends registration messages</text>
+            </a>
+
+            <!-- ===== Row B: relay ===== -->
+            <a href="https://github.com/OpenNHP/opennhp/tree/main/endpoints/relay" target="_blank" rel="noopener" class="arch-node">
+              <rect x="500" y="150" width="440" height="80" rx="10" fill="rgba(245,158,11,0.08)" stroke="#f59e0b" stroke-width="1.5"/>
+              <text x="720" y="184" text-anchor="middle" fill="var(--text-primary)" font-size="16" font-weight="700" text-decoration="underline">relay.opennhp.org — NHP-Relay</text>
+              <text x="720" y="210" text-anchor="middle" fill="var(--text-muted)" font-size="14">translates HTTP requests into NHP UDP messages</text>
+            </a>
+
+            <!-- ===== Row C: servers ===== -->
+            <a href="https://github.com/OpenNHP/opennhp/tree/main/endpoints/server" target="_blank" rel="noopener" class="arch-node">
+              <rect x="20" y="300" width="440" height="100" rx="10" fill="rgba(0,255,157,0.07)" stroke="#00ff9d" stroke-width="1.5"/>
+              <text x="240" y="334" text-anchor="middle" fill="var(--text-primary)" font-size="17" font-weight="700" text-decoration="underline">server.opennhp.org</text>
+              <text x="240" y="360" text-anchor="middle" fill="var(--text-secondary)" font-size="14.5">NHP-Server · plugin auth</text>
+              <text x="240" y="383" text-anchor="middle" fill="var(--text-muted)" font-size="13.5">HTTPS exposed — reachable directly</text>
+            </a>
+
+            <a href="https://github.com/OpenNHP/opennhp/tree/main/endpoints/server" target="_blank" rel="noopener" class="arch-node">
+              <rect x="500" y="300" width="440" height="100" rx="10" fill="rgba(0,255,157,0.05)" stroke="#00ff9d" stroke-width="1.5" stroke-dasharray="6,4"/>
+              <text x="720" y="334" text-anchor="middle" fill="var(--text-primary)" font-size="17" font-weight="700" text-decoration="underline">server2.opennhp.org</text>
+              <text x="720" y="360" text-anchor="middle" fill="var(--text-secondary)" font-size="14.5">NHP-Server · NHP knock only</text>
+              <text x="720" y="383" text-anchor="middle" fill="var(--text-muted)" font-size="13.5">fully invisible — no exposed surface</text>
+            </a>
+
+            <!-- ===== Row D: access controllers ===== -->
+            <a href="https://github.com/OpenNHP/opennhp/tree/main/endpoints/ac" target="_blank" rel="noopener" class="arch-node">
+              <rect x="20" y="430" width="440" height="90" rx="10" fill="rgba(168,85,247,0.07)" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="6,4"/>
+              <text x="240" y="466" text-anchor="middle" fill="var(--text-primary)" font-size="17" font-weight="700" text-decoration="underline">ac.opennhp.org</text>
+              <text x="240" y="492" text-anchor="middle" fill="var(--text-muted)" font-size="14">NHP-AC · invisible · controlled by server</text>
+            </a>
+
+            <a href="https://github.com/OpenNHP/opennhp/tree/main/endpoints/ac" target="_blank" rel="noopener" class="arch-node">
+              <rect x="500" y="430" width="440" height="90" rx="10" fill="rgba(168,85,247,0.07)" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="6,4"/>
+              <text x="720" y="466" text-anchor="middle" fill="var(--text-primary)" font-size="17" font-weight="700" text-decoration="underline">ac2.opennhp.org</text>
+              <text x="720" y="492" text-anchor="middle" fill="var(--text-muted)" font-size="14">NHP-AC · invisible · controlled by server2</text>
+            </a>
+
+            <!-- ===== Row E: shared protected resource ===== -->
+            <a href="https://github.com/OpenNHP/opennhp/blob/main/examples/server_plugin/basic/templates/example_acdemo.html" target="_blank" rel="noopener" class="arch-node">
+              <rect x="270" y="550" width="420" height="110" rx="10" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="2"/>
+              <text x="480" y="592" text-anchor="middle" fill="var(--text-primary)" font-size="17" font-weight="700" text-decoration="underline">Protected Demo Page</text>
+              <text x="480" y="624" text-anchor="middle" fill="var(--text-muted)" font-size="16">shared by ac and ac2 — behind the invisible doors</text>
+            </a>
+
+            <!-- ===== Legend ===== -->
+            <g transform="translate(20, 700)">
+              <circle cx="6" cy="0" r="5" fill="none" stroke="#06b6d4" stroke-width="2"/>
+              <text x="18" y="4" fill="var(--text-secondary)" font-size="14.5">NHP-Agent</text>
+              <circle cx="126" cy="0" r="5" fill="none" stroke="#f59e0b" stroke-width="2"/>
+              <text x="138" y="4" fill="var(--text-secondary)" font-size="14.5">NHP-Relay</text>
+              <circle cx="246" cy="0" r="5" fill="none" stroke="#00ff9d" stroke-width="2"/>
+              <text x="258" y="4" fill="var(--text-secondary)" font-size="14.5">NHP-Server</text>
+              <circle cx="378" cy="0" r="5" fill="none" stroke="#a855f7" stroke-width="2"/>
+              <text x="390" y="4" fill="var(--text-secondary)" font-size="14.5">NHP-AC</text>
+              <circle cx="470" cy="0" r="5" fill="none" stroke="#3b82f6" stroke-width="2"/>
+              <text x="482" y="4" fill="var(--text-secondary)" font-size="14.5">Protected Resource</text>
+              <line x1="660" y1="0" x2="690" y2="0" stroke="var(--text-muted)" stroke-width="2" stroke-dasharray="5,4"/>
+              <text x="696" y="4" fill="var(--text-secondary)" font-size="14.5">invisible pre-auth</text>
+            </g>
+          </svg>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: var(--spacing-lg); color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;">
+          <p style="margin: 0;"><strong style="color: var(--text-primary);">1.</strong> For the plugin-auth path, a person opens <span style="color: var(--accent-primary);">server</span>'s browser auth page directly — no Agent or relay involved at all.</p>
+          <p style="margin: 0;"><strong style="color: var(--text-primary);">2.</strong> <code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9em;">stealth-dns</code> is a third NHP-Agent instance that reaches <strong>both</strong> <span style="color: var(--accent-primary);">server</span> and <span style="color: var(--accent-primary);">server2</span> directly, bypassing <span style="color: #f59e0b;">relay</span> entirely.</p>
+          <p style="margin: 0;"><strong style="color: var(--text-primary);">3.</strong> <code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9em;">agent</code> (knock) and <code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9em;">reg</code> (registration) go through <span style="color: #f59e0b;">relay</span>, which translates their HTTP requests into NHP UDP messages and can reach either <span style="color: var(--accent-primary);">server</span> or the fully-invisible <span style="color: var(--accent-primary);">server2</span>.</p>
+          <p style="margin: 0;"><strong style="color: var(--text-primary);">4.</strong> Each Server controls its own <span style="color: #a855f7;">NHP-AC</span> — <code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9em;">server → ac</code>, <code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9em;">server2 → ac2</code>. Both ACs are invisible regardless of which path was used to authenticate.</p>
+          <p style="margin: 0;"><strong style="color: var(--text-primary);">5.</strong> <code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9em;">ac</code> and <code style="background: rgba(255,255,255,0.06); padding: 0.1rem 0.4rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9em;">ac2</code> both reveal the <strong>same</strong> protected demo page — two independent, invisible doors into one resource, not two separate resources.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Hiding Server Ports -->
     <section class="section" style="background: var(--bg-secondary);">
       <div class="container">

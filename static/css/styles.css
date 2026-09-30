@@ -343,6 +343,12 @@ p {
   box-shadow: var(--shadow-glow);
 }
 
+/* Blog posts style every link in .blog-body with the accent color, which
+   turned primary-button text green-on-green. Restore the button's own color. */
+.blog-body a.btn--primary {
+  color: var(--bg-primary);
+}
+
 .btn--primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 40px rgba(0, 255, 157, 0.4);

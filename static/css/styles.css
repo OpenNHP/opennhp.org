@@ -397,7 +397,7 @@ p {
    ============================================ */
 .hero {
   text-align: center;
-  padding-top: 40px;
+  padding-top: 88px;
 }
 
 .hero__badges {
@@ -435,9 +435,27 @@ p {
   50% { opacity: 0.5; }
 }
 
+.hero__eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-tertiary);
+  margin-bottom: var(--spacing-sm);
+  animation: fadeInUp 0.6s ease-out 0.05s backwards;
+}
+
 .hero__title {
   margin-bottom: var(--spacing-md);
   animation: fadeInUp 0.6s ease-out 0.1s backwards;
+}
+
+.hero__tagline {
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  animation: fadeInUp 0.6s ease-out 0.15s backwards;
 }
 
 .hero__subtitle {
@@ -446,6 +464,26 @@ p {
   max-width: 700px;
   margin: 0 auto var(--spacing-lg);
   animation: fadeInUp 0.6s ease-out 0.2s backwards;
+}
+
+.hero__credentials {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  font-size: 0.875rem;
+  color: var(--text-tertiary, var(--text-secondary));
+  margin-top: var(--spacing-md);
+  animation: fadeInUp 0.6s ease-out 0.3s backwards;
+}
+
+.hero__credentials a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.hero__credentials a:hover {
+  color: var(--accent-tertiary);
 }
 
 .hero__actions {

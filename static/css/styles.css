@@ -436,11 +436,11 @@ p {
 }
 
 .hero__eyebrow {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent-tertiary);
+  color: var(--accent-secondary);
   margin-bottom: var(--spacing-sm);
   animation: fadeInUp 0.6s ease-out 0.05s backwards;
 }
@@ -451,15 +451,16 @@ p {
 }
 
 .hero__tagline {
-  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-  font-weight: 600;
-  color: var(--text-primary);
+  font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #a78bfa;
   margin-bottom: var(--spacing-sm);
   animation: fadeInUp 0.6s ease-out 0.15s backwards;
 }
 
 .hero__subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
   color: var(--text-secondary);
   max-width: 700px;
   margin: 0 auto var(--spacing-lg);

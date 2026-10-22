@@ -378,6 +378,28 @@ p {
   color: var(--bg-primary);
 }
 
+.btn--demo {
+  background: rgba(0, 255, 157, 0.08);
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  box-shadow: 0 0 18px rgba(0, 255, 157, 0.25);
+}
+
+.btn--demo:hover {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  box-shadow: 0 0 28px rgba(0, 255, 157, 0.45);
+}
+
+.btn--demo .live-dot {
+  margin-right: 0;
+}
+
+.btn--demo:hover .live-dot {
+  background: var(--bg-primary);
+  box-shadow: none;
+}
+
 .btn--sm {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
@@ -499,7 +521,7 @@ p {
 
 .hero__stats {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: var(--spacing-xl);
   flex-wrap: wrap;

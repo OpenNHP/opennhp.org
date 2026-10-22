@@ -198,6 +198,39 @@ document.querySelectorAll('.hero__stat-value').forEach(stat => {
   statsObserver.observe(stat);
 });
 
+// Live "Attacks Blocked" count from stats.opennhp.org.
+// totalnumber.js declares NHP_TOTAL_ATTACK_BLOCKED; if it fails to load,
+// the static fallback text in the markup stays.
+(function () {
+  const el = document.querySelector('[data-live-attacks]');
+  if (!el) return;
+
+  const script = document.createElement('script');
+  script.src = 'https://stats.opennhp.org/totalnumber.js';
+  script.async = true;
+  script.onload = () => {
+    let total;
+    try {
+      total = NHP_TOTAL_ATTACK_BLOCKED; // eslint-disable-line no-undef
+    } catch (e) {
+      return;
+    }
+    if (!Number.isFinite(total) || total <= 0) return;
+
+    const fmt = new Intl.NumberFormat(document.documentElement.lang || 'en');
+    const duration = 2000;
+    const startTime = performance.now();
+    const step = (now) => {
+      const t = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = fmt.format(Math.round(total * eased));
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  document.head.appendChild(script);
+})();
+
 // ============================================
 // Copy Code Functionality
 // ============================================

@@ -523,6 +523,31 @@ p {
   color: var(--text-muted);
 }
 
+.hero__stat--live {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero__stat--live .hero__stat-value {
+  font-variant-numeric: tabular-nums;
+}
+
+.hero__stat--live:hover .hero__stat-label {
+  color: var(--accent-primary);
+}
+
+.live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 6px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  box-shadow: 0 0 6px var(--accent-primary);
+  animation: pulse 2s infinite;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;

@@ -467,6 +467,11 @@ p {
   animation: fadeInUp 0.6s ease-out 0.05s backwards;
 }
 
+.hero__initial {
+  color: var(--accent-primary);
+  font-weight: 800;
+}
+
 .hero__title {
   margin-bottom: var(--spacing-md);
   animation: fadeInUp 0.6s ease-out 0.1s backwards;

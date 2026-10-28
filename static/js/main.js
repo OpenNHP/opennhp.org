@@ -184,7 +184,7 @@ const statsObserver = new IntersectionObserver((entries) => {
       const statValue = entry.target;
       const text = statValue.textContent;
       
-      if (text.includes('k+')) {
+      if (text.includes('k+') && !statValue.dataset.githubStat) {
         const num = parseFloat(text.replace(',', '.')) * 1000;
         animateCounter(statValue, num);
       }
@@ -301,22 +301,47 @@ if (prefersReducedMotion.matches) {
 // ============================================
 // GitHub Stars Counter
 // ============================================
+// Updates the nav star badge and any [data-github-stat="stars|forks"]
+// hero stats from the live GitHub API. Hero stats round down (13,951 ->
+// "13.9k+") so the "+" is always true; the markup keeps a static fallback.
 async function fetchGitHubStars() {
   const starsEl = document.getElementById('github-stars');
-  if (!starsEl) return;
-  
+  const statEls = document.querySelectorAll('[data-github-stat]');
+  if (!starsEl && !statEls.length) return;
+
   try {
     const response = await fetch('https://api.github.com/repos/OpenNHP/opennhp');
     const data = await response.json();
     const stars = data.stargazers_count;
-    
-    if (stars) {
+
+    if (starsEl && stars) {
       if (stars >= 1000) {
         starsEl.textContent = '⭐ ' + (stars / 1000).toFixed(1) + 'k';
       } else {
         starsEl.textContent = '⭐ ' + stars;
       }
     }
+
+    const values = { stars, forks: data.forks_count };
+    const fmt = new Intl.NumberFormat(document.documentElement.lang || 'en', {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1,
+    });
+    const formatK = (n) => fmt.format(Math.floor(n / 100) / 10) + 'k+';
+
+    statEls.forEach((el) => {
+      const total = values[el.dataset.githubStat];
+      if (!Number.isFinite(total) || total < 1000) return;
+      const duration = 2000;
+      const startTime = performance.now();
+      const step = (now) => {
+        const t = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = formatK(total * eased);
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
   } catch (error) {
     console.log('Could not fetch GitHub stars');
   }

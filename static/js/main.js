@@ -302,8 +302,9 @@ if (prefersReducedMotion.matches) {
 // GitHub Stars Counter
 // ============================================
 // Updates the nav star badge and any [data-github-stat="stars|forks"]
-// hero stats from the live GitHub API. Hero stats round down (13,951 ->
-// "13.9k+") so the "+" is always true; the markup keeps a static fallback.
+// stats (homepage hero, open source page) from the live GitHub API. All of
+// them round down (13,951 -> "13.9k") so the hero's "+" is always true and
+// the nav badge never disagrees with it; the markup keeps a static fallback.
 async function fetchGitHubStars() {
   const starsEl = document.getElementById('github-stars');
   const statEls = document.querySelectorAll('[data-github-stat]');
@@ -314,30 +315,29 @@ async function fetchGitHubStars() {
     const data = await response.json();
     const stars = data.stargazers_count;
 
-    if (starsEl && stars) {
-      if (stars >= 1000) {
-        starsEl.textContent = '⭐ ' + (stars / 1000).toFixed(1) + 'k';
-      } else {
-        starsEl.textContent = '⭐ ' + stars;
-      }
-    }
-
-    const values = { stars, forks: data.forks_count };
     const fmt = new Intl.NumberFormat(document.documentElement.lang || 'en', {
       minimumFractionDigits: 1,
       maximumFractionDigits: 1,
     });
-    const formatK = (n) => fmt.format(Math.floor(n / 100) / 10) + 'k+';
+    const formatK = (n) => fmt.format(Math.floor(n / 100) / 10) + 'k';
+
+    if (starsEl && stars) {
+      starsEl.textContent = '⭐ ' + (stars >= 1000 ? formatK(stars) : stars);
+    }
+
+    const values = { stars, forks: data.forks_count };
 
     statEls.forEach((el) => {
       const total = values[el.dataset.githubStat];
       if (!Number.isFinite(total) || total < 1000) return;
+      // Keep the "+" the hero stats use
+      const suffix = el.textContent.trim().endsWith('+') ? '+' : '';
       const duration = 2000;
       const startTime = performance.now();
       const step = (now) => {
         const t = Math.min((now - startTime) / duration, 1);
         const eased = 1 - Math.pow(1 - t, 3);
-        el.textContent = formatK(total * eased);
+        el.textContent = formatK(total * eased) + suffix;
         if (t < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);

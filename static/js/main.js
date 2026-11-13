@@ -200,7 +200,7 @@ document.querySelectorAll('.hero__stat-value').forEach(stat => {
 
 // Live attack stats from stats.opennhp.org.
 // totalnumber.js declares NHP_TOTAL_ATTACK_BLOCKED, NHP_TOTAL_ATTACK_SOURCE_IPS
-// and NHP_TOTAL_ATTACK_COUNTRIES; if it fails to load, the static fallback
+// and NHP_TOTAL_ATTACK_REGIONS; if it fails to load, the static fallback
 // text in the markup stays.
 (function () {
   const els = document.querySelectorAll('[data-live-attacks], [data-live-stat]');
@@ -210,7 +210,7 @@ document.querySelectorAll('.hero__stat-value').forEach(stat => {
     try {
       switch (name) {
         case 'ips': return NHP_TOTAL_ATTACK_SOURCE_IPS; // eslint-disable-line no-undef
-        case 'countries': return NHP_TOTAL_ATTACK_COUNTRIES; // eslint-disable-line no-undef
+        case 'regions': return NHP_TOTAL_ATTACK_REGIONS; // eslint-disable-line no-undef
         default: return NHP_TOTAL_ATTACK_BLOCKED; // eslint-disable-line no-undef
       }
     } catch (e) {

@@ -1,0 +1,745 @@
+---
+title: "我們邀請全世界來攻破 OpenNHP，這是他們的發現。 - OpenNHP Blog"
+description: "舊金山 IETF 127 黑客松成果：數百萬攻擊封包被攔截、一份獨立安全評估、協調揭露的漏洞報告，以及讓 OpenNHP 更強大的社群。"
+og:
+  title: "我們邀請全世界來攻破 OpenNHP，這是他們的發現。"
+  description: "比特幣式的安全，就是邀請所有人公開攻擊你。以下是社群在 IETF 127 的發現，以及我們正在修補的問題。"
+  type: "article"
+extra_css: |
+    .blog-article {
+        max-width: 740px;
+        margin: 0 auto;
+      }
+
+      .blog-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: var(--spacing-xl);
+        flex-wrap: wrap;
+      }
+
+      .blog-meta__author {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      .blog-meta__author-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent-primary), #00b8ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #0a0e17;
+        flex-shrink: 0;
+      }
+
+      .blog-meta__date {
+        color: var(--text-muted);
+        font-size: 0.875rem;
+      }
+
+      .blog-meta__tag {
+        background: rgba(0, 255, 157, 0.1);
+        border: 1px solid rgba(0, 255, 157, 0.25);
+        color: var(--accent-primary);
+        padding: 0.2rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .blog-divider {
+        border: none;
+        border-top: 1px solid var(--border-subtle);
+        margin: var(--spacing-xl) 0;
+      }
+
+      .blog-body p {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: var(--spacing-md);
+      }
+
+      .blog-body h3 {
+        font-size: 1.05rem;
+        margin-top: var(--spacing-md);
+        margin-bottom: var(--spacing-sm);
+        color: var(--text-primary);
+      }
+
+      .blog-body a {
+        color: var(--accent-primary);
+        text-decoration: none;
+      }
+
+      .blog-body a:hover {
+        text-decoration: underline;
+      }
+
+      .blog-body ul, .blog-body ol {
+        color: var(--text-secondary);
+        line-height: 1.8;
+        margin-bottom: var(--spacing-md);
+        padding-left: 1.5rem;
+      }
+
+      .blog-body li {
+        margin-bottom: 0.4rem;
+      }
+
+      .blog-footer {
+        border-top: 1px solid var(--border-subtle);
+        padding-top: var(--spacing-xl);
+        margin-top: var(--spacing-xl);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+      }
+
+      .blog-footer__back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: var(--accent-primary);
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+
+      .blog-footer__back:hover {
+        text-decoration: underline;
+      }
+
+      .blog-footer__share {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      .share-link {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color var(--transition-base);
+      }
+
+      .share-link:hover {
+        color: var(--accent-primary);
+      }
+
+      .blog-section {
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .blog-kicker {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(0,255,157,0.07);
+        border: 1px solid rgba(0,255,157,0.25);
+        color: var(--accent-primary);
+        padding: 0.55rem 1rem;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        margin-bottom: 1rem;
+      }
+
+      .highlight-quote {
+        border-left: 4px solid var(--accent-primary);
+        padding: 0.75rem 1rem;
+        background: rgba(0,255,157,0.05);
+        border-radius: 0 8px 8px 0;
+        margin: var(--spacing-md) 0;
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .blog-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: var(--spacing-md) 0;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border-subtle);
+        font-size: 0.9rem;
+      }
+
+      .blog-table th {
+        padding: 0.65rem 0.9rem;
+        text-align: left;
+        background: rgba(0,255,157,0.06);
+        color: var(--text-primary);
+        font-weight: 600;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .blog-table td {
+        padding: 0.65rem 0.9rem;
+        color: var(--text-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .blog-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .challenge-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        margin: var(--spacing-md) 0;
+      }
+
+      @media (max-width: 600px) {
+        .challenge-grid { grid-template-columns: 1fr; }
+      }
+
+      .challenge-card {
+        background: rgba(0,0,0,0.25);
+        border: 1px solid var(--border-subtle);
+        border-radius: 10px;
+        padding: 0.9rem 1rem;
+      }
+
+      .challenge-card__icon {
+        font-size: 1.25rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .challenge-card__title {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .challenge-card__desc {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      .resource-row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--border-subtle);
+        text-decoration: none;
+        color: inherit;
+        transition: background 0.15s;
+      }
+
+      .resource-row:last-child {
+        border-bottom: none;
+      }
+
+      .resource-row:hover {
+        background: rgba(0,255,157,0.04);
+      }
+
+      .resource-row__icon {
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .resource-row__label {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        flex: 1;
+      }
+
+      .resource-row__link {
+        font-size: 0.85rem;
+        color: var(--accent-primary);
+      }
+
+      .outcome-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: var(--spacing-md) 0;
+      }
+
+      @media (max-width: 600px) {
+        .outcome-block { grid-template-columns: 1fr; }
+      }
+
+      .outcome-card {
+        border-radius: 10px;
+        padding: 1.1rem 1.2rem;
+        border: 1px solid;
+      }
+
+      .outcome-card--success {
+        background: rgba(0,255,157,0.05);
+        border-color: rgba(0,255,157,0.3);
+      }
+
+      .outcome-card--failure {
+        background: rgba(255,68,68,0.05);
+        border-color: rgba(255,68,68,0.3);
+      }
+
+      .outcome-card__label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+      }
+
+      .outcome-card--success .outcome-card__label { color: var(--accent-primary); }
+      .outcome-card--failure .outcome-card__label { color: #ff4444; }
+
+      .outcome-card__text {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .stat-tiles {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-sm);
+        margin: var(--spacing-lg) 0;
+      }
+
+      .stat-tile {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-subtle);
+        border-radius: 12px;
+        padding: 1rem 0.75rem;
+        text-align: center;
+      }
+
+      .stat-tile__value {
+        display: block;
+        font-family: var(--font-heading);
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #ff6b81;
+        line-height: 1.2;
+      }
+
+      .stat-tile__value--green { color: var(--accent-primary); }
+
+      .stat-tile__label {
+        display: block;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-top: 0.25rem;
+        line-height: 1.4;
+      }
+
+      .viz {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border-subtle);
+        border-radius: 12px;
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) 0;
+      }
+
+      .viz svg { width: 100%; height: auto; display: block; }
+
+      .viz__caption {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        text-align: center;
+        margin-top: 0.5rem;
+      }
+
+      .compare-table td, .compare-table th { text-align: center; }
+      .compare-table td:first-child, .compare-table th:first-child { text-align: left; }
+      .compare-table th.col-nhp, .compare-table td.col-nhp { background: rgba(0, 255, 157, 0.06); }
+      .mark-yes { color: var(--accent-primary); font-weight: 700; }
+      .mark-no { color: #ff6b81; font-weight: 700; }
+      .mark-part { color: #fbbf24; font-weight: 700; }
+
+      .fit-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+        margin: var(--spacing-md) 0;
+      }
+
+      .fit-card {
+        border-radius: 12px;
+        padding: 1rem 1.25rem;
+        border: 1px solid var(--border-subtle);
+      }
+
+      .fit-card--hide { background: rgba(0, 255, 157, 0.05); border-color: rgba(0, 255, 157, 0.3); }
+      .fit-card--public { background: rgba(255, 255, 255, 0.02); }
+
+      .fit-card__title { font-weight: 700; margin-bottom: 0.5rem; }
+      .fit-card--hide .fit-card__title { color: var(--accent-primary); }
+      .fit-card ul { margin: 0; padding-left: 1.1rem; font-size: 0.9rem; color: var(--text-secondary); }
+
+      .steps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-sm);
+        margin: var(--spacing-md) 0;
+      }
+
+      .step {
+        border: 1px solid var(--border-subtle);
+        border-radius: 12px;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .step__num {
+        display: inline-flex;
+        width: 28px; height: 28px;
+        align-items: center; justify-content: center;
+        border-radius: 50%;
+        background: rgba(0, 255, 157, 0.15);
+        color: var(--accent-primary);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .step__title { font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; }
+      .step__text { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+
+      .event-card {
+        display: flex;
+        gap: var(--spacing-md);
+        align-items: stretch;
+        background: linear-gradient(135deg, rgba(167, 139, 250, 0.10), rgba(0, 255, 157, 0.05));
+        border: 1px solid rgba(167, 139, 250, 0.35);
+        border-radius: 16px;
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) 0;
+      }
+
+      .event-card__date {
+        flex: 0 0 96px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: rgba(167, 139, 250, 0.15);
+        padding: 0.75rem 0.5rem;
+        text-align: center;
+      }
+
+      .event-card__month { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #a78bfa; }
+      .event-card__days { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--text-primary); line-height: 1.2; }
+      .event-card__year { font-size: 0.8rem; color: var(--text-muted); }
+      .event-card__title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; color: var(--text-primary); }
+      .event-card__meta { font-size: 0.85rem; color: #a78bfa; margin: 0.25rem 0 0.5rem; }
+      .event-card__text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0.75rem; }
+      .event-card__actions { display: flex; gap: var(--spacing-sm); flex-wrap: wrap; }
+
+      @media (max-width: 640px) {
+        .stat-tiles { grid-template-columns: repeat(2, 1fr); }
+        .fit-grid, .steps { grid-template-columns: 1fr; }
+        .event-card { flex-direction: column; }
+        .event-card__date { flex-basis: auto; flex-direction: row; gap: 0.5rem; }
+      }
+
+      .photo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+        margin: var(--spacing-md) 0;
+      }
+
+      .photo-grid figure { margin: 0; }
+
+      .photo-grid img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        display: block;
+        border-radius: 12px;
+        border: 1px solid var(--border-subtle);
+      }
+
+      .photo-grid figcaption {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-top: 0.35rem;
+        text-align: center;
+      }
+
+      .people {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: var(--spacing-sm) 0;
+      }
+
+      .person {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.3rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(0, 255, 157, 0.07);
+        border: 1px solid rgba(0, 255, 157, 0.25);
+        font-size: 0.85rem;
+        color: var(--text-primary);
+        text-decoration: none;
+      }
+
+      .person img { width: 20px; height: 20px; border-radius: 50%; }
+      .person__count { color: var(--accent-primary); font-weight: 700; }
+
+      .reviewer-card {
+        display: flex;
+        gap: var(--spacing-md);
+        align-items: center;
+        border: 1px solid rgba(167, 139, 250, 0.35);
+        background: rgba(167, 139, 250, 0.06);
+        border-radius: 16px;
+        padding: var(--spacing-md);
+        margin: var(--spacing-md) 0;
+      }
+
+      .reviewer-card__avatar {
+        flex: 0 0 56px; height: 56px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        background: rgba(167, 139, 250, 0.2); color: #a78bfa;
+        font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem;
+      }
+
+      .reviewer-card__name { font-family: var(--font-heading); font-weight: 700; font-size: 1.15rem; color: var(--text-primary); }
+      .reviewer-card__title { font-size: 0.88rem; color: var(--text-secondary); }
+
+      @media (max-width: 640px) {
+        .photo-grid { grid-template-columns: 1fr; }
+        .photo-grid img { height: 220px; }
+      }
+---
+
+  <header class="page-header">
+    <div class="container">
+      <span class="page-header__label">部落格 · IETF 127 黑客松</span>
+      <h1 class="page-header__title" style="font-size: clamp(1.75rem, 4vw, 2.75rem); max-width: 860px; margin-left: auto; margin-right: auto;">
+        我們邀請全世界來攻破 OpenNHP， <span class="text-gradient">這是他們的發現。</span>
+      </h1>
+      <p class="page-header__desc">
+        IETF 127 黑客松成果——衷心感謝每一位接受挑戰的研究人員、評審和貢獻者。
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <article class="blog-article">
+
+          <div class="blog-meta">
+            <div class="blog-meta__author">
+              <div class="blog-meta__author-avatar">NHP</div>
+              <span>The OpenNHP Team</span>
+            </div>
+            <span class="blog-meta__date">2026年11月15日</span>
+            <span class="blog-meta__tag">IETF 127</span>
+            <span class="blog-meta__tag">黑客松</span>
+            <span class="blog-meta__tag">成果</span>
+          </div>
+
+          <div class="blog-body">
+
+            <div class="highlight-quote">比特幣在十五年的公開攻擊中贏得了信任。我們希望 OpenNHP 也以同樣的方式贏得信任。</div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">為什麼我們邀請大家來攻破它</div>
+              <p>OpenNHP 的<a href="/opensource/">安全理念源自比特幣</a>。比特幣用兩樣東西守護著地球上最有價值的目標之一：建立在數學而非假設之上的<strong>密碼學</strong>，以及讓任何人都能稽核每一行程式碼的<strong>開源</strong>。它屹立不搖，正是因為從不依賴保密。</p>
+              <p>OpenNHP 遵循同樣的公式，而 IETF 黑客松正是我們實踐後半部分的方式。我們不空口宣稱安全，而是公開程式碼、運行真實的靶標，並邀請研究人員證明我們錯了。每一個發現都讓協議更強大。這就是集體智慧，而 IETF 127 帶來了大量這樣的智慧。</p>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">IETF 127 一覽</div>
+              <div class="stat-tiles" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="stat-tile"><span class="stat-tile__value stat-tile__value--green" data-live-attacks>4.3M+</span><span class="stat-tile__label">被靜默丟棄的攻擊封包 · 即時</span></div>
+                <div class="stat-tile"><span class="stat-tile__value stat-tile__value--green">24</span><span class="stat-tile__label">漏洞報告，來自 12 位研究人員，約 15 個不同問題</span></div>
+                <div class="stat-tile"><span class="stat-tile__value stat-tile__value--green">39</span><span class="stat-tile__label">6 位貢獻者在黑客松期間合併的 PR</span></div>
+              </div>
+              <div style="border: 1px solid rgba(0, 255, 157, 0.35); background: rgba(0, 255, 157, 0.06); border-radius: 12px; padding: 1rem 1.25rem; margin-top: var(--spacing-md);">
+                <strong style="color: var(--accent-primary);">✓ 所有已回報的安全問題均已在 <a href="https://github.com/OpenNHP/opennhp/releases/tag/v1.1.0" target="_blank" rel="noopener">OpenNHP v1.1.0</a> 中修補</strong>（2026 年 11 月 19 日發布）。請盡快升級。
+              </div>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">舊金山現場</div>
+              <p>黑客松於 2026 年 11 月 14–15 日在 Hilton San Francisco Union Square 舉行。OpenNHP 攤位拋出了與海報相同的挑戰：<em>你能攻破它嗎？</em></p>
+              <p>特別感謝 <a href="https://github.com/Stecodeven" target="_blank" rel="noopener" style="white-space: nowrap;"><img src="https://github.com/Stecodeven.png?size=40" alt="" loading="lazy" style="width: 20px; height: 20px; border-radius: 50%; vertical-align: -4px; margin-right: 0.3rem;">@Stecodeven</a> 協助活動協調。</p>
+              <div class="photo-grid">
+                <figure><img src="/images/ietf127/entrance.jpg" alt="IETF 127 黑客松會場入口" loading="lazy"><figcaption>IETF 127 黑客松會場</figcaption></figure>
+                <figure><img style="object-position: top;" src="/images/ietf127/poster.jpg" alt="OpenNHP「Can You Break It?」海報" loading="lazy"><figcaption>OpenNHP 挑戰海報</figcaption></figure>
+                <figure><img src="/images/ietf127/table.jpg" alt="IETF 127 黑客松上的 OpenNHP 攤位" loading="lazy"><figcaption>在 OpenNHP 攤位駭客</figcaption></figure>
+                <figure><img style="object-position: center 75%;" src="/images/ietf127/room.jpg" alt="IETF 螢幕前的 OpenNHP 海報" loading="lazy"><figcaption>IETF 風格的「運行程式碼」</figcaption></figure>
+              </div>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">stats.opennhp.org：看不見的伺服器，看得見的攻擊</div>
+              <p>我們的公開展示在整個黑客松期間持續運行。每一次打到 OpenNHP 受保護伺服器的掃描和探測，都在建立連線之前被其 eBPF/XDP 過濾器丟棄，並記錄在 <a href="https://stats.opennhp.org/" target="_blank" rel="noopener">stats.opennhp.org</a>。</p>
+              <div class="stat-tiles" style="grid-template-columns: repeat(3, 1fr);">
+                <a class="stat-tile" href="https://stats.opennhp.org/" target="_blank" rel="noopener" style="text-decoration: none;"><span class="stat-tile__value stat-tile__value--green" data-live-attacks>4.3M+</span><span class="stat-tile__label">攔截的攻擊封包</span></a>
+                <a class="stat-tile" href="https://stats.opennhp.org/" target="_blank" rel="noopener" style="text-decoration: none;"><span class="stat-tile__value stat-tile__value--green" data-live-stat="ips">59,000+</span><span class="stat-tile__label">來源 IP</span></a>
+                <a class="stat-tile" href="https://stats.opennhp.org/" target="_blank" rel="noopener" style="text-decoration: none;"><span class="stat-tile__value stat-tile__value--green" data-live-stat="regions">160+</span><span class="stat-tile__label">地區</span></a>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">自 2026 年 10 月 16 日起統計，每日更新。大部分流量是自動化的 TCP SYN 掃描，從未發現任何開放埠。</p>
+              <a href="https://stats.opennhp.org/" target="_blank" rel="noopener" style="display: block; margin: var(--spacing-md) 0 0.35rem; border-radius: 12px; overflow: hidden; border: 2px solid rgba(0, 255, 157, 0.45); box-shadow: 0 0 0 6px rgba(0, 255, 157, 0.07), 0 12px 40px rgba(0, 0, 0, 0.45);">
+                <img src="/images/ietf127/stats-homepage.jpg" alt="stats.opennhp.org 首頁：攔截了來自 164 個地區、59,988 個來源 IP 的 4,388,771 個攻擊封包，並附每日索引" style="width: 100%; height: auto; display: block;" loading="lazy">
+              </a>
+              <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 0;">黑客松期間的 stats.opennhp.org 首頁。點擊開啟即時網站。</p>
+              <p>統計網站讓任何人都能親自核實我們的說法。它呈現：</p>
+              <ul>
+                <li>自 2026 年 10 月 16 日起統計的攔截攻擊封包、獨立來源 IP 和地區的<strong>即時總數</strong></li>
+                <li>NHP 伺服器和存取控制器的<strong>每日索引</strong>，包括精確的丟棄封包數、獨立來源、主要攻擊類別和尖峰時段</li>
+                <li>為保護隱私而截斷來源 IP 的<strong>每日詳情頁</strong></li>
+                <li><strong>如實的說明</strong>，例如重新啟動期間的空檔顯示為缺少的分鐘，而不是零攻擊</li>
+              </ul>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">重點研究：Rahul Ramachandran 的獨立評估</div>
+              <p>黑客松期間，安全研究透過多種管道到達我們手中：GitHub 上提交的安全公告、透過電子郵件寄送的發現，以及針對線上展示的測試。Rahul 的研究脫穎而出，因為它是一份完整的獨立評估：範圍明確、實驗環境可重現、包含原始碼分析、如實說明了哪些方面經得起考驗，並提出了具體建議。因此，我們將其選為 IETF 127 的重點研究。</p>
+              <div class="reviewer-card">
+                <img class="reviewer-card__avatar" src="/images/ietf127/rahul-ramachandran.webp" alt="Rahul Ramachandran" style="object-fit: cover; width: 72px; height: 72px; flex-basis: 72px;">
+                <div>
+                  <div class="reviewer-card__name">Rahul Ramachandran <a href="https://www.linkedin.com/in/rahul-ramachandran-in/" target="_blank" rel="noopener" style="font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; margin-left: 0.4rem; white-space: nowrap;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align: -2px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a></div>
+                  <div class="reviewer-card__title">Director of Products, Generative AI · OpenNHP 黑客松評審 · 深耕零信任與安全領域十餘年</div>
+                </div>
+              </div>
+              <p>Rahul 以受邀的獨立評審身分參與。他架設了一個運行完整 OpenNHP v1.0.2 元件堆疊（伺服器、存取控制器、受保護應用和代理程式）的私有實驗環境，親自檢驗了協議的核心承諾。這項工作以個人身分完成，結論為其本人觀點。</p>
+              <table class="blog-table">
+                <thead><tr><th>方面</th><th>結果</th></tr></thead>
+                <tbody>
+                  <tr><td>預設拒絕下的隱身</td><td><span class="mark-yes">✓ 經得起考驗</span>：敲門前受保護應用無法存取，之後存取規則依計時器關閉</td></tr>
+                  <tr><td>先認證後連線</td><td><span class="mark-yes">✓ 經得起考驗</span>：有效的敲門依設計打開了短時通道</td></tr>
+                  <tr><td>時效性檢查</td><td><span class="mark-yes">✓ 經得起考驗</span>：過期的截獲敲門被拒絕</td></tr>
+                  <tr><td>敲門重放防護</td><td><span class="mark-no">✕ 發現問題</span>：時效視窗內的重放處理需要強化</td></tr>
+                </tbody>
+              </table>
+              <p>其他研究人員也透過 GitHub Security Advisories 獨立回報了該重放問題，這正是開放審查應當帶來的相互印證。該問題已在 v1.1.0 中修補。Rahul 的建議指引了這項修補：</p>
+              <div class="steps">
+                <div class="step"><div class="step__num">1</div><div class="step__title">逐封包重放防護</div><div class="step__text">拒絕伺服器已接受過的任何敲門。</div></div>
+                <div class="step"><div class="step__num">2</div><div class="step__title">與身分綁定的存取</div><div class="step__text">將每次開放的授權與經過認證的身分綁定，而不只是網路位址。</div></div>
+                <div class="step"><div class="step__num">3</div><div class="step__title">可設定的時效</div><div class="step__text">讓時間視窗可設定，預設採用規範中的 60 秒。</div></div>
+              </div>
+              <p>他還發現了 Docker 快速入門中的一個小建置問題，並主動提供了修補。感謝 Rahul 嚴謹而慷慨的評審。</p>
+              <div style="text-align: center; margin: var(--spacing-md) 0;">
+                <a href="/files/ietf127-independent-security-evaluation-rahul-ramachandran.pdf" target="_blank" rel="noopener" class="btn btn--primary btn--sm" style="text-decoration: none;">📑 下載完整評估報告（PDF）→</a>
+              </div>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">致安全研究人員：謝謝你們</div>
+              <p>研究人員透過 <a href="https://github.com/OpenNHP/opennhp/security" target="_blank" rel="noopener">GitHub Security Advisories</a> 提交了 <strong>24 份漏洞報告</strong>，涉及<strong>約 15 個不同的問題</strong>：其中 7 份評為嚴重、15 份高風險、2 份中風險。有 14 份是在黑客松期間提交的。多個問題被不只一位研究人員獨立發現，這是開放審查所能給出的最強訊號。</p>
+              <p><strong>黑客松期間</strong>，其中包括 Leander Metcalf (@tentpegbob) 提交的 8 份報告：</p>
+              <div class="people"><a class="person" href="https://github.com/tentpegbob" target="_blank" rel="noopener"><img src="https://github.com/tentpegbob.png?size=40" alt="" loading="lazy">@tentpegbob <span class="person__count">8</span></a><a class="person" href="https://github.com/B1ueD0g" target="_blank" rel="noopener"><img src="https://github.com/B1ueD0g.png?size=40" alt="" loading="lazy">@B1ueD0g <span class="person__count">6</span></a></div>
+              <p><strong>黑客松籌備期間：</strong></p>
+              <div class="people"><a class="person" href="https://github.com/kta1kri" target="_blank" rel="noopener"><img src="https://github.com/kta1kri.png?size=40" alt="" loading="lazy">@kta1kri <span class="person__count">3</span></a><a class="person" href="https://github.com/28Hus" target="_blank" rel="noopener"><img src="https://github.com/28Hus.png?size=40" alt="" loading="lazy">@28Hus <span class="person__count">1</span></a><a class="person" href="https://github.com/Trenyx" target="_blank" rel="noopener"><img src="https://github.com/Trenyx.png?size=40" alt="" loading="lazy">@Trenyx <span class="person__count">1</span></a><a class="person" href="https://github.com/runboyxyz" target="_blank" rel="noopener"><img src="https://github.com/runboyxyz.png?size=40" alt="" loading="lazy">@runboyxyz <span class="person__count">1</span></a><a class="person" href="https://github.com/EQSTLab" target="_blank" rel="noopener"><img src="https://github.com/EQSTLab.png?size=40" alt="" loading="lazy">@EQSTLab <span class="person__count">1</span></a><a class="person" href="https://github.com/avishaigonen-pluto" target="_blank" rel="noopener"><img src="https://github.com/avishaigonen-pluto.png?size=40" alt="" loading="lazy">@avishaigonen-pluto <span class="person__count">1</span></a><a class="person" href="https://github.com/yotampe-pluto" target="_blank" rel="noopener"><img src="https://github.com/yotampe-pluto.png?size=40" alt="" loading="lazy">@yotampe-pluto <span class="person__count">1</span></a><a class="person" href="https://github.com/geo-chen" target="_blank" rel="noopener"><img src="https://github.com/geo-chen.png?size=40" alt="" loading="lazy">@geo-chen <span class="person__count">1</span></a><a class="person" href="https://github.com/DavidCarliez" target="_blank" rel="noopener"><img src="https://github.com/DavidCarliez.png?size=40" alt="" loading="lazy">@DavidCarliez <span class="person__count">1</span></a></div>
+              <p><strong>這些問題均已在 <a href="https://github.com/OpenNHP/opennhp/releases/tag/v1.1.0" target="_blank" rel="noopener">OpenNHP v1.1.0</a> 中修補</strong>（2026 年 11 月 19 日發布）。我們會在使用者有時間升級後公開每則安全公告，並註明報告者，最遲在首次報告後 90 天內公開。</p>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">數字為每位研究人員的報告數量，已排除三份重複報告。</p>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">黑客松期間的程式碼貢獻者</div>
+              <p>10 月 15 日至 11 月 19 日期間，以下貢獻者向 <a href="https://github.com/OpenNHP/opennhp" target="_blank" rel="noopener">OpenNHP</a> 合併了 39 個拉取請求，另有 Dependabot 的 38 個相依套件更新：</p>
+              <div class="people"><a class="person" href="https://github.com/haochangjiu" target="_blank" rel="noopener"><img src="https://github.com/haochangjiu.png?size=40" alt="" loading="lazy">@haochangjiu <span class="person__count">17</span></a><a class="person" href="https://github.com/fengyily" target="_blank" rel="noopener"><img src="https://github.com/fengyily.png?size=40" alt="" loading="lazy">@fengyily <span class="person__count">12</span></a><a class="person" href="https://github.com/windcbf" target="_blank" rel="noopener"><img src="https://github.com/windcbf.png?size=40" alt="" loading="lazy">@windcbf <span class="person__count">6</span></a><a class="person" href="https://github.com/justingreerbbi" target="_blank" rel="noopener"><img src="https://github.com/justingreerbbi.png?size=40" alt="" loading="lazy">@justingreerbbi <span class="person__count">2</span></a><a class="person" href="https://github.com/craftleon" target="_blank" rel="noopener"><img src="https://github.com/craftleon.png?size=40" alt="" loading="lazy">@craftleon <span class="person__count">1</span></a><a class="person" href="https://github.com/AZDane" target="_blank" rel="noopener"><img src="https://github.com/AZDane.png?size=40" alt="" loading="lazy">@AZDane <span class="person__count">1</span></a><a class="person" href="https://github.com/justin-layerv" target="_blank" rel="noopener"><img src="https://github.com/justin-layerv.png?size=40" alt="" loading="lazy">@justin-layerv</a></div>
+              <p>其中許多 PR 正是 v1.1.0 中的安全修補：<a href="https://github.com/haochangjiu" target="_blank" rel="noopener">@haochangjiu</a> 移除了寫死的工作階段金鑰、隨附的 KGC 主金鑰和未使用的 Key Broker Service，並為遠端設定增加了 TLS、為存取控制器增加了故障關閉（fail-closed）選項以及更嚴格的位址登記（<a href="https://github.com/OpenNHP/opennhp/pull/1865" target="_blank" rel="noopener">#1865</a>, <a href="https://github.com/OpenNHP/opennhp/pull/1864" target="_blank" rel="noopener">#1864</a>, <a href="https://github.com/OpenNHP/opennhp/pull/1863" target="_blank" rel="noopener">#1863</a>, <a href="https://github.com/OpenNHP/opennhp/pull/1866" target="_blank" rel="noopener">#1866</a>, <a href="https://github.com/OpenNHP/opennhp/pull/1881" target="_blank" rel="noopener">#1881</a>, <a href="https://github.com/OpenNHP/opennhp/pull/1883" target="_blank" rel="noopener">#1883</a>）；<a href="https://github.com/craftleon" target="_blank" rel="noopener">@craftleon</a> 修補了來自新連線的敲門重放（<a href="https://github.com/OpenNHP/opennhp/pull/1868" target="_blank" rel="noopener">#1868</a>）；<a href="https://github.com/fengyily" target="_blank" rel="noopener">@fengyily</a> 修正了 eBPF 白名單的位元組順序（<a href="https://github.com/OpenNHP/opennhp/pull/1884" target="_blank" rel="noopener">#1884</a>）。其他亮點包括 <a href="https://github.com/haochangjiu" target="_blank" rel="noopener">@haochangjiu</a> 的並行修補（<a href="https://github.com/OpenNHP/opennhp/pull/1843" target="_blank" rel="noopener">#1843</a>, <a href="https://github.com/OpenNHP/opennhp/pull/1848" target="_blank" rel="noopener">#1848</a>）、<a href="https://github.com/fengyily" target="_blank" rel="noopener">@fengyily</a> 的全新 eBPF/XDP 內部原理指南和統計流水線（<a href="https://github.com/OpenNHP/opennhp/pull/1845" target="_blank" rel="noopener">#1845</a>, <a href="https://github.com/OpenNHP/opennhp/pull/1823" target="_blank" rel="noopener">#1823</a>）、<a href="https://github.com/AZDane" target="_blank" rel="noopener">@AZDane</a> 的 etcd 用戶端生命週期修補（<a href="https://github.com/OpenNHP/opennhp/pull/1847" target="_blank" rel="noopener">#1847</a>），以及 <a href="https://github.com/justingreerbbi" target="_blank" rel="noopener">@justingreerbbi</a> 的行動版 SDK 工作（<a href="https://github.com/OpenNHP/opennhp/pull/1809" target="_blank" rel="noopener">#1809</a>）。</p>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">下一步</div>
+              <div class="steps">
+                <div class="step"><div class="step__num">1</div><div class="step__title">升級到 v1.1.0</div><div class="step__text">所有已回報的問題均已修補。請立即升級您的部署。</div></div>
+                <div class="step"><div class="step__num">2</div><div class="step__title">公開安全公告</div><div class="step__text">每個問題修補後，公開完整細節並註明研究人員。</div></div>
+                <div class="step"><div class="step__num">3</div><div class="step__title">保持開放</div><div class="step__text">展示將持續上線。歡迎繼續測試，並透過 GitHub Security Advisories 回報。</div></div>
+              </div>
+            </div>
+
+            <div class="blog-section">
+              <div class="blog-kicker">資源</div>
+              <div style="border: 1px solid var(--border-subtle); border-radius: 12px; overflow: hidden; margin: var(--spacing-md) 0;">
+                <a href="https://github.com/OpenNHP/opennhp/releases/tag/v1.1.0" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">🚀</span>
+                  <span class="resource-row__label">OpenNHP v1.1.0 發布說明</span>
+                  <span class="resource-row__link">github.com →</span>
+                </a>
+                <a href="/files/ietf127-independent-security-evaluation-rahul-ramachandran.pdf" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">📑</span>
+                  <span class="resource-row__label">獨立安全評估 — Rahul Ramachandran（PDF）</span>
+                  <span class="resource-row__link">下載 →</span>
+                </a>
+                <a href="https://stats.opennhp.org/" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">📊</span>
+                  <span class="resource-row__label">即時攻擊統計</span>
+                  <span class="resource-row__link">stats.opennhp.org →</span>
+                </a>
+                <a href="https://github.com/OpenNHP/opennhp/security" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">🛡️</span>
+                  <span class="resource-row__label">回報漏洞 — GitHub Security Advisories</span>
+                  <span class="resource-row__link">github.com →</span>
+                </a>
+                <a href="/opensource/" class="resource-row">
+                  <span class="resource-row__icon">₿</span>
+                  <span class="resource-row__label">我們的安全理念 — 源自比特幣</span>
+                  <span class="resource-row__link">opennhp.org/opensource →</span>
+                </a>
+                <a href="/blog/ietf-127-hackathon-call-for-participation/" class="resource-row">
+                  <span class="resource-row__icon">📣</span>
+                  <span class="resource-row__label">IETF 127 參與徵集</span>
+                  <span class="resource-row__link">opennhp.org/blog →</span>
+                </a>
+                <a href="https://wiki.ietf.org/en/meeting/127/hackathon#opennhp-network-infrastructure-hiding-protocol-nhp" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">🏁</span>
+                  <span class="resource-row__label">IETF 127 黑客松 — OpenNHP 專案</span>
+                  <span class="resource-row__link">wiki.ietf.org →</span>
+                </a>
+                <a href="https://datatracker.ietf.org/doc/draft-opennhp-ztcpp-nhp/" target="_blank" rel="noopener" class="resource-row">
+                  <span class="resource-row__icon">📄</span>
+                  <span class="resource-row__label">Internet-Draft — draft-opennhp-ztcpp-nhp</span>
+                  <span class="resource-row__link">datatracker.ietf.org →</span>
+                </a>
+              </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(0,255,157,0.08), rgba(0,184,255,0.05)); border: 1px solid rgba(0,255,157,0.2); border-radius: 16px; padding: var(--spacing-xl); margin-top: var(--spacing-xl); text-align: center;">
+              <p style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem;">密碼學 + 開源 + 集體智慧</p>
+              <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: var(--spacing-md);">感謝每一位在 IETF 127 與我們一起攻擊、評審和撰寫程式碼的人。</p>
+              <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                <a href="/demo/" class="btn btn--primary btn--sm" style="text-decoration: none;">試用線上展示 →</a>
+                <a href="https://github.com/OpenNHP/opennhp" target="_blank" rel="noopener" class="btn btn--secondary btn--sm" style="text-decoration: none;">在 GitHub 上貢獻 →</a>
+              </div>
+            </div>
+            <p style="text-align: center; margin-top: var(--spacing-lg); color: var(--text-secondary);">有疑問？請聯絡 <a href="mailto:support@opennhp.org">support@opennhp.org</a>。</p>
+          </div>
+          <hr class="blog-divider">
+          <div class="blog-footer">
+            <a href="/" class="blog-footer__back">← Back to OpenNHP.org</a>
+            <div class="blog-footer__share">
+              <span>Share:</span>
+              <a href="https://twitter.com/intent/tweet?text=We+Asked+the+World+to+Break+OpenNHP.+Here%27s+What+It+Found.&url=https%3A%2F%2Fopennhp.org%2Fblog%2Fietf-127-hackathon-results%2F" target="_blank" class="share-link" aria-label="Share on X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fopennhp.org%2Fblog%2Fietf-127-hackathon-results%2F" target="_blank" class="share-link" aria-label="Share on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </section>
+  </main>
